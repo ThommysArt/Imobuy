@@ -181,9 +181,11 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                   <p className="text-sm text-muted-foreground">
                     Interested in this property? Get in touch with our team for more information or to schedule a visit.
                   </p>
-                  <InteractiveHoverButton className="w-full tracking-tight uppercase text-xs sm:text-sm" asChild>
-                    <Link href="/contact">Request Visit</Link>
-                  </InteractiveHoverButton>
+                  <Link href="/contact" className="w-full">
+                    <InteractiveHoverButton className="w-full tracking-tight uppercase text-xs sm:text-sm">
+                      Request Visit
+                    </InteractiveHoverButton>
+                  </Link>
                   <a href="tel:+82212345678" className="inline-flex items-center justify-center whitespace-nowrap rounded-lg border border-border bg-background hover:bg-muted hover:text-foreground h-8 px-2.5 text-sm font-medium transition-all w-full">
                     Call Now
                   </a>

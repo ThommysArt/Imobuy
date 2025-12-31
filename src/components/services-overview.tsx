@@ -43,9 +43,11 @@ export function ServicesOverview() {
         </div>
 
         <div className="flex justify-center mt-8 sm:mt-12">
-          <InteractiveHoverButton className="tracking-tight uppercase text-xs sm:text-sm" asChild>
-            <Link href="/services">Learn More About Our Services</Link>
-          </InteractiveHoverButton>
+          <Link href="/services">
+            <InteractiveHoverButton className="tracking-tight uppercase text-xs sm:text-sm">
+              Learn More About Our Services
+            </InteractiveHoverButton>
+          </Link>
         </div>
       </div>
     </section>

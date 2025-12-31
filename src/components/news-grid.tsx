@@ -67,9 +67,11 @@ export function NewsGrid() {
         </div>
 
         <div className="flex justify-center mt-8 sm:mt-12">
-          <InteractiveHoverButton className="tracking-tight uppercase text-xs sm:text-sm" asChild>
-            <Link href="/news">View All News</Link>
-          </InteractiveHoverButton>
+          <Link href="/news">
+            <InteractiveHoverButton className="tracking-tight uppercase text-xs sm:text-sm">
+              View All News
+            </InteractiveHoverButton>
+          </Link>
         </div>
       </div>
     </section>

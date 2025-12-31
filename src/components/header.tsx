@@ -103,12 +103,11 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <InteractiveHoverButton 
-            className="hidden sm:flex tracking-tight uppercase text-xs sm:text-sm"
-            asChild
-          >
-            <Link href="/contact">Get in Touch</Link>
-          </InteractiveHoverButton>
+          <Link href="/contact" className="hidden sm:flex">
+            <InteractiveHoverButton className="tracking-tight uppercase text-xs sm:text-sm">
+              Get in Touch
+            </InteractiveHoverButton>
+          </Link>
 
           {/* Mobile Menu Button */}
           <button
@@ -151,14 +150,11 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <InteractiveHoverButton 
-              className="mt-4 tracking-tight uppercase text-sm"
-              asChild
-            >
-              <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+            <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+              <InteractiveHoverButton className="mt-4 tracking-tight uppercase text-sm">
                 Get in Touch
-              </Link>
-            </InteractiveHoverButton>
+              </InteractiveHoverButton>
+            </Link>
           </div>
         </nav>
       )}

@@ -9,6 +9,14 @@ import { PropertySearch } from "@/components/property-search"
 import { properties } from "@/data/properties"
 import { PropertyType } from "@/data/properties"
 import { Input } from "@/components/ui/input"
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 
 function PropertiesContent() {
   const searchParams = useSearchParams()
@@ -75,13 +83,17 @@ function PropertiesContent() {
     <div className="min-h-screen px-4 sm:px-[2vw] py-16 sm:py-[10vh]">
       <div className="max-w-7xl mx-auto">
         {/* Breadcrumb */}
-        <nav className="text-sm text-muted-foreground mb-6">
-          <Link href="/" className="hover:text-foreground transition-colors">
-            Home
-          </Link>
-          {" / "}
-          <span className="text-foreground">Properties</span>
-        </nav>
+        <Breadcrumb className="mb-6">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink render={<Link href="/" />}>Home</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Properties</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
 
         <div className="mb-8 sm:mb-12">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4">

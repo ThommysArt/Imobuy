@@ -101,12 +101,16 @@ export function HeroSection() {
 
             {/* CTAs */}
             <div className="flex flex-wrap items-center gap-4">
-              <InteractiveHoverButton className="tracking-tight uppercase text-xs sm:text-sm" asChild>
-                <Link href="/properties">View Properties</Link>
-              </InteractiveHoverButton>
-              <InteractiveHoverButton className="tracking-tight uppercase text-xs sm:text-sm bg-white text-black hover:bg-white/90" asChild>
-                <Link href="/contact">Get in Touch</Link>
-              </InteractiveHoverButton>
+              <Link href="/properties">
+                <InteractiveHoverButton className="tracking-tight uppercase text-xs sm:text-sm">
+                  View Properties
+                </InteractiveHoverButton>
+              </Link>
+              <Link href="/contact">
+                <InteractiveHoverButton className="tracking-tight uppercase text-xs sm:text-sm bg-white text-black hover:bg-white/90">
+                  Get in Touch
+                </InteractiveHoverButton>
+              </Link>
             </div>
 
             <span className='hidden sm:block text-white text-sm font-medium uppercase tracking-tight opacity-70'>

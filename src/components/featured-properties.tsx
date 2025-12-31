@@ -27,9 +27,11 @@ export function FeaturedProperties() {
         </div>
 
         <div className="flex justify-center mt-8 sm:mt-12">
-          <InteractiveHoverButton className="tracking-tighter uppercase text-xs sm:text-sm" asChild>
-            <Link href="/properties">View All Properties</Link>
-          </InteractiveHoverButton>
+          <Link href="/properties">
+            <InteractiveHoverButton className="tracking-tighter uppercase text-xs sm:text-sm">
+              View All Properties
+            </InteractiveHoverButton>
+          </Link>
         </div>
       </div>
     </section>

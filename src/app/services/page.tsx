@@ -120,9 +120,11 @@ export default function ServicesPage() {
           <p className="text-lg sm:text-xl text-muted-foreground mb-8">
             Contact us today to learn more about how we can help with your real estate needs.
           </p>
-          <InteractiveHoverButton className="tracking-tight uppercase text-xs sm:text-sm" asChild>
-            <Link href="/contact">Get in Touch</Link>
-          </InteractiveHoverButton>
+          <Link href="/contact">
+            <InteractiveHoverButton className="tracking-tight uppercase text-xs sm:text-sm">
+              Get in Touch
+            </InteractiveHoverButton>
+          </Link>
         </div>
       </section>
     </div>

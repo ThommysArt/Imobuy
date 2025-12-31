@@ -48,7 +48,7 @@ export function PropertyCard({ property, className }: PropertyCardProps) {
           {formatPrice(property.price, property.currency)}
         </div>
       </div>
-      <div className="p-4 sm:p-6 flex flex-col gap-2">
+      <div className="p-4 sm:p-6 flex flex-col gap-0.5">
         <div className="flex items-center justify-between">
           <span className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wide">
             {getTypeLabel(property.type)}
@@ -73,7 +73,7 @@ export function PropertyCard({ property, className }: PropertyCardProps) {
             )}
           </div>
         )}
-        <div className="mt-2">
+        <div className="mt-1">
           <span
             className={cn(
               "inline-block px-2 py-1 rounded text-xs font-medium",
