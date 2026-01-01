@@ -1,10 +1,10 @@
-import { HeroSection } from "@/components/hero-section"
-import { FeaturedProperties } from "@/components/featured-properties"
-import { ServicesOverview } from "@/components/services-overview"
-import { TrustIndicators } from "@/components/trust-indicators"
-import { TestimonialsSection } from "@/components/testimonials-section"
-import { NewsGrid } from "@/components/news-grid"
-import { CTASection } from "@/components/cta-section"
+import { HeroSection } from "@/components/home/hero-section"
+import { FeaturedProperties } from "@/components/home/featured-properties"
+import { ServicesOverview } from "@/components/home/services-overview"
+import { TrustIndicators } from "@/components/home/trust-indicators"
+import { TestimonialsSection } from "@/components/home/testimonials-section"
+import { NewsGrid } from "@/components/home/news-grid"
+import { CTASection } from "@/components/home/cta-section"
 
 export default function Home() {
   return (

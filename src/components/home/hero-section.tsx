@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react'
 import { AnimatedLink } from '@/components/animated-link'
 import { InteractiveHoverButton } from '@/components/interactive-hover-button'
+import { InteractiveHoverButtonLight } from '@/components/interactive-hover-button-light'
 import { PropertySearch } from '@/components/property-search'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -107,9 +108,9 @@ export function HeroSection() {
                 </InteractiveHoverButton>
               </Link>
               <Link href="/contact">
-                <InteractiveHoverButton className="tracking-tight uppercase text-xs sm:text-sm bg-white text-black hover:bg-white/90">
+                <InteractiveHoverButtonLight className="tracking-tight uppercase text-xs sm:text-sm">
                   Get in Touch
-                </InteractiveHoverButton>
+                </InteractiveHoverButtonLight>
               </Link>
             </div>
 

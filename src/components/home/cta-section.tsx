@@ -1,6 +1,7 @@
 "use client"
 
 import { InteractiveHoverButton } from "@/components/interactive-hover-button"
+import { InteractiveHoverButtonLight } from "@/components/interactive-hover-button-light"
 import Link from "next/link"
 
 export function CTASection() {
@@ -14,18 +15,20 @@ export function CTASection() {
           Get in touch with our team today and let us help you find the perfect property or assist with your real estate needs.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-4">
-          <InteractiveHoverButton 
-            className="tracking-tight uppercase text-xs sm:text-sm bg-white text-primary hover:bg-white/90" 
-            asChild
-          >
-            <Link href="/contact">Schedule a Visit</Link>
-          </InteractiveHoverButton>
-          <InteractiveHoverButton 
-            className="tracking-tight uppercase text-xs sm:text-sm bg-transparent border-2 border-white text-white hover:bg-white/10" 
-            asChild
-          >
-            <Link href="/properties">Browse Properties</Link>
-          </InteractiveHoverButton>
+          <Link href="/contact">
+            <InteractiveHoverButtonLight 
+              className="tracking-tight uppercase text-xs sm:text-sm" 
+            >
+              Schedule a Visit
+            </InteractiveHoverButtonLight>
+          </Link>
+          <Link href="/properties">
+            <InteractiveHoverButton 
+              className="tracking-tight uppercase text-xs sm:text-sm bg-transparent border-2 border-white text-white hover:bg-white/10" 
+            >
+              Browse Properties
+            </InteractiveHoverButton>
+          </Link>
         </div>
       </div>
     </section>
