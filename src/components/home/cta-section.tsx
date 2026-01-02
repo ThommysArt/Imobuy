@@ -24,7 +24,7 @@ export function CTASection() {
           </Link>
           <Link href="/properties">
             <InteractiveHoverButton 
-              className="tracking-tight uppercase text-xs sm:text-sm bg-transparent border-2 border-white text-white hover:bg-white/10" 
+              className="tracking-tight uppercase text-xs sm:text-sm" 
             >
               Browse Properties
             </InteractiveHoverButton>

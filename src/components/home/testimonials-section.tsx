@@ -1,11 +1,50 @@
 "use client"
 
+import { useState } from "react"
 import { testimonials } from "@/data/testimonials"
 import { TextParallax } from "@/components/text-parallax"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
 
 export function TestimonialsSection() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    role: "",
+    company: "",
+    content: "",
+    rating: 5,
+  })
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Handle form submission
+    console.log("Testimonial submitted:", formData)
+    alert("Thank you for your testimonial! We'll review it and may feature it on our website.")
+    setFormData({
+      name: "",
+      email: "",
+      role: "",
+      company: "",
+      content: "",
+      rating: 5,
+    })
+    setIsDialogOpen(false)
+  }
   return (
     <section className="min-h-screen h-full w-full relative bg-white pt-8 sm:pt-[10vh] pb-16 sm:pb-[10vh]">
       <TextParallax
@@ -37,26 +76,26 @@ export function TestimonialsSection() {
             <CarouselContent className="-ml-2 md:-ml-4">
               {testimonials.map((testimonial) => (
                 <CarouselItem key={testimonial.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Card className="h-full">
+                  <Card className="h-full cursor-grab active:cursor-grabbing select-none">
                     <CardContent className="p-6 sm:p-8">
                       <div className="flex items-center gap-1 mb-4">
                         {Array.from({ length: testimonial.rating }).map((_, i) => (
                           <span key={i} className="text-yellow-400">★</span>
                         ))}
                       </div>
-                      <p className="text-base sm:text-lg font-normal tracking-tight mb-6 text-muted-foreground">
+                      <p className="text-base sm:text-lg font-normal tracking-tight mb-6 text-muted-foreground select-none">
                         "{testimonial.content}"
                       </p>
                       <div>
-                        <p className="font-semibold text-lg sm:text-xl mb-1">
+                        <p className="font-semibold text-lg sm:text-xl mb-1 select-none">
                           {testimonial.name}
                         </p>
-                        <p className="text-sm sm:text-base text-muted-foreground">
+                        <p className="text-sm sm:text-base text-muted-foreground select-none">
                           {testimonial.role}
                           {testimonial.company && `, ${testimonial.company}`}
                         </p>
                         {testimonial.propertyType && (
-                          <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                          <p className="text-xs sm:text-sm text-muted-foreground mt-1 select-none">
                             Property: {testimonial.propertyType}
                           </p>
                         )}
@@ -69,6 +108,88 @@ export function TestimonialsSection() {
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
+
+          <div className="mt-8 sm:mt-12 flex justify-center">
+            <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+              <DialogTrigger render={<Button variant="outline" className="tracking-tight uppercase text-xs sm:text-sm" />}>
+                Submit Testimonial
+              </DialogTrigger>
+              <DialogContent className="max-w-md">
+                <DialogHeader>
+                  <DialogTitle>Submit Your Testimonial</DialogTitle>
+                  <DialogDescription>
+                    Share your experience with Imobuy. We'd love to hear from you!
+                  </DialogDescription>
+                </DialogHeader>
+                <form onSubmit={handleSubmit}>
+                  <FieldGroup className="space-y-4">
+                    <Field>
+                      <FieldLabel htmlFor="testimonial-name">Name *</FieldLabel>
+                      <Input
+                        id="testimonial-name"
+                        placeholder="Your name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        required
+                      />
+                    </Field>
+                    <Field>
+                      <FieldLabel htmlFor="testimonial-email">Email *</FieldLabel>
+                      <Input
+                        id="testimonial-email"
+                        type="email"
+                        placeholder="your.email@example.com"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        required
+                      />
+                    </Field>
+                    <Field>
+                      <FieldLabel htmlFor="testimonial-role">Role/Title</FieldLabel>
+                      <Input
+                        id="testimonial-role"
+                        placeholder="e.g., Home Buyer, Investor"
+                        value={formData.role}
+                        onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                      />
+                    </Field>
+                    <Field>
+                      <FieldLabel htmlFor="testimonial-company">Company (Optional)</FieldLabel>
+                      <Input
+                        id="testimonial-company"
+                        placeholder="Your company name"
+                        value={formData.company}
+                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                      />
+                    </Field>
+                    <Field>
+                      <FieldLabel htmlFor="testimonial-content">Your Testimonial *</FieldLabel>
+                      <Textarea
+                        id="testimonial-content"
+                        placeholder="Share your experience..."
+                        rows={5}
+                        value={formData.content}
+                        onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+                        required
+                      />
+                    </Field>
+                  </FieldGroup>
+                  <DialogFooter className="mt-6">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => setIsDialogOpen(false)}
+                    >
+                      Cancel
+                    </Button>
+                    <Button type="submit">
+                      Submit
+                    </Button>
+                  </DialogFooter>
+                </form>
+              </DialogContent>
+            </Dialog>
+          </div>
         </div>
       </div>
     </section>

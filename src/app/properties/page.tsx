@@ -75,12 +75,20 @@ function PropertiesContent() {
         return false
       }
       
+      // Size filters (especially for land properties)
+      if (filters.minSize && property.size < filters.minSize) {
+        return false
+      }
+      if (filters.maxSize && property.size > filters.maxSize) {
+        return false
+      }
+      
       return true
     })
   }, [filters, searchQuery])
 
   return (
-    <div className="min-h-screen px-4 sm:px-[2vw] py-16 sm:py-[10vh]">
+    <div className="min-h-screen px-4 sm:px-[2vw] pt-24 sm:pt-32 pb-16 sm:pb-[10vh]">
       <div className="max-w-7xl mx-auto">
         {/* Breadcrumb */}
         <Breadcrumb className="mb-6">
@@ -145,7 +153,7 @@ function PropertiesContent() {
 export default function PropertiesPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen px-4 sm:px-[2vw] py-16 sm:py-[10vh]">
+      <div className="min-h-screen px-4 sm:px-[2vw] pt-24 sm:pt-32 pb-16 sm:pb-[10vh]">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8 sm:mb-12">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4">

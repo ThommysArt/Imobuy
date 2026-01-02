@@ -33,6 +33,8 @@ export interface FilterState {
   bathrooms?: number
   city?: string
   status?: "available" | "pending" | "sold" | "all"
+  minSize?: number
+  maxSize?: number
 }
 
 export function PropertyFilters({ onFilterChange, className }: PropertyFiltersProps) {
@@ -41,6 +43,7 @@ export function PropertyFilters({ onFilterChange, className }: PropertyFiltersPr
     status: "all",
   })
   const [priceRange, setPriceRange] = useState([0, 1000000])
+  const [sizeRange, setSizeRange] = useState([0, 2000])
 
   const updateFilter = (key: keyof FilterState, value: any) => {
     const newFilters = { ...filters, [key]: value }
@@ -52,6 +55,7 @@ export function PropertyFilters({ onFilterChange, className }: PropertyFiltersPr
     const cleared: FilterState = { type: "all", status: "all" }
     setFilters(cleared)
     setPriceRange([0, 1000000])
+    setSizeRange([0, 2000])
     onFilterChange(cleared)
   }
 
@@ -148,6 +152,26 @@ export function PropertyFilters({ onFilterChange, className }: PropertyFiltersPr
               </Select>
             </div>
 
+            {(filters.type === "land" || filters.type === "all") && (
+              <div>
+                <label className="text-sm font-medium mb-2 block">
+                  Surface Area (m²): {sizeRange[0]} - {sizeRange[1]}
+                </label>
+                <Slider
+                  value={sizeRange}
+                  onValueChange={(value) => {
+                    const range = Array.isArray(value) ? value : [value]
+                    setSizeRange(range)
+                    updateFilter("minSize", range[0])
+                    updateFilter("maxSize", range[1])
+                  }}
+                  max={2000}
+                  step={50}
+                  className="w-full"
+                />
+              </div>
+            )}
+
             <Button onClick={clearFilters} variant="outline" className="w-full">
               Clear Filters
             </Button>
@@ -234,6 +258,27 @@ export function PropertyFilters({ onFilterChange, className }: PropertyFiltersPr
               className="w-full mt-2"
             />
           </div>
+
+          {(filters.type === "land" || filters.type === "all") && (
+            <div>
+              <label className="text-sm font-medium mb-2 block">Surface Area (m²)</label>
+              <div className="text-sm text-muted-foreground">
+                {sizeRange[0]} - {sizeRange[1]} m²
+              </div>
+              <Slider
+                value={sizeRange}
+                onValueChange={(value) => {
+                  const range = Array.isArray(value) ? value : [value]
+                  setSizeRange(range)
+                  updateFilter("minSize", range[0])
+                  updateFilter("maxSize", range[1])
+                }}
+                max={2000}
+                step={50}
+                className="w-full mt-2"
+              />
+            </div>
+          )}
         </div>
         <Button onClick={clearFilters} variant="outline" className="w-fit">
           Clear All

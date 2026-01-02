@@ -5,6 +5,7 @@ import { PropertyCard } from "@/components/property-card"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { InteractiveHoverButton } from "@/components/interactive-hover-button"
+import { InteractiveHoverButtonLight } from "@/components/interactive-hover-button-light"
 import { formatCurrency } from "@/lib/currency"
 import Link from "next/link"
 
@@ -46,7 +47,7 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
 
   return (
     <div className="min-h-screen">
-      <div className="px-4 sm:px-[2vw] py-8 sm:py-12">
+      <div className="px-4 sm:px-[2vw] pt-24 sm:pt-32 pb-8 sm:pb-12">
         <div className="max-w-7xl mx-auto">
           {/* Breadcrumb */}
           <nav className="text-sm text-muted-foreground mb-6">
@@ -181,17 +182,23 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                   <p className="text-sm text-muted-foreground">
                     Interested in this property? Get in touch with our team for more information or to schedule a visit.
                   </p>
-                  <Link href="/contact" className="w-full">
-                    <InteractiveHoverButton className="w-full tracking-tight uppercase text-xs sm:text-sm">
-                      Request Visit
-                    </InteractiveHoverButton>
-                  </Link>
-                  <a href="tel:+82212345678" className="inline-flex items-center justify-center whitespace-nowrap rounded-lg border border-border bg-background hover:bg-muted hover:text-foreground h-8 px-2.5 text-sm font-medium transition-all w-full">
-                    Call Now
-                  </a>
-                  <a href="https://wa.me/82123456789" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center whitespace-nowrap rounded-lg border border-border bg-background hover:bg-muted hover:text-foreground h-8 px-2.5 text-sm font-medium transition-all w-full">
-                    WhatsApp
-                  </a>
+                  <div className="flex flex-col gap-2">
+                    <Link href="/contact" className="w-full mb-2">
+                      <InteractiveHoverButton className="w-full tracking-tight uppercase text-xs sm:text-sm">
+                        Request Visit
+                      </InteractiveHoverButton>
+                    </Link>
+                    <a href="tel:+237612345678" className="w-full mb-2">
+                      <InteractiveHoverButtonLight className="w-full tracking-tight uppercase text-xs sm:text-sm border border-black">
+                        Call Now
+                      </InteractiveHoverButtonLight>
+                    </a>
+                    <a href="https://wa.me/237612345678" target="_blank" rel="noopener noreferrer" className="w-full">
+                      <InteractiveHoverButtonLight className="w-full tracking-tight uppercase text-xs sm:text-sm border border-black">
+                        WhatsApp
+                      </InteractiveHoverButtonLight>
+                    </a>
+                  </div>
                 </CardContent>
               </Card>
 

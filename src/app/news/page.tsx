@@ -25,7 +25,7 @@ export default function NewsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="px-4 sm:px-[2vw] py-16 sm:py-[10vh] bg-muted/30">
+      <section className="px-4 sm:px-[2vw] pt-24 sm:pt-32 pb-16 sm:pb-[10vh] bg-muted/30">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
             News & Insights

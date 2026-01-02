@@ -33,9 +33,9 @@ export function Footer() {
 
         <div className='flex flex-col w-full h-full'>
           <span className='font-semibold tracking-tight mb-4 uppercase text-sm sm:text-base'>[Navigation]</span>
-          <ul className='text-xl sm:text-2xl font-medium tracking-tight space-y-2'>
+          <ul className='text-xl sm:text-2xl font-medium tracking-tight space-y-4'>
             {navItems.map((nav) => (
-              <li key={nav.href} className='w-full overflow-hidden flex items-center'>
+              <li key={nav.href} className='w-full overflow-visible flex items-center'>
                 <AnimatedLink href={nav.href} className=''>
                   {nav.label}
                 </AnimatedLink>
@@ -58,9 +58,9 @@ export function Footer() {
           
           <span className='font-semibold tracking-tight mb-2 uppercase mt-6 sm:mt-10 text-sm sm:text-base'>[Contact]</span>
           <p className="text-sm sm:text-base font-normal tracking-tight text-muted-foreground">
-            A: 123 Real Estate Avenue, Seoul, South Korea <br />
+            A: Bastos, Yaoundé, Cameroon <br />
             E: contact@imobuy.com <br />
-            P: +82 2 1234 5678 <br />
+            P: +237 6 1234 5678 <br />
             H: Monday to Friday, 9:00am - 6:00pm
           </p>
         </div>

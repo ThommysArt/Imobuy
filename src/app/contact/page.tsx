@@ -28,7 +28,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="px-4 sm:px-[2vw] py-16 sm:py-[10vh] bg-muted/30">
+      <section className="px-4 sm:px-[2vw] pt-24 sm:pt-32 pb-16 sm:pb-[10vh] bg-muted/30">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
             Contact Us
@@ -79,7 +79,7 @@ export default function ContactPage() {
                     <Input
                       id="phone"
                       type="tel"
-                      placeholder="+82 2 1234 5678"
+                      placeholder="+237 6 1234 5678"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     />
@@ -122,14 +122,14 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-lg mb-2">Address</h3>
                     <p className="text-muted-foreground">
-                      123 Real Estate Avenue<br />
-                      Seoul, South Korea
+                      Bastos, Yaoundé<br />
+                      Cameroon
                     </p>
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-2">Phone</h3>
-                    <a href="tel:+82212345678" className="text-muted-foreground hover:text-primary transition-colors">
-                      +82 2 1234 5678
+                    <a href="tel:+237612345678" className="text-muted-foreground hover:text-primary transition-colors">
+                      +237 6 1234 5678
                     </a>
                   </div>
                   <div>
@@ -157,13 +157,13 @@ export default function ContactPage() {
                   <div>
                     <h4 className="font-semibold mb-1">Main Office</h4>
                     <p className="text-sm text-muted-foreground">
-                      123 Real Estate Avenue, Seoul
+                      Bastos, Yaoundé
                     </p>
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Branch Office</h4>
                     <p className="text-sm text-muted-foreground">
-                      456 Property Street, Gangnam
+                      Bonanjo, Douala
                     </p>
                   </div>
                 </CardContent>
@@ -174,10 +174,10 @@ export default function ContactPage() {
                   <CardTitle className="text-xl sm:text-2xl">Quick Contact</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                  <a href="tel:+82212345678" className="inline-flex items-center justify-center whitespace-nowrap rounded-lg border border-border bg-background hover:bg-muted hover:text-foreground h-8 px-2.5 text-sm font-medium transition-all w-full">
+                  <a href="tel:+237612345678" className="inline-flex items-center justify-center whitespace-nowrap rounded-lg border border-border bg-background hover:bg-muted hover:text-foreground h-8 px-2.5 text-sm font-medium transition-all w-full">
                     Call Now
                   </a>
-                  <a href="https://wa.me/82123456789" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center whitespace-nowrap rounded-lg border border-border bg-background hover:bg-muted hover:text-foreground h-8 px-2.5 text-sm font-medium transition-all w-full">
+                  <a href="https://wa.me/237612345678" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center whitespace-nowrap rounded-lg border border-border bg-background hover:bg-muted hover:text-foreground h-8 px-2.5 text-sm font-medium transition-all w-full">
                     WhatsApp
                   </a>
                   <a href="mailto:contact@imobuy.com" className="inline-flex items-center justify-center whitespace-nowrap rounded-lg border border-border bg-background hover:bg-muted hover:text-foreground h-8 px-2.5 text-sm font-medium transition-all w-full">
