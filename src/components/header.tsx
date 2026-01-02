@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { AnimatedLink } from "@/components/animated-link"
 import { InteractiveHoverButton } from "@/components/interactive-hover-button"
 import { useState, useEffect, useRef } from "react"
@@ -89,8 +90,17 @@ export function Header() {
   return (
     <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
       <div className="px-4 sm:px-[2vw] py-4 sm:py-6 flex items-center justify-between">
-        <Link href="/" className="text-xl sm:text-2xl font-bold tracking-tight">
-          Imobuy
+        <Link href="/" className="flex items-center gap-2 sm:gap-3">
+          <Image
+            src="/IMOBUY.svg"
+            alt="Imobuy Logo"
+            width={32}
+            height={32}
+            className="w-6 h-6 sm:w-8 sm:h-8"
+          />
+          <span className="text-xl sm:text-2xl font-bold tracking-tight">
+            Imobuy
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
