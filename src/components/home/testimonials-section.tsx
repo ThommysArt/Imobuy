@@ -18,8 +18,14 @@ import {
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { useTranslations } from "next-intl"
 
 export function TestimonialsSection() {
+  const t = useTranslations("home.testimonials")
+  const tTestimonial = useTranslations("testimonials")
+  const tLabel = useTranslations("common.label")
+  const tPlaceholder = useTranslations("common.placeholder")
+  const tButton = useTranslations("common.button")
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
@@ -34,7 +40,7 @@ export function TestimonialsSection() {
     e.preventDefault()
     // Handle form submission
     console.log("Testimonial submitted:", formData)
-    alert("Thank you for your testimonial! We'll review it and may feature it on our website.")
+    alert(tTestimonial("form.success"))
     setFormData({
       name: "",
       email: "",
@@ -48,7 +54,7 @@ export function TestimonialsSection() {
   return (
     <section className="min-h-screen h-full w-full relative bg-white pt-8 sm:pt-[10vh] pb-16 sm:pb-[10vh]">
       <TextParallax
-        text="CLIENT TESTIMONIALS"
+        text={t("title")}
         className="h-[15vw] sm:h-[10vw] w-full"
         directions={["right"]}
         leftOffsets={["-60%"]}
@@ -56,7 +62,7 @@ export function TestimonialsSection() {
         blockClassName='h-[7.5vw] sm:h-[5vw] bg-neutral-200/40'
       />
       <TextParallax
-        text="TRUSTED BY MANY"
+        text={t("subtitle")}
         className="h-[15vw] sm:h-[10vw] w-full -mt-[7.5vw] sm:-mt-[5vw]"
         directions={["left"]}
         leftOffsets={["-20%"]}
@@ -68,7 +74,7 @@ export function TestimonialsSection() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-8 sm:mb-12">
             <span className='font-semibold tracking-tight mb-4 uppercase text-sm sm:text-base text-muted-foreground'>
-              [What our clients say]
+              {t("whatClientsSay")}
             </span>
           </div>
 
@@ -96,7 +102,7 @@ export function TestimonialsSection() {
                         </p>
                         {testimonial.propertyType && (
                           <p className="text-xs sm:text-sm text-muted-foreground mt-1 select-none">
-                            Property: {testimonial.propertyType}
+                            {tLabel("property")}: {testimonial.propertyType}
                           </p>
                         )}
                       </div>
@@ -112,61 +118,61 @@ export function TestimonialsSection() {
           <div className="mt-8 sm:mt-12 flex justify-center">
             <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
               <DialogTrigger render={<Button variant="outline" className="tracking-tight uppercase text-xs sm:text-sm" />}>
-                Submit Testimonial
+                {tButton("submitTestimonial")}
               </DialogTrigger>
               <DialogContent className="max-w-md">
                 <DialogHeader>
-                  <DialogTitle>Submit Your Testimonial</DialogTitle>
+                  <DialogTitle>{tTestimonial("form.title")}</DialogTitle>
                   <DialogDescription>
-                    Share your experience with Imobuy. We'd love to hear from you!
+                    {tTestimonial("form.description")}
                   </DialogDescription>
                 </DialogHeader>
                 <form onSubmit={handleSubmit}>
                   <FieldGroup className="space-y-4">
                     <Field>
-                      <FieldLabel htmlFor="testimonial-name">Name *</FieldLabel>
+                      <FieldLabel htmlFor="testimonial-name">{tLabel("name")} *</FieldLabel>
                       <Input
                         id="testimonial-name"
-                        placeholder="Your name"
+                        placeholder={tPlaceholder("name")}
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         required
                       />
                     </Field>
                     <Field>
-                      <FieldLabel htmlFor="testimonial-email">Email *</FieldLabel>
+                      <FieldLabel htmlFor="testimonial-email">{tLabel("email")} *</FieldLabel>
                       <Input
                         id="testimonial-email"
                         type="email"
-                        placeholder="your.email@example.com"
+                        placeholder={tPlaceholder("email")}
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         required
                       />
                     </Field>
                     <Field>
-                      <FieldLabel htmlFor="testimonial-role">Role/Title</FieldLabel>
+                      <FieldLabel htmlFor="testimonial-role">{tLabel("role")}</FieldLabel>
                       <Input
                         id="testimonial-role"
-                        placeholder="e.g., Home Buyer, Investor"
+                        placeholder={tPlaceholder("role")}
                         value={formData.role}
                         onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                       />
                     </Field>
                     <Field>
-                      <FieldLabel htmlFor="testimonial-company">Company (Optional)</FieldLabel>
+                      <FieldLabel htmlFor="testimonial-company">{tLabel("company")}</FieldLabel>
                       <Input
                         id="testimonial-company"
-                        placeholder="Your company name"
+                        placeholder={tPlaceholder("company")}
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       />
                     </Field>
                     <Field>
-                      <FieldLabel htmlFor="testimonial-content">Your Testimonial *</FieldLabel>
+                      <FieldLabel htmlFor="testimonial-content">{tLabel("message")} *</FieldLabel>
                       <Textarea
                         id="testimonial-content"
-                        placeholder="Share your experience..."
+                        placeholder={tPlaceholder("testimonial")}
                         rows={5}
                         value={formData.content}
                         onChange={(e) => setFormData({ ...formData, content: e.target.value })}
@@ -180,10 +186,10 @@ export function TestimonialsSection() {
                       variant="outline"
                       onClick={() => setIsDialogOpen(false)}
                     >
-                      Cancel
+                      {tButton("cancel")}
                     </Button>
                     <Button type="submit">
-                      Submit
+                      {tButton("submit")}
                     </Button>
                   </DialogFooter>
                 </form>

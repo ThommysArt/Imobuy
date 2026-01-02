@@ -8,10 +8,14 @@ import { PropertySearch } from '@/components/property-search'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 gsap.registerPlugin(ScrollTrigger)
 
 export function HeroSection() {
+  const t = useTranslations("home.hero")
+  const tNav = useTranslations("navigation")
+  const tButton = useTranslations("common.button")
   const heroRef = useRef<HTMLDivElement>(null)
   const shadeRef = useRef<HTMLDivElement>(null)
   const scrollTriggerRef = useRef<ScrollTrigger | null>(null)
@@ -63,15 +67,15 @@ export function HeroSection() {
             </h1>
             <div className='hero-text flex flex-wrap items-center gap-x-2 font-medium tracking-tight uppercase text-sm sm:text-base'>
               <AnimatedLink href='/properties'>
-                Properties
+                {tNav("properties")}
               </AnimatedLink>
               ,
               <AnimatedLink href='/services'>
-                Services
+                {tNav("services")}
               </AnimatedLink>
               ,
               <AnimatedLink href='/about'>
-                About
+                {tNav("about")}
               </AnimatedLink>
             </div>
             <div className='hidden sm:block' />
@@ -88,10 +92,10 @@ export function HeroSection() {
           <div className='hero-text absolute bottom-0 left-0 w-full px-4 sm:px-[2vw] py-4 sm:py-[2vh] flex flex-col gap-6 sm:gap-8 z-20'>
             <div className="max-w-3xl">
               <p className="font-medium tracking-tight leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-[3rem] mb-4">
-                Find Your Dream Property
+                {t("title")}
               </p>
               <p className="text-lg sm:text-xl md:text-2xl font-normal tracking-tight opacity-90 max-w-2xl">
-                Bringing customers and sellers closer to facilitate sales and transparency for houses, apartments, parcels, and more.
+                {t("subtitle")}
               </p>
             </div>
 
@@ -104,18 +108,18 @@ export function HeroSection() {
             <div className="flex flex-wrap items-center gap-4">
               <Link href="/properties">
                 <InteractiveHoverButton className="tracking-tight uppercase text-xs sm:text-sm">
-                  View Properties
+                  {t("viewProperties")}
                 </InteractiveHoverButton>
               </Link>
               <Link href="/contact">
                 <InteractiveHoverButtonLight className="tracking-tight uppercase text-xs sm:text-sm">
-                  Get in Touch
+                  {tButton("getInTouch")}
                 </InteractiveHoverButtonLight>
               </Link>
             </div>
 
             <span className='hidden sm:block text-white text-sm font-medium uppercase tracking-tight opacity-70'>
-              [Scroll down to explore]
+              {t("scrollDown")}
             </span>
           </div>
 

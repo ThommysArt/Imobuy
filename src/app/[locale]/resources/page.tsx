@@ -1,37 +1,43 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import Link from "next/link"
+import { getTranslations } from "next-intl/server"
 
-export const metadata = {
-  title: "Resources - Imobuy Real Estate",
-  description: "Educational resources, guides, FAQs, and downloadable documents for real estate transactions.",
+export async function generateMetadata() {
+  const t = await getTranslations("metadata.resources")
+  return {
+    title: t("title"),
+    description: t("description"),
+  }
 }
 
-export default function ResourcesPage() {
+export default async function ResourcesPage() {
+  const t = await getTranslations("resources")
+  
   const faqs = [
     {
-      question: "What documents do I need to buy a property?",
-      answer: "You'll typically need identification documents, proof of income, bank statements, and any pre-approval letters from lenders. Our team will guide you through all required documentation.",
+      question: t("faq.q1"),
+      answer: t("faq.a1"),
     },
     {
-      question: "How long does the property buying process take?",
-      answer: "The process typically takes 30-60 days from offer acceptance to closing, depending on financing, inspections, and legal requirements. We work to expedite the process while ensuring all steps are completed properly.",
+      question: t("faq.q2"),
+      answer: t("faq.a2"),
     },
     {
-      question: "Do you help with property financing?",
-      answer: "Yes, we work with trusted lenders and can help connect you with financing options. We also provide guidance on mortgage pre-approval and loan applications.",
+      question: t("faq.q3"),
+      answer: t("faq.a3"),
     },
     {
-      question: "What is included in your property management services?",
-      answer: "Our property management services include tenant screening, rent collection, maintenance coordination, property inspections, financial reporting, and legal compliance support.",
+      question: t("faq.q4"),
+      answer: t("faq.a4"),
     },
     {
-      question: "How do you ensure legal security in transactions?",
-      answer: "We conduct thorough title verification, legal compliance checks, contract review, and work with qualified legal professionals to ensure all transactions are secure and compliant with regulations.",
+      question: t("faq.q5"),
+      answer: t("faq.a5"),
     },
     {
-      question: "Can you help with property valuation?",
-      answer: "Yes, we provide comprehensive property valuation services including market analysis, comparative market analysis (CMA), and investment value assessments.",
+      question: t("faq.q6"),
+      answer: t("faq.a6"),
     },
   ]
 
@@ -41,10 +47,10 @@ export default function ResourcesPage() {
       <section className="px-4 sm:px-[2vw] py-16 sm:py-[10vh] bg-muted/30">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-            Resources
+            {t("title")}
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl font-normal tracking-tight text-muted-foreground">
-            Educational resources and guides to help you navigate the real estate process
+            {t("subtitle")}
           </p>
         </div>
       </section>
@@ -53,70 +59,70 @@ export default function ResourcesPage() {
       <section className="px-4 sm:px-[2vw] py-16 sm:py-[10vh]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-8">
-            Buying Guide
+            {t("buyingGuide")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             <Card>
               <CardHeader>
-                <CardTitle className="text-xl sm:text-2xl">Step 1: Preparation</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl">{t("step1.title")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-sm sm:text-base text-muted-foreground mb-4">
-                  Before you start looking, determine your budget, get pre-approved for a mortgage, and identify your must-haves and nice-to-haves.
+                  {t("step1.desc")}
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Assess your financial situation</li>
-                  <li>• Get mortgage pre-approval</li>
-                  <li>• Define your property requirements</li>
-                  <li>• Research neighborhoods</li>
+                  <li>• {t("step1.item1")}</li>
+                  <li>• {t("step1.item2")}</li>
+                  <li>• {t("step1.item3")}</li>
+                  <li>• {t("step1.item4")}</li>
                 </ul>
               </CardContent>
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle className="text-xl sm:text-2xl">Step 2: Property Search</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl">{t("step2.title")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-sm sm:text-base text-muted-foreground mb-4">
-                  Use our platform to search for properties, attend viewings, and work with our agents to find the perfect match.
+                  {t("step2.desc")}
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Browse available properties</li>
-                  <li>• Schedule property viewings</li>
-                  <li>• Evaluate properties</li>
-                  <li>• Compare options</li>
+                  <li>• {t("step2.item1")}</li>
+                  <li>• {t("step2.item2")}</li>
+                  <li>• {t("step2.item3")}</li>
+                  <li>• {t("step2.item4")}</li>
                 </ul>
               </CardContent>
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle className="text-xl sm:text-2xl">Step 3: Making an Offer</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl">{t("step3.title")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-sm sm:text-base text-muted-foreground mb-4">
-                  Once you find the right property, we'll help you make a competitive offer and negotiate terms.
+                  {t("step3.desc")}
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Determine offer price</li>
-                  <li>• Include conditions and contingencies</li>
-                  <li>• Submit offer</li>
-                  <li>• Negotiate terms</li>
+                  <li>• {t("step3.item1")}</li>
+                  <li>• {t("step3.item2")}</li>
+                  <li>• {t("step3.item3")}</li>
+                  <li>• {t("step3.item4")}</li>
                 </ul>
               </CardContent>
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle className="text-xl sm:text-2xl">Step 4: Closing</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl">{t("step4.title")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-sm sm:text-base text-muted-foreground mb-4">
-                  Finalize financing, complete inspections, review legal documents, and close the transaction.
+                  {t("step4.desc")}
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Property inspection</li>
-                  <li>• Finalize financing</li>
-                  <li>• Review legal documents</li>
-                  <li>• Complete transaction</li>
+                  <li>• {t("step4.item1")}</li>
+                  <li>• {t("step4.item2")}</li>
+                  <li>• {t("step4.item3")}</li>
+                  <li>• {t("step4.item4")}</li>
                 </ul>
               </CardContent>
             </Card>
@@ -128,46 +134,46 @@ export default function ResourcesPage() {
       <section className="px-4 sm:px-[2vw] py-16 sm:py-[10vh] bg-muted/30">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-8">
-            Land Ownership Process
+            {t("landOwnership.title")}
           </h2>
           <div className="space-y-6">
             <Card>
               <CardHeader>
-                <CardTitle className="text-xl sm:text-2xl">1. Land Identification</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl">{t("landOwnership.step1.title")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-sm sm:text-base text-muted-foreground">
-                  Identify suitable land parcels based on your requirements, location preferences, and budget. Our team helps you find the perfect plot.
+                  {t("landOwnership.step1.desc")}
                 </p>
               </CardContent>
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle className="text-xl sm:text-2xl">2. Due Diligence</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl">{t("landOwnership.step2.title")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-sm sm:text-base text-muted-foreground">
-                  Conduct thorough due diligence including title verification, zoning checks, environmental assessments, and legal compliance review.
+                  {t("landOwnership.step2.desc")}
                 </p>
               </CardContent>
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle className="text-xl sm:text-2xl">3. Purchase Agreement</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl">{t("landOwnership.step3.title")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-sm sm:text-base text-muted-foreground">
-                  Negotiate and sign a purchase agreement with all terms and conditions clearly defined. Our legal team ensures all documentation is in order.
+                  {t("landOwnership.step3.desc")}
                 </p>
               </CardContent>
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle className="text-xl sm:text-2xl">4. Title Transfer</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl">{t("landOwnership.step4.title")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-sm sm:text-base text-muted-foreground">
-                  Complete the title transfer process, register the property in your name, and obtain all necessary certificates and documentation.
+                  {t("landOwnership.step4.desc")}
                 </p>
               </CardContent>
             </Card>
@@ -179,7 +185,7 @@ export default function ResourcesPage() {
       <section className="px-4 sm:px-[2vw] py-16 sm:py-[10vh]">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-8">
-            Frequently Asked Questions
+            {t("faq.title")}
           </h2>
           <Accordion className="w-full">
             {faqs.map((faq, idx) => (
@@ -198,16 +204,16 @@ export default function ResourcesPage() {
       <section className="px-4 sm:px-[2vw] py-16 sm:py-[10vh] bg-muted/30">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-8 text-center">
-            Downloadable Resources
+            {t("downloads.title")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
-              { title: "Buyer's Guide", description: "Complete guide for property buyers" },
-              { title: "Seller's Guide", description: "Complete guide for property sellers" },
-              { title: "Investment Guide", description: "Real estate investment strategies" },
-              { title: "Legal Documents", description: "Sample contracts and forms" },
-              { title: "Market Report 2025", description: "Annual market analysis report" },
-              { title: "Property Checklist", description: "Property viewing checklist" },
+              { title: t("downloads.buyersGuide.title"), description: t("downloads.buyersGuide.desc") },
+              { title: t("downloads.sellersGuide.title"), description: t("downloads.sellersGuide.desc") },
+              { title: t("downloads.investmentGuide.title"), description: t("downloads.investmentGuide.desc") },
+              { title: t("downloads.legalDocuments.title"), description: t("downloads.legalDocuments.desc") },
+              { title: t("downloads.marketReport.title"), description: t("downloads.marketReport.desc") },
+              { title: t("downloads.checklist.title"), description: t("downloads.checklist.desc") },
             ].map((resource, idx) => (
               <Card key={idx} className="hover:shadow-lg transition-shadow">
                 <CardHeader>
@@ -216,7 +222,7 @@ export default function ResourcesPage() {
                 </CardHeader>
                 <CardContent>
                   <Link href="#" className="text-sm font-medium text-primary hover:underline">
-                    Download PDF →
+                    {t("downloads.downloadPdf")}
                   </Link>
                 </CardContent>
               </Card>
@@ -229,7 +235,7 @@ export default function ResourcesPage() {
       <section className="px-4 sm:px-[2vw] py-16 sm:py-[10vh]">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-8 text-center">
-            Legal & Policy Documents
+            {t("legal.title")}
           </h2>
           <div className="space-y-4">
             {["Privacy Policy", "Terms of Service", "Cookie Policy", "Refund Policy"].map((doc, idx) => (
@@ -237,7 +243,7 @@ export default function ResourcesPage() {
                 <CardContent className="p-6 flex items-center justify-between">
                   <span className="text-base sm:text-lg font-medium">{doc}</span>
                   <Link href="#" className="text-sm font-medium text-primary hover:underline">
-                    View →
+                    {t("legal.view")}
                   </Link>
                 </CardContent>
               </Card>

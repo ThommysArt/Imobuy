@@ -1,3 +1,454 @@
 {
-  
+  "common": {
+    "button": {
+      "submit": "Soumettre",
+      "cancel": "Annuler",
+      "search": "Rechercher",
+      "clear": "Effacer",
+      "clearAll": "Tout effacer",
+      "viewAll": "Voir tout",
+      "learnMore": "En savoir plus",
+      "getInTouch": "Nous contacter",
+      "contactUs": "Contactez-nous",
+      "callNow": "Appeler maintenant",
+      "sendMessage": "Envoyer un message",
+      "download": "Télécharger",
+      "view": "Voir",
+      "browse": "Parcourir",
+      "scheduleVisit": "Planifier une visite",
+      "browseProperties": "Parcourir les propriétés",
+      "viewProperties": "Voir les propriétés",
+      "submitTestimonial": "Soumettre un témoignage"
+    },
+    "label": {
+      "name": "Nom",
+      "email": "Email",
+      "phone": "Téléphone",
+      "subject": "Sujet",
+      "message": "Message",
+      "role": "Rôle/Titre",
+      "company": "Entreprise (Optionnel)",
+      "property": "Propriété",
+      "properties": "Propriétés",
+      "avgPrice": "Prix moyen",
+      "bedrooms": "Chambres",
+      "bathrooms": "Salles de bain",
+      "bed": "Chambre",
+      "beds": "Chambres",
+      "bath": "Salle de bain",
+      "baths": "Salles de bain"
+    },
+    "placeholder": {
+      "name": "Votre nom",
+      "email": "votre.email@exemple.com",
+      "phone": "+237 6 1234 5678",
+      "subject": "De quoi s'agit-il ?",
+      "message": "Votre message...",
+      "role": "ex. : Acheteur, Investisseur",
+      "company": "Nom de votre entreprise",
+      "testimonial": "Partagez votre expérience...",
+      "searchLocation": "Rechercher par localisation...",
+      "searchProperties": "Rechercher des propriétés par nom, localisation ou description..."
+    },
+    "status": {
+      "available": "Disponible",
+      "pending": "En attente",
+      "sold": "Vendu",
+      "all": "Tous"
+    },
+    "propertyType": {
+      "house": "Maison",
+      "apartment": "Appartement",
+      "land": "Terrain",
+      "commercial": "Commercial",
+      "all": "Tous les types",
+      "allShort": "Tous"
+    },
+    "aria": {
+      "toggleMenu": "Basculer le menu",
+      "contactOptions": "Options de contact"
+    }
+  },
+  "navigation": {
+    "home": "Accueil",
+    "properties": "Propriétés",
+    "services": "Services",
+    "about": "À propos",
+    "news": "Actualités",
+    "contact": "Contact",
+    "testimonials": "Témoignages",
+    "locations": "Emplacements",
+    "resources": "Ressources"
+  },
+  "header": {
+    "logoAlt": "Logo Imobuy",
+    "getInTouch": "Nous contacter"
+  },
+  "footer": {
+    "description": "Rapprocher les clients et les vendeurs/agents pour faciliter les ventes et la transparence pour les maisons, appartements, parcelles et plus encore.",
+    "navigation": "[Navigation]",
+    "quickLinksLabel": "[Liens rapides]",
+    "contact": "[Contact]",
+    "address": "A : Bastos, Yaoundé, Cameroun",
+    "email": "E : contact@imobuy.com",
+    "phone": "P : +237 6 1234 5678",
+    "hours": "H : Lundi au vendredi, 9h00 - 18h00",
+    "copyright": "© 2025 Imobuy. Tous droits réservés.",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsOfService": "Conditions d'utilisation",
+    "quickLinks": {
+      "landForSale": "Terrains à vendre",
+      "residentialProperties": "Propriétés résidentielles",
+      "commercialProperties": "Propriétés commerciales",
+      "investmentOpportunities": "Opportunités d'investissement"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Trouvez la propriété de vos rêves",
+      "subtitle": "Rapprocher les clients et les vendeurs pour faciliter les ventes et la transparence pour les maisons, appartements, parcelles et plus encore.",
+      "scrollDown": "[Faites défiler pour explorer]",
+      "viewProperties": "Voir les propriétés"
+    },
+    "featuredProperties": {
+      "title": "Propriétés en vedette",
+      "subtitle": "Découvrez notre sélection de propriétés premium",
+      "viewAll": "Voir toutes les propriétés"
+    },
+    "services": {
+      "title": "Nos services",
+      "subtitle": "Solutions immobilières complètes adaptées à vos besoins",
+      "learnMore": "En savoir plus sur nos services"
+    },
+    "trustIndicators": {
+      "whyImobuy": "POURQUOI IMOBUY",
+      "trustedReliable": "FIABLE ET DE CONFIANCE",
+      "propertiesSold": "Propriétés vendues",
+      "happyClients": "Clients satisfaits",
+      "yearsExperience": "Années d'expérience",
+      "satisfactionRate": "Taux de satisfaction",
+      "transparency": "Transparence",
+      "transparencyDesc": "Divulgation complète de tous les détails de la propriété, de la documentation légale et des processus de transaction.",
+      "experience": "Expérience",
+      "experienceDesc": "Des années d'expertise dans les transactions immobilières et l'analyse de marché.",
+      "legalSecurity": "Sécurité juridique",
+      "legalSecurityDesc": "Support juridique complet garantissant que toutes les transactions sont sécurisées et conformes."
+    },
+    "testimonials": {
+      "title": "TÉMOIGNAGES CLIENTS",
+      "subtitle": "CONFIÉ PAR BEAUCOUP",
+      "whatClientsSay": "[Ce que disent nos clients]"
+    },
+    "news": {
+      "title": "Dernières actualités et insights",
+      "subtitle": "Restez informé des dernières tendances immobilières, insights de marché et annonces de l'entreprise",
+      "viewAll": "Voir toutes les actualités"
+    },
+    "cta": {
+      "title": "Prêt à trouver la propriété de vos rêves ?",
+      "subtitle": "Contactez notre équipe dès aujourd'hui et laissez-nous vous aider à trouver la propriété parfaite ou à répondre à vos besoins immobiliers."
+    }
+  },
+  "about": {
+    "title": "À propos d'Imobuy",
+    "subtitle": "Rapprocher les clients et les vendeurs/agents pour faciliter les ventes et la transparence pour les maisons, appartements, parcelles et plus encore.",
+    "whoWeAre": "Qui sommes-nous",
+    "whoWeAreDesc1": "Imobuy est une plateforme immobilière de premier plan dédiée à la connexion des acheteurs, vendeurs et agents dans un marché transparent et efficace. Depuis notre création, nous nous sommes engagés à révolutionner l'industrie immobilière en fournissant des services complets qui rendent les transactions immobilières fluides et dignes de confiance.",
+    "whoWeAreDesc2": "Notre plateforme sert de pont entre les clients recherchant leurs propriétés de rêve et les vendeurs/agents cherchant à faciliter des transactions réussies. Nous comprenons que l'achat ou la vente d'une propriété est l'une des décisions les plus importantes de la vie, et nous sommes là pour rendre ce processus aussi fluide et transparent que possible.",
+    "mission": "Notre mission",
+    "missionDesc": "Créer un marché immobilier transparent, efficace et digne de confiance qui rapproche les clients et les vendeurs, facilitant les transactions immobilières réussies tout en garantissant la sécurité juridique et la satisfaction client.",
+    "vision": "Notre vision",
+    "visionDesc": "Devenir la plateforme immobilière la plus fiable et innovante, établissant de nouvelles normes en matière de transparence, de service client et d'expertise de marché tout en élargissant notre portée pour servir plus de clients sur divers marchés immobiliers.",
+    "values": "Nos valeurs",
+    "transparency": "Transparence",
+    "transparencyDesc": "Nous croyons en une transparence totale dans toutes nos transactions, garantissant aux clients une visibilité complète à chaque étape du processus.",
+    "reliability": "Fiabilité",
+    "reliabilityDesc": "Notre engagement envers la fiabilité signifie que vous pouvez nous faire confiance pour tenir nos promesses et fournir un service cohérent et de haute qualité.",
+    "professionalism": "Professionnalisme",
+    "professionalismDesc": "Nous maintenons les normes les plus élevées de professionnalisme dans toutes nos interactions, de la consultation initiale à la transaction finale.",
+    "team": "Notre équipe",
+    "certifications": "Certifications et partenaires",
+    "certificationsDesc": "Nous sommes fiers d'être certifiés et partenaires d'institutions de premier plan dans l'industrie immobilière.",
+    "partner1": "Association immobilière",
+    "partner2": "Conseil de conformité légale",
+    "partner3": "Institut de gestion immobilière",
+    "partner4": "Conseil consultatif en investissement"
+  },
+  "services": {
+    "title": "Nos services",
+    "subtitle": "Solutions immobilières complètes adaptées à vos besoins",
+    "landSales": {
+      "title": "Vente et acquisition de terrains",
+      "desc": "Notre équipe d'experts assiste les clients dans l'achat et la vente de parcelles de terrain avec un support complet incluant l'évaluation des terrains, l'analyse de marché, la documentation légale et l'assistance à la négociation. Nous garantissons que toutes les transactions sont transparentes et légalement sécurisées."
+    },
+    "propertyManagement": {
+      "title": "Gestion immobilière",
+      "desc": "Gestion immobilière complète couvrant les locations, la coordination de la maintenance, le screening et les relations avec les locataires, et les rapports financiers complets. Nous gérons tous les aspects pour que vous n'ayez pas à le faire."
+    },
+    "consulting": {
+      "title": "Conseil immobilier",
+      "desc": "Services de conseil professionnels pour vous aider à prendre des décisions d'investissement immobilier éclairées. Notre équipe fournit une analyse d'investissement, une recherche de marché, une optimisation de portefeuille et une évaluation des risques."
+    },
+    "investmentAdvisory": {
+      "title": "Conseil en investissement",
+      "desc": "Conseils d'investissement stratégiques adaptés à vos objectifs financiers et à votre tolérance au risque. Nous fournissons une analyse du retour sur investissement, des tendances du marché, des stratégies d'investissement et des recommandations de diversification de portefeuille."
+    },
+    "legalAssistance": {
+      "title": "Assistance juridique et documentation",
+      "desc": "Support juridique complet pour toutes les transactions immobilières incluant la révision des contrats, la vérification des titres, la conformité légale et la résolution des litiges. Nous garantissons que toute la documentation est en ordre."
+    },
+    "afterSale": {
+      "title": "Support après-vente",
+      "desc": "Support continu après votre achat pour assurer une transition en douceur et la satisfaction. Nous fournissons une assistance post-achat, un support de garantie, des références de maintenance et une consultation continue."
+    },
+    "cta": {
+      "title": "Prêt à commencer ?",
+      "subtitle": "Contactez-nous dès aujourd'hui pour en savoir plus sur la façon dont nous pouvons vous aider avec vos besoins immobiliers."
+    }
+  },
+  "properties": {
+    "title": "Toutes les propriétés",
+    "subtitle": "Parcourez notre collection complète de propriétés disponibles",
+    "filters": {
+      "title": "Filtrer les propriétés",
+      "description": "Affinez votre recherche pour trouver la propriété parfaite",
+      "propertyType": "Type de propriété",
+      "priceRange": "Gamme de prix",
+      "status": "Statut",
+      "bedrooms": "Chambres",
+      "surfaceArea": "Superficie (m²)",
+      "any": "N'importe",
+      "allStatus": "Tous les statuts",
+      "allTypes": "Tous les types",
+      "clearFilters": "Effacer les filtres"
+    },
+    "search": {
+      "placeholder": "Rechercher par localisation...",
+      "maxPrice": "Prix maximum",
+      "button": "Rechercher des propriétés"
+    },
+    "showing": "Affichage de {count} sur {total} propriétés",
+    "noResults": "Aucune propriété trouvée correspondant à vos critères. Essayez d'ajuster vos filtres.",
+    "featured": "En vedette"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Contactez notre équipe pour des demandes, des visites de propriétés ou toute question",
+    "form": {
+      "title": "Envoyez-nous un message",
+      "description": "Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais",
+      "success": "Merci pour votre message ! Nous vous répondrons bientôt."
+    },
+    "info": {
+      "title": "Informations de contact",
+      "address": "Adresse",
+      "addressValue": "Bastos, Yaoundé\nCameroun",
+      "phone": "Téléphone",
+      "email": "Email",
+      "businessHours": "Heures d'ouverture",
+      "hoursValue": "Lundi au vendredi : 9h00 - 18h00\nSamedi : 10h00 - 16h00\nDimanche : Fermé"
+    },
+    "offices": {
+      "title": "Bureaux",
+      "mainOffice": "Bureau principal",
+      "branchOffice": "Bureau secondaire",
+      "mainOfficeLocation": "Bastos, Yaoundé",
+      "branchOfficeLocation": "Bonanjo, Douala"
+    },
+    "quickContact": {
+      "title": "Contact rapide",
+      "whatsapp": "WhatsApp",
+      "sendEmail": "Envoyer un email"
+    },
+    "map": {
+      "title": "Nous trouver",
+      "placeholder": "Placeholder d'intégration de carte"
+    }
+  },
+  "testimonials": {
+    "title": "Témoignages clients",
+    "subtitle": "Découvrez ce que nos clients satisfaits disent de leur expérience avec Imobuy",
+    "successStories": "Histoires de succès",
+    "story1": {
+      "title": "Du premier acheteur au propriétaire",
+      "content": "\"En tant que premier acheteur, j'étais submergé par le processus. L'équipe d'Imobuy m'a guidé à chaque étape, de la recherche de la bonne propriété à la finalisation de toute la documentation légale. Leur transparence et leur soutien ont rendu possible ce qui semblait impossible.\"",
+      "author": "— Min-jun Lee, Premier acheteur"
+    },
+    "story2": {
+      "title": "Portefeuille d'investissement réussi",
+      "content": "\"Le conseil en investissement d'Imobuy m'a aidé à construire un portefeuille immobilier diversifié. Leurs insights de marché et recommandations stratégiques ont donné d'excellents rendements. Je ne pourrais pas être plus heureux de leur service.\"",
+      "author": "— James Park, Investisseur"
+    },
+    "form": {
+      "title": "Soumettez votre témoignage",
+      "description": "Partagez votre expérience avec Imobuy. Nous aimerions avoir de vos nouvelles !",
+      "success": "Merci pour votre témoignage ! Nous l'examinerons et pourrions le mettre en avant sur notre site web."
+    }
+  },
+  "news": {
+    "title": "Actualités et insights",
+    "subtitle": "Restez informé des dernières tendances immobilières, insights de marché et annonces de l'entreprise",
+    "category": {
+      "news": "actualités",
+      "project": "projet",
+      "insight": "insight",
+      "announcement": "annonce"
+    }
+  },
+  "locations": {
+    "title": "Nos emplacements",
+    "subtitle": "Explorez nos zones de service et les propriétés disponibles dans différents emplacements",
+    "properties": "Propriétés",
+    "viewProperties": "Voir les propriétés →",
+    "mapOverview": "Vue d'ensemble de la carte",
+    "mapPlaceholder": "Placeholder d'intégration de carte interactive",
+    "investmentInsights": "Insights d'investissement locaux",
+    "market": "Marché",
+    "insightDesc": "La zone de {location} offre d'excellentes opportunités d'investissement avec des fondamentaux de marché solides et un potentiel de croissance. Les prix moyens des propriétés sont compétitifs, ce qui en fait une option attractive pour les investissements résidentiels et commerciaux.",
+    "insight1": "Valeurs immobilières croissantes",
+    "insight2": "Forte demande de location",
+    "insight3": "Excellente connectivité",
+    "insight4": "Potentiel de développement"
+  },
+  "resources": {
+    "title": "Ressources",
+    "subtitle": "Ressources éducatives et guides pour vous aider à naviguer dans le processus immobilier",
+    "buyingGuide": "Guide d'achat",
+    "step1": {
+      "title": "Étape 1 : Préparation",
+      "desc": "Avant de commencer à chercher, déterminez votre budget, obtenez une pré-approbation de prêt hypothécaire et identifiez vos besoins essentiels et vos souhaits.",
+      "item1": "Évaluez votre situation financière",
+      "item2": "Obtenez une pré-approbation de prêt hypothécaire",
+      "item3": "Définissez vos exigences de propriété",
+      "item4": "Recherchez les quartiers"
+    },
+    "step2": {
+      "title": "Étape 2 : Recherche de propriété",
+      "desc": "Utilisez notre plateforme pour rechercher des propriétés, assister à des visites et travailler avec nos agents pour trouver la correspondance parfaite.",
+      "item1": "Parcourez les propriétés disponibles",
+      "item2": "Planifiez les visites de propriétés",
+      "item3": "Évaluez les propriétés",
+      "item4": "Comparez les options"
+    },
+    "step3": {
+      "title": "Étape 3 : Faire une offre",
+      "desc": "Une fois que vous avez trouvé la bonne propriété, nous vous aiderons à faire une offre compétitive et à négocier les conditions.",
+      "item1": "Déterminez le prix de l'offre",
+      "item2": "Incluez les conditions et contingences",
+      "item3": "Soumettez l'offre",
+      "item4": "Négociez les conditions"
+    },
+    "step4": {
+      "title": "Étape 4 : Clôture",
+      "desc": "Finalisez le financement, complétez les inspections, examinez les documents légaux et finalisez la transaction.",
+      "item1": "Inspection de la propriété",
+      "item2": "Finalisez le financement",
+      "item3": "Examinez les documents légaux",
+      "item4": "Complétez la transaction"
+    },
+    "landOwnership": {
+      "title": "Processus de propriété foncière",
+      "step1": {
+        "title": "1. Identification du terrain",
+        "desc": "Identifiez des parcelles de terrain appropriées en fonction de vos besoins, préférences de localisation et budget. Notre équipe vous aide à trouver la parcelle parfaite."
+      },
+      "step2": {
+        "title": "2. Due diligence",
+        "desc": "Effectuez une due diligence approfondie incluant la vérification des titres, les vérifications de zonage, les évaluations environnementales et l'examen de conformité légale."
+      },
+      "step3": {
+        "title": "3. Accord d'achat",
+        "desc": "Négociez et signez un accord d'achat avec tous les termes et conditions clairement définis. Notre équipe juridique garantit que toute la documentation est en ordre."
+      },
+      "step4": {
+        "title": "4. Transfert de titre",
+        "desc": "Complétez le processus de transfert de titre, enregistrez la propriété à votre nom et obtenez tous les certificats et documentation nécessaires."
+      }
+    },
+    "faq": {
+      "title": "Questions fréquemment posées",
+      "q1": "Quels documents ai-je besoin pour acheter une propriété ?",
+      "a1": "Vous aurez généralement besoin de documents d'identification, de preuves de revenus, de relevés bancaires et de toute lettre de pré-approbation des prêteurs. Notre équipe vous guidera à travers toute la documentation requise.",
+      "q2": "Combien de temps prend le processus d'achat de propriété ?",
+      "a2": "Le processus prend généralement 30 à 60 jours de l'acceptation de l'offre à la clôture, selon le financement, les inspections et les exigences légales. Nous travaillons pour accélérer le processus tout en garantissant que toutes les étapes sont complétées correctement.",
+      "q3": "Aidez-vous au financement de propriété ?",
+      "a3": "Oui, nous travaillons avec des prêteurs de confiance et pouvons vous aider à vous connecter avec des options de financement. Nous fournissons également des conseils sur la pré-approbation de prêt hypothécaire et les demandes de prêt.",
+      "q4": "Qu'est-ce qui est inclus dans vos services de gestion immobilière ?",
+      "a4": "Nos services de gestion immobilière incluent le screening des locataires, la collecte des loyers, la coordination de la maintenance, les inspections de propriétés, les rapports financiers et le support de conformité légale.",
+      "q5": "Comment garantissez-vous la sécurité juridique dans les transactions ?",
+      "a5": "Nous effectuons une vérification approfondie des titres, des vérifications de conformité légale, une révision des contrats et travaillons avec des professionnels juridiques qualifiés pour garantir que toutes les transactions sont sécurisées et conformes aux réglementations.",
+      "q6": "Pouvez-vous aider à l'évaluation de propriété ?",
+      "a6": "Oui, nous fournissons des services d'évaluation de propriété complets incluant l'analyse de marché, l'analyse comparative de marché (CMA) et les évaluations de valeur d'investissement."
+    },
+    "downloads": {
+      "title": "Ressources téléchargeables",
+      "buyersGuide": {
+        "title": "Guide de l'acheteur",
+        "desc": "Guide complet pour les acheteurs de propriétés"
+      },
+      "sellersGuide": {
+        "title": "Guide du vendeur",
+        "desc": "Guide complet pour les vendeurs de propriétés"
+      },
+      "investmentGuide": {
+        "title": "Guide d'investissement",
+        "desc": "Stratégies d'investissement immobilier"
+      },
+      "legalDocuments": {
+        "title": "Documents légaux",
+        "desc": "Contrats et formulaires d'exemple"
+      },
+      "marketReport": {
+        "title": "Rapport de marché 2025",
+        "desc": "Rapport d'analyse de marché annuel"
+      },
+      "checklist": {
+        "title": "Liste de contrôle de propriété",
+        "desc": "Liste de contrôle de visite de propriété"
+      },
+      "downloadPdf": "Télécharger PDF →"
+    },
+    "legal": {
+      "title": "Documents légaux et politiques",
+      "view": "Voir →"
+    }
+  },
+  "metadata": {
+    "home": {
+      "title": "Imobuy - Plateforme immobilière | Trouvez la propriété de vos rêves",
+      "description": "Imobuy rapproche les clients et les vendeurs/agents pour faciliter les ventes et la transparence pour les maisons, appartements, parcelles et plus encore. Trouvez votre propriété parfaite aujourd'hui."
+    },
+    "about": {
+      "title": "À propos d'Imobuy - Plateforme immobilière",
+      "description": "Découvrez Imobuy, notre mission, vision, valeurs et équipe dédiée à rapprocher les clients et les vendeurs."
+    },
+    "services": {
+      "title": "Services - Imobuy Immobilier",
+      "description": "Services immobiliers complets incluant ventes de terrains, gestion immobilière, conseil et plus encore."
+    },
+    "properties": {
+      "title": "Propriétés - Imobuy Immobilier",
+      "description": "Parcourez notre collection complète de propriétés disponibles incluant maisons, appartements, terrains et espaces commerciaux."
+    },
+    "contact": {
+      "title": "Contactez-nous - Imobuy Immobilier",
+      "description": "Contactez notre équipe pour des demandes, des visites de propriétés ou toute question sur nos services."
+    },
+    "testimonials": {
+      "title": "Témoignages - Imobuy Immobilier",
+      "description": "Lisez ce que nos clients disent de leur expérience avec Imobuy."
+    },
+    "news": {
+      "title": "Actualités et insights - Imobuy Immobilier",
+      "description": "Restez informé des dernières actualités immobilières, insights de marché et annonces de l'entreprise."
+    },
+    "locations": {
+      "title": "Emplacements - Imobuy Immobilier",
+      "description": "Explorez nos zones de service et les propriétés disponibles par emplacement."
+    },
+    "resources": {
+      "title": "Ressources - Imobuy Immobilier",
+      "description": "Ressources éducatives, guides, FAQ et documents téléchargeables pour les transactions immobilières."
+    }
+  }
 }

@@ -1,0 +1,4 @@
+---
+alwaysApply: false
+---
+Always use pnpm for package management

@@ -1,22 +1,28 @@
 import { testimonials } from "@/data/testimonials"
 import { Card, CardContent } from "@/components/ui/card"
+import { getTranslations } from "next-intl/server"
 
-export const metadata = {
-  title: "Testimonials - Imobuy Real Estate",
-  description: "Read what our clients say about their experience with Imobuy.",
+export async function generateMetadata() {
+  const t = await getTranslations("metadata.testimonials")
+  return {
+    title: t("title"),
+    description: t("description"),
+  }
 }
 
-export default function TestimonialsPage() {
+export default async function TestimonialsPage() {
+  const t = await getTranslations("testimonials")
+  const tLabel = await getTranslations("common.label")
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="px-4 sm:px-[2vw] py-16 sm:py-[10vh] bg-muted/30">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-            Client Testimonials
+            {t("title")}
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl font-normal tracking-tight text-muted-foreground">
-            Hear from our satisfied clients about their experience with Imobuy
+            {t("subtitle")}
           </p>
         </div>
       </section>
@@ -46,7 +52,7 @@ export default function TestimonialsPage() {
                     </p>
                     {testimonial.propertyType && (
                       <p className="text-xs sm:text-sm text-muted-foreground mt-1">
-                        Property: {testimonial.propertyType}
+                        {tLabel("property")}: {testimonial.propertyType}
                       </p>
                     )}
                   </div>
@@ -61,29 +67,29 @@ export default function TestimonialsPage() {
       <section className="px-4 sm:px-[2vw] py-16 sm:py-[10vh] bg-muted/30">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-12 text-center">
-            Success Stories
+            {t("successStories")}
           </h2>
           <div className="space-y-8">
             <Card>
               <CardContent className="p-6 sm:p-8">
                 <h3 className="text-xl sm:text-2xl font-semibold mb-4">
-                  From First-Time Buyer to Property Owner
+                  {t("story1.title")}
                 </h3>
                 <p className="text-base sm:text-lg text-muted-foreground mb-4">
-                  "As a first-time buyer, I was overwhelmed by the process. Imobuy's team guided me through every step, from finding the right property to completing all legal documentation. Their transparency and support made what seemed impossible, possible."
+                  {t("story1.content")}
                 </p>
-                <p className="text-sm font-medium">— Min-jun Lee, First-time Buyer</p>
+                <p className="text-sm font-medium">{t("story1.author")}</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-6 sm:p-8">
                 <h3 className="text-xl sm:text-2xl font-semibold mb-4">
-                  Successful Investment Portfolio
+                  {t("story2.title")}
                 </h3>
                 <p className="text-base sm:text-lg text-muted-foreground mb-4">
-                  "Imobuy's investment advisory helped me build a diverse real estate portfolio. Their market insights and strategic recommendations have resulted in excellent returns. I couldn't be happier with their service."
+                  {t("story2.content")}
                 </p>
-                <p className="text-sm font-medium">— James Park, Investor</p>
+                <p className="text-sm font-medium">{t("story2.author")}</p>
               </CardContent>
             </Card>
           </div>

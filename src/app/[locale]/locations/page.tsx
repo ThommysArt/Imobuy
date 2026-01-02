@@ -2,13 +2,19 @@ import { locations } from "@/data/locations"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { formatCurrency } from "@/lib/currency"
 import Link from "next/link"
+import { getTranslations } from "next-intl/server"
 
-export const metadata = {
-  title: "Locations - Imobuy Real Estate",
-  description: "Explore our service areas and available properties by location.",
+export async function generateMetadata() {
+  const t = await getTranslations("metadata.locations")
+  return {
+    title: t("title"),
+    description: t("description"),
+  }
 }
 
-export default function LocationsPage() {
+export default async function LocationsPage() {
+  const t = await getTranslations("locations")
+  const tLabel = await getTranslations("common.label")
   const formatPrice = (price: number) => {
     return formatCurrency(price, "XAF", { maximumFractionDigits: 0 })
   }
@@ -19,10 +25,10 @@ export default function LocationsPage() {
       <section className="px-4 sm:px-[2vw] py-16 sm:py-[10vh] bg-muted/30">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-            Our Locations
+            {t("title")}
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl font-normal tracking-tight text-muted-foreground">
-            Explore our service areas and available properties across different locations
+            {t("subtitle")}
           </p>
         </div>
       </section>
@@ -45,11 +51,11 @@ export default function LocationsPage() {
                   </p>
                   <div className="grid grid-cols-2 gap-4 pt-4 border-t">
                     <div>
-                      <p className="text-xs sm:text-sm text-muted-foreground">Properties</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground">{t("properties")}</p>
                       <p className="text-lg sm:text-xl font-semibold">{location.propertyCount}</p>
                     </div>
                     <div>
-                      <p className="text-xs sm:text-sm text-muted-foreground">Avg. Price</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground">{tLabel("avgPrice")}</p>
                       <p className="text-lg sm:text-xl font-semibold">{formatPrice(location.averagePrice)}</p>
                     </div>
                   </div>
@@ -57,7 +63,7 @@ export default function LocationsPage() {
                     href={`/properties?city=${location.city}`}
                     className="block text-center text-sm sm:text-base font-medium text-primary hover:underline"
                   >
-                    View Properties →
+                    {t("viewProperties")}
                   </Link>
                 </CardContent>
               </Card>
@@ -70,11 +76,11 @@ export default function LocationsPage() {
       <section className="px-4 sm:px-[2vw] py-16 sm:py-[10vh] bg-muted/30">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-8 text-center">
-            Map Overview
+            {t("mapOverview")}
           </h2>
           <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
             <p className="text-sm sm:text-base text-muted-foreground">
-              Interactive map integration placeholder
+              {t("mapPlaceholder")}
             </p>
           </div>
         </div>
@@ -84,23 +90,23 @@ export default function LocationsPage() {
       <section className="px-4 sm:px-[2vw] py-16 sm:py-[10vh]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-8 text-center">
-            Local Investment Insights
+            {t("investmentInsights")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {locations.slice(0, 4).map((location) => (
               <Card key={location.id}>
                 <CardHeader>
-                  <CardTitle className="text-xl sm:text-2xl">{location.name} Market</CardTitle>
+                  <CardTitle className="text-xl sm:text-2xl">{location.name} {t("market")}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm sm:text-base text-muted-foreground mb-4">
-                    The {location.name} area offers excellent investment opportunities with strong market fundamentals and growth potential. Average property prices are competitive, making it an attractive option for both residential and commercial investments.
+                    {t("insightDesc", { location: location.name })}
                   </p>
                   <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>• Growing property values</li>
-                    <li>• Strong rental demand</li>
-                    <li>• Excellent connectivity</li>
-                    <li>• Development potential</li>
+                    <li>• {t("insight1")}</li>
+                    <li>• {t("insight2")}</li>
+                    <li>• {t("insight3")}</li>
+                    <li>• {t("insight4")}</li>
                   </ul>
                 </CardContent>
               </Card>

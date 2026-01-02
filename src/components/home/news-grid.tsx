@@ -6,8 +6,12 @@ import Image from "next/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { InteractiveHoverButton } from "@/components/interactive-hover-button"
+import { useTranslations } from "next-intl"
 
 export function NewsGrid() {
+  const t = useTranslations("home.news")
+  const tNews = useTranslations("news")
+  const tButton = useTranslations("common.button")
   const latestNews = news.slice(0, 3)
 
   const getCategoryColor = (category: string) => {
@@ -25,10 +29,10 @@ export function NewsGrid() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-8 sm:mb-12">
           <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tighter leading-[1] uppercase mb-4">
-            Latest News & Insights
+            {t("title")}
           </p>
           <p className="text-lg sm:text-xl font-normal tracking-tight text-muted-foreground max-w-2xl">
-            Stay updated with the latest real estate trends, market insights, and company announcements
+            {t("subtitle")}
           </p>
         </div>
 
@@ -43,9 +47,9 @@ export function NewsGrid() {
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-110"
                   />
-                  <Badge className={`absolute top-4 left-4 ${getCategoryColor(article.category)}`}>
-                    {article.category}
-                  </Badge>
+                    <Badge className={`absolute top-4 left-4 ${getCategoryColor(article.category)}`}>
+                      {tNews(`category.${article.category}`)}
+                    </Badge>
                 </div>
                 <CardHeader>
                   <CardTitle className="text-xl sm:text-2xl line-clamp-2 group-hover:text-primary transition-colors">
@@ -69,7 +73,7 @@ export function NewsGrid() {
         <div className="flex justify-center mt-8 sm:mt-12">
           <Link href="/news">
             <InteractiveHoverButton className="tracking-tight uppercase text-xs sm:text-sm">
-              View All News
+              {t("viewAll")}
             </InteractiveHoverButton>
           </Link>
         </div>

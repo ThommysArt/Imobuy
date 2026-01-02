@@ -3,13 +3,18 @@ import Link from "next/link"
 import Image from "next/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { getTranslations } from "next-intl/server"
 
-export const metadata = {
-  title: "News & Insights - Imobuy Real Estate",
-  description: "Stay updated with the latest real estate news, market insights, and company announcements.",
+export async function generateMetadata() {
+  const t = await getTranslations("metadata.news")
+  return {
+    title: t("title"),
+    description: t("description"),
+  }
 }
 
-export default function NewsPage() {
+export default async function NewsPage() {
+  const t = await getTranslations("news")
   const getCategoryColor = (category: string) => {
     const colors = {
       news: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
@@ -28,10 +33,10 @@ export default function NewsPage() {
       <section className="px-4 sm:px-[2vw] pt-24 sm:pt-32 pb-16 sm:pb-[10vh] bg-muted/30">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-            News & Insights
+            {t("title")}
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl font-normal tracking-tight text-muted-foreground">
-            Stay updated with the latest real estate trends, market insights, and company announcements
+            {t("subtitle")}
           </p>
         </div>
       </section>
@@ -51,7 +56,7 @@ export default function NewsPage() {
                       className="object-cover transition-transform duration-300 group-hover:scale-110"
                     />
                     <Badge className={`absolute top-4 left-4 ${getCategoryColor(article.category)}`}>
-                      {article.category}
+                      {t(`category.${article.category}`)}
                     </Badge>
                   </div>
                   <CardHeader>

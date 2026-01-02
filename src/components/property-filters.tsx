@@ -19,6 +19,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { useTranslations } from "next-intl"
 
 interface PropertyFiltersProps {
   onFilterChange: (filters: FilterState) => void
@@ -38,6 +39,10 @@ export interface FilterState {
 }
 
 export function PropertyFilters({ onFilterChange, className }: PropertyFiltersProps) {
+  const t = useTranslations("properties.filters")
+  const tType = useTranslations("common.propertyType")
+  const tStatus = useTranslations("common.status")
+  const tButton = useTranslations("common.button")
   const [filters, setFilters] = useState<FilterState>({
     type: "all",
     status: "all",
@@ -64,19 +69,19 @@ export function PropertyFilters({ onFilterChange, className }: PropertyFiltersPr
       <Sheet>
         <SheetTrigger>
           <Button variant="outline" className="md:hidden">
-            Filters
+            {t("title")}
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="w-[300px] sm:w-[400px]">
           <SheetHeader>
-            <SheetTitle>Filter Properties</SheetTitle>
+            <SheetTitle>{t("title")}</SheetTitle>
             <SheetDescription>
-              Refine your search to find the perfect property
+              {t("description")}
             </SheetDescription>
           </SheetHeader>
           <div className="mt-6 space-y-6">
             <div>
-              <label className="text-sm font-medium mb-2 block">Property Type</label>
+              <label className="text-sm font-medium mb-2 block">{t("propertyType")}</label>
               <Select
                 value={filters.type || "all"}
                 onValueChange={(value) => updateFilter("type", value)}
@@ -85,18 +90,18 @@ export function PropertyFilters({ onFilterChange, className }: PropertyFiltersPr
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Types</SelectItem>
-                  <SelectItem value="house">House</SelectItem>
-                  <SelectItem value="apartment">Apartment</SelectItem>
-                  <SelectItem value="land">Land</SelectItem>
-                  <SelectItem value="commercial">Commercial</SelectItem>
+                  <SelectItem value="all">{t("allTypes")}</SelectItem>
+                  <SelectItem value="house">{tType("house")}</SelectItem>
+                  <SelectItem value="apartment">{tType("apartment")}</SelectItem>
+                  <SelectItem value="land">{tType("land")}</SelectItem>
+                  <SelectItem value="commercial">{tType("commercial")}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
             <div>
               <label className="text-sm font-medium mb-2 block">
-                Price Range: ${priceRange[0].toLocaleString()} - ${priceRange[1].toLocaleString()}
+                {t("priceRange")}: ${priceRange[0].toLocaleString()} - ${priceRange[1].toLocaleString()}
               </label>
               <Slider
                 value={priceRange}
@@ -113,7 +118,7 @@ export function PropertyFilters({ onFilterChange, className }: PropertyFiltersPr
             </div>
 
             <div>
-              <label className="text-sm font-medium mb-2 block">Status</label>
+              <label className="text-sm font-medium mb-2 block">{t("status")}</label>
               <Select
                 value={filters.status || "all"}
                 onValueChange={(value) => updateFilter("status", value)}
@@ -122,16 +127,16 @@ export function PropertyFilters({ onFilterChange, className }: PropertyFiltersPr
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Status</SelectItem>
-                  <SelectItem value="available">Available</SelectItem>
-                  <SelectItem value="pending">Pending</SelectItem>
-                  <SelectItem value="sold">Sold</SelectItem>
+                  <SelectItem value="all">{t("allStatus")}</SelectItem>
+                  <SelectItem value="available">{tStatus("available")}</SelectItem>
+                  <SelectItem value="pending">{tStatus("pending")}</SelectItem>
+                  <SelectItem value="sold">{tStatus("sold")}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
             <div>
-              <label className="text-sm font-medium mb-2 block">Bedrooms</label>
+              <label className="text-sm font-medium mb-2 block">{t("bedrooms")}</label>
               <Select
                 value={filters.bedrooms?.toString() || "any"}
                 onValueChange={(value) =>
@@ -142,7 +147,7 @@ export function PropertyFilters({ onFilterChange, className }: PropertyFiltersPr
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="any">Any</SelectItem>
+                  <SelectItem value="any">{t("any")}</SelectItem>
                   <SelectItem value="1">1+</SelectItem>
                   <SelectItem value="2">2+</SelectItem>
                   <SelectItem value="3">3+</SelectItem>
@@ -155,7 +160,7 @@ export function PropertyFilters({ onFilterChange, className }: PropertyFiltersPr
             {(filters.type === "land" || filters.type === "all") && (
               <div>
                 <label className="text-sm font-medium mb-2 block">
-                  Surface Area (m²): {sizeRange[0]} - {sizeRange[1]}
+                  {t("surfaceArea")}: {sizeRange[0]} - {sizeRange[1]}
                 </label>
                 <Slider
                   value={sizeRange}
@@ -173,7 +178,7 @@ export function PropertyFilters({ onFilterChange, className }: PropertyFiltersPr
             )}
 
             <Button onClick={clearFilters} variant="outline" className="w-full">
-              Clear Filters
+              {t("clearFilters")}
             </Button>
           </div>
         </SheetContent>
@@ -183,7 +188,7 @@ export function PropertyFilters({ onFilterChange, className }: PropertyFiltersPr
       <div className="hidden md:flex flex-col gap-4 p-4 bg-muted rounded-lg">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           <div>
-            <label className="text-sm font-medium mb-2 block">Type</label>
+            <label className="text-sm font-medium mb-2 block">{t("propertyType")}</label>
             <Select
               value={filters.type || "all"}
               onValueChange={(value) => updateFilter("type", value)}
@@ -192,17 +197,17 @@ export function PropertyFilters({ onFilterChange, className }: PropertyFiltersPr
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All</SelectItem>
-                <SelectItem value="house">House</SelectItem>
-                <SelectItem value="apartment">Apartment</SelectItem>
-                <SelectItem value="land">Land</SelectItem>
-                <SelectItem value="commercial">Commercial</SelectItem>
+                <SelectItem value="all">{tType("allShort")}</SelectItem>
+                <SelectItem value="house">{tType("house")}</SelectItem>
+                <SelectItem value="apartment">{tType("apartment")}</SelectItem>
+                <SelectItem value="land">{tType("land")}</SelectItem>
+                <SelectItem value="commercial">{tType("commercial")}</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div>
-            <label className="text-sm font-medium mb-2 block">Status</label>
+            <label className="text-sm font-medium mb-2 block">{t("status")}</label>
             <Select
               value={filters.status || "all"}
               onValueChange={(value) => updateFilter("status", value)}
@@ -211,16 +216,16 @@ export function PropertyFilters({ onFilterChange, className }: PropertyFiltersPr
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All</SelectItem>
-                <SelectItem value="available">Available</SelectItem>
-                <SelectItem value="pending">Pending</SelectItem>
-                <SelectItem value="sold">Sold</SelectItem>
+                <SelectItem value="all">{tStatus("all")}</SelectItem>
+                <SelectItem value="available">{tStatus("available")}</SelectItem>
+                <SelectItem value="pending">{tStatus("pending")}</SelectItem>
+                <SelectItem value="sold">{tStatus("sold")}</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div>
-            <label className="text-sm font-medium mb-2 block">Bedrooms</label>
+            <label className="text-sm font-medium mb-2 block">{t("bedrooms")}</label>
             <Select
               value={filters.bedrooms?.toString() || "any"}
               onValueChange={(value) =>
@@ -231,7 +236,7 @@ export function PropertyFilters({ onFilterChange, className }: PropertyFiltersPr
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="any">Any</SelectItem>
+                <SelectItem value="any">{t("any")}</SelectItem>
                 <SelectItem value="1">1+</SelectItem>
                 <SelectItem value="2">2+</SelectItem>
                 <SelectItem value="3">3+</SelectItem>
@@ -241,7 +246,7 @@ export function PropertyFilters({ onFilterChange, className }: PropertyFiltersPr
           </div>
 
           <div>
-            <label className="text-sm font-medium mb-2 block">Price Range</label>
+            <label className="text-sm font-medium mb-2 block">{t("priceRange")}</label>
             <div className="text-sm text-muted-foreground">
               ${priceRange[0].toLocaleString()} - ${priceRange[1].toLocaleString()}
             </div>
@@ -261,7 +266,7 @@ export function PropertyFilters({ onFilterChange, className }: PropertyFiltersPr
 
           {(filters.type === "land" || filters.type === "all") && (
             <div>
-              <label className="text-sm font-medium mb-2 block">Surface Area (m²)</label>
+              <label className="text-sm font-medium mb-2 block">{t("surfaceArea")}</label>
               <div className="text-sm text-muted-foreground">
                 {sizeRange[0]} - {sizeRange[1]} m²
               </div>
@@ -281,7 +286,7 @@ export function PropertyFilters({ onFilterChange, className }: PropertyFiltersPr
           )}
         </div>
         <Button onClick={clearFilters} variant="outline" className="w-fit">
-          Clear All
+          {tButton("clearAll")}
         </Button>
       </div>
     </div>

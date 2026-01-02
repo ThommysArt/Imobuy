@@ -17,8 +17,11 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import { useTranslations } from "next-intl"
 
 function PropertiesContent() {
+  const t = useTranslations("properties")
+  const tNav = useTranslations("navigation")
   const searchParams = useSearchParams()
   const [searchQuery, setSearchQuery] = useState("")
   const [filters, setFilters] = useState<FilterState>({
@@ -94,21 +97,21 @@ function PropertiesContent() {
         <Breadcrumb className="mb-6">
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink render={<Link href="/" />}>Home</BreadcrumbLink>
+              <BreadcrumbLink render={<Link href="/" />}>{tNav("home")}</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage>Properties</BreadcrumbPage>
+              <BreadcrumbPage>{tNav("properties")}</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
 
         <div className="mb-8 sm:mb-12">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4">
-            All Properties
+            {t("title")}
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground">
-            Browse our complete collection of available properties
+            {t("subtitle")}
           </p>
         </div>
 
@@ -116,7 +119,7 @@ function PropertiesContent() {
         <div className="mb-6">
           <div className="max-w-2xl">
             <Input
-              placeholder="Search properties by name, location, or description..."
+              placeholder={t("search.placeholder")}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full"
@@ -128,7 +131,7 @@ function PropertiesContent() {
 
         <div className="mb-6">
           <p className="text-sm sm:text-base text-muted-foreground">
-            Showing {filteredProperties.length} of {properties.length} properties
+            {t("showing", { count: filteredProperties.length, total: properties.length })}
           </p>
         </div>
 
@@ -141,7 +144,7 @@ function PropertiesContent() {
         ) : (
           <div className="text-center py-12">
             <p className="text-lg sm:text-xl text-muted-foreground">
-              No properties found matching your criteria. Try adjusting your filters.
+              {t("noResults")}
             </p>
           </div>
         )}
@@ -157,10 +160,10 @@ export default function PropertiesPage() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-8 sm:mb-12">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4">
-              All Properties
+              Loading...
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground">
-              Browse our complete collection of available properties
+              Loading properties...
             </p>
           </div>
         </div>

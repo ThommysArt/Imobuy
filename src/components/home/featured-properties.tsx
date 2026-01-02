@@ -4,8 +4,11 @@ import { PropertyCard } from "@/components/property-card"
 import { properties } from "@/data/properties"
 import { InteractiveHoverButton } from "@/components/interactive-hover-button"
 import Link from "next/link"
+import { useTranslations } from "next-intl"
 
 export function FeaturedProperties() {
+  const t = useTranslations("home.featuredProperties")
+  const tButton = useTranslations("common.button")
   const featured = properties.filter(p => p.featured).slice(0, 6)
 
   return (
@@ -13,10 +16,10 @@ export function FeaturedProperties() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-8 sm:mb-12">
           <p className="text-4xl sm:text-6xl md:text-8xl lg:text-[10em] max-w-5xl font-medium tracking-tighter leading-[1] uppercase">
-            Featured Properties
+            {t("title")}
           </p>
           <p className="text-lg sm:text-xl md:text-2xl font-normal tracking-tight text-muted-foreground mt-4 sm:mt-6 max-w-2xl">
-            Discover our handpicked selection of premium properties
+            {t("subtitle")}
           </p>
         </div>
         
@@ -29,7 +32,7 @@ export function FeaturedProperties() {
         <div className="flex justify-center mt-8 sm:mt-12">
           <Link href="/properties">
             <InteractiveHoverButton className="tracking-tighter uppercase text-xs sm:text-sm">
-              View All Properties
+              {t("viewAll")}
             </InteractiveHoverButton>
           </Link>
         </div>

@@ -1,3 +1,454 @@
 {
-  
+  "common": {
+    "button": {
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "search": "Search",
+      "clear": "Clear",
+      "clearAll": "Clear All",
+      "viewAll": "View All",
+      "learnMore": "Learn More",
+      "getInTouch": "Get in Touch",
+      "contactUs": "Contact Us",
+      "callNow": "Call Now",
+      "sendMessage": "Send Message",
+      "download": "Download",
+      "view": "View",
+      "browse": "Browse",
+      "scheduleVisit": "Schedule a Visit",
+      "browseProperties": "Browse Properties",
+      "viewProperties": "View Properties",
+      "submitTestimonial": "Submit Testimonial"
+    },
+    "label": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "subject": "Subject",
+      "message": "Message",
+      "role": "Role/Title",
+      "company": "Company (Optional)",
+      "property": "Property",
+      "properties": "Properties",
+      "avgPrice": "Avg. Price",
+      "bedrooms": "Bedrooms",
+      "bathrooms": "Bathrooms",
+      "bed": "Bed",
+      "beds": "Beds",
+      "bath": "Bath",
+      "baths": "Baths"
+    },
+    "placeholder": {
+      "name": "Your name",
+      "email": "your.email@example.com",
+      "phone": "+237 6 1234 5678",
+      "subject": "What is this regarding?",
+      "message": "Your message...",
+      "role": "e.g., Home Buyer, Investor",
+      "company": "Your company name",
+      "testimonial": "Share your experience...",
+      "searchLocation": "Search by location...",
+      "searchProperties": "Search properties by name, location, or description..."
+    },
+    "status": {
+      "available": "Available",
+      "pending": "Pending",
+      "sold": "Sold",
+      "all": "All"
+    },
+    "propertyType": {
+      "house": "House",
+      "apartment": "Apartment",
+      "land": "Land",
+      "commercial": "Commercial",
+      "all": "All Types",
+      "allShort": "All"
+    },
+    "aria": {
+      "toggleMenu": "Toggle menu",
+      "contactOptions": "Contact options"
+    }
+  },
+  "navigation": {
+    "home": "Home",
+    "properties": "Properties",
+    "services": "Services",
+    "about": "About",
+    "news": "News",
+    "contact": "Contact",
+    "testimonials": "Testimonials",
+    "locations": "Locations",
+    "resources": "Resources"
+  },
+  "header": {
+    "logoAlt": "Imobuy Logo",
+    "getInTouch": "Get in Touch"
+  },
+  "footer": {
+    "description": "Bringing customers and sellers/agents closer to facilitate sales and transparency for houses, apartments, parcels, and more.",
+    "navigation": "[Navigation]",
+    "quickLinksLabel": "[Quick Links]",
+    "contact": "[Contact]",
+    "address": "A: Bastos, Yaoundé, Cameroon",
+    "email": "E: contact@imobuy.com",
+    "phone": "P: +237 6 1234 5678",
+    "hours": "H: Monday to Friday, 9:00am - 6:00pm",
+    "copyright": "© 2025 Imobuy. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "quickLinks": {
+      "landForSale": "Land for Sale",
+      "residentialProperties": "Residential Properties",
+      "commercialProperties": "Commercial Properties",
+      "investmentOpportunities": "Investment Opportunities"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Find Your Dream Property",
+      "subtitle": "Bringing customers and sellers closer to facilitate sales and transparency for houses, apartments, parcels, and more.",
+      "scrollDown": "[Scroll down to explore]",
+      "viewProperties": "View Properties"
+    },
+    "featuredProperties": {
+      "title": "Featured Properties",
+      "subtitle": "Discover our handpicked selection of premium properties",
+      "viewAll": "View All Properties"
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Comprehensive real estate solutions tailored to your needs",
+      "learnMore": "Learn More About Our Services"
+    },
+    "trustIndicators": {
+      "whyImobuy": "WHY IMOBUY",
+      "trustedReliable": "TRUSTED & RELIABLE",
+      "propertiesSold": "Properties Sold",
+      "happyClients": "Happy Clients",
+      "yearsExperience": "Years Experience",
+      "satisfactionRate": "Satisfaction Rate",
+      "transparency": "Transparency",
+      "transparencyDesc": "Full disclosure of all property details, legal documentation, and transaction processes.",
+      "experience": "Experience",
+      "experienceDesc": "Years of expertise in real estate transactions and market analysis.",
+      "legalSecurity": "Legal Security",
+      "legalSecurityDesc": "Comprehensive legal support ensuring all transactions are secure and compliant."
+    },
+    "testimonials": {
+      "title": "CLIENT TESTIMONIALS",
+      "subtitle": "TRUSTED BY MANY",
+      "whatClientsSay": "[What our clients say]"
+    },
+    "news": {
+      "title": "Latest News & Insights",
+      "subtitle": "Stay updated with the latest real estate trends, market insights, and company announcements",
+      "viewAll": "View All News"
+    },
+    "cta": {
+      "title": "Ready to Find Your Dream Property?",
+      "subtitle": "Get in touch with our team today and let us help you find the perfect property or assist with your real estate needs."
+    }
+  },
+  "about": {
+    "title": "About Imobuy",
+    "subtitle": "Bringing customers and sellers/agents closer to facilitate sales and transparency for houses, apartments, parcels, and more.",
+    "whoWeAre": "Who We Are",
+    "whoWeAreDesc1": "Imobuy is a leading real estate platform dedicated to connecting buyers, sellers, and agents in a transparent and efficient marketplace. Since our founding, we have been committed to revolutionizing the real estate industry by providing comprehensive services that make property transactions seamless and trustworthy.",
+    "whoWeAreDesc2": "Our platform serves as a bridge between customers seeking their dream properties and sellers/agents looking to facilitate successful transactions. We understand that buying or selling property is one of life's most significant decisions, and we're here to make that process as smooth and transparent as possible.",
+    "mission": "Our Mission",
+    "missionDesc": "To create a transparent, efficient, and trustworthy real estate marketplace that brings customers and sellers closer together, facilitating successful property transactions while ensuring legal security and customer satisfaction.",
+    "vision": "Our Vision",
+    "visionDesc": "To become the most trusted and innovative real estate platform, setting new standards for transparency, customer service, and market expertise while expanding our reach to serve more clients across diverse property markets.",
+    "values": "Our Values",
+    "transparency": "Transparency",
+    "transparencyDesc": "We believe in complete transparency in all our transactions, ensuring clients have full visibility into every step of the process.",
+    "reliability": "Reliability",
+    "reliabilityDesc": "Our commitment to reliability means you can trust us to deliver on our promises and provide consistent, high-quality service.",
+    "professionalism": "Professionalism",
+    "professionalismDesc": "We maintain the highest standards of professionalism in all our interactions, from initial consultation to final transaction.",
+    "team": "Our Team",
+    "certifications": "Certifications & Partners",
+    "certificationsDesc": "We are proud to be certified and partnered with leading institutions in the real estate industry.",
+    "partner1": "Real Estate Association",
+    "partner2": "Legal Compliance Board",
+    "partner3": "Property Management Institute",
+    "partner4": "Investment Advisory Council"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive real estate solutions tailored to your needs",
+    "landSales": {
+      "title": "Land Sales & Acquisition",
+      "desc": "Our expert team assists clients in buying and selling land parcels with comprehensive support including land valuation, market analysis, legal documentation, and negotiation assistance. We ensure all transactions are transparent and legally secure."
+    },
+    "propertyManagement": {
+      "title": "Property Management",
+      "desc": "Full-service property management covering rentals, maintenance coordination, tenant screening and relations, and comprehensive financial reporting. We handle all aspects so you don't have to."
+    },
+    "consulting": {
+      "title": "Real Estate Consulting",
+      "desc": "Professional consulting services to help you make informed real estate investment decisions. Our team provides investment analysis, market research, portfolio optimization, and risk assessment."
+    },
+    "investmentAdvisory": {
+      "title": "Investment Advisory",
+      "desc": "Strategic investment advice tailored to your financial goals and risk tolerance. We provide ROI analysis, market trends, investment strategies, and portfolio diversification recommendations."
+    },
+    "legalAssistance": {
+      "title": "Legal Assistance & Documentation",
+      "desc": "Full legal support for all real estate transactions including contract review, title verification, legal compliance, and dispute resolution. We ensure all documentation is in order."
+    },
+    "afterSale": {
+      "title": "After-Sale Support",
+      "desc": "Ongoing support after your purchase to ensure a smooth transition and satisfaction. We provide post-purchase assistance, warranty support, maintenance referrals, and ongoing consultation."
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "subtitle": "Contact us today to learn more about how we can help with your real estate needs."
+    }
+  },
+  "properties": {
+    "title": "All Properties",
+    "subtitle": "Browse our complete collection of available properties",
+    "filters": {
+      "title": "Filter Properties",
+      "description": "Refine your search to find the perfect property",
+      "propertyType": "Property Type",
+      "priceRange": "Price Range",
+      "status": "Status",
+      "bedrooms": "Bedrooms",
+      "surfaceArea": "Surface Area (m²)",
+      "any": "Any",
+      "allStatus": "All Status",
+      "allTypes": "All Types",
+      "clearFilters": "Clear Filters"
+    },
+    "search": {
+      "placeholder": "Search by location...",
+      "maxPrice": "Max Price",
+      "button": "Search Properties"
+    },
+    "showing": "Showing {count} of {total} properties",
+    "noResults": "No properties found matching your criteria. Try adjusting your filters.",
+    "featured": "Featured"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our team for inquiries, property viewings, or any questions",
+    "form": {
+      "title": "Send us a Message",
+      "description": "Fill out the form below and we'll get back to you as soon as possible",
+      "success": "Thank you for your message! We'll get back to you soon."
+    },
+    "info": {
+      "title": "Contact Information",
+      "address": "Address",
+      "addressValue": "Bastos, Yaoundé\nCameroon",
+      "phone": "Phone",
+      "email": "Email",
+      "businessHours": "Business Hours",
+      "hoursValue": "Monday to Friday: 9:00am - 6:00pm\nSaturday: 10:00am - 4:00pm\nSunday: Closed"
+    },
+    "offices": {
+      "title": "Office Locations",
+      "mainOffice": "Main Office",
+      "branchOffice": "Branch Office",
+      "mainOfficeLocation": "Bastos, Yaoundé",
+      "branchOfficeLocation": "Bonanjo, Douala"
+    },
+    "quickContact": {
+      "title": "Quick Contact",
+      "whatsapp": "WhatsApp",
+      "sendEmail": "Send Email"
+    },
+    "map": {
+      "title": "Find Us",
+      "placeholder": "Map integration placeholder"
+    }
+  },
+  "testimonials": {
+    "title": "Client Testimonials",
+    "subtitle": "Hear from our satisfied clients about their experience with Imobuy",
+    "successStories": "Success Stories",
+    "story1": {
+      "title": "From First-Time Buyer to Property Owner",
+      "content": "\"As a first-time buyer, I was overwhelmed by the process. Imobuy's team guided me through every step, from finding the right property to completing all legal documentation. Their transparency and support made what seemed impossible, possible.\"",
+      "author": "— Min-jun Lee, First-time Buyer"
+    },
+    "story2": {
+      "title": "Successful Investment Portfolio",
+      "content": "\"Imobuy's investment advisory helped me build a diverse real estate portfolio. Their market insights and strategic recommendations have resulted in excellent returns. I couldn't be happier with their service.\"",
+      "author": "— James Park, Investor"
+    },
+    "form": {
+      "title": "Submit Your Testimonial",
+      "description": "Share your experience with Imobuy. We'd love to hear from you!",
+      "success": "Thank you for your testimonial! We'll review it and may feature it on our website."
+    }
+  },
+  "news": {
+    "title": "News & Insights",
+    "subtitle": "Stay updated with the latest real estate trends, market insights, and company announcements",
+    "category": {
+      "news": "news",
+      "project": "project",
+      "insight": "insight",
+      "announcement": "announcement"
+    }
+  },
+  "locations": {
+    "title": "Our Locations",
+    "subtitle": "Explore our service areas and available properties across different locations",
+    "properties": "Properties",
+    "viewProperties": "View Properties →",
+    "mapOverview": "Map Overview",
+    "mapPlaceholder": "Interactive map integration placeholder",
+    "investmentInsights": "Local Investment Insights",
+    "market": "Market",
+    "insightDesc": "The {location} area offers excellent investment opportunities with strong market fundamentals and growth potential. Average property prices are competitive, making it an attractive option for both residential and commercial investments.",
+    "insight1": "Growing property values",
+    "insight2": "Strong rental demand",
+    "insight3": "Excellent connectivity",
+    "insight4": "Development potential"
+  },
+  "resources": {
+    "title": "Resources",
+    "subtitle": "Educational resources and guides to help you navigate the real estate process",
+    "buyingGuide": "Buying Guide",
+    "step1": {
+      "title": "Step 1: Preparation",
+      "desc": "Before you start looking, determine your budget, get pre-approved for a mortgage, and identify your must-haves and nice-to-haves.",
+      "item1": "Assess your financial situation",
+      "item2": "Get mortgage pre-approval",
+      "item3": "Define your property requirements",
+      "item4": "Research neighborhoods"
+    },
+    "step2": {
+      "title": "Step 2: Property Search",
+      "desc": "Use our platform to search for properties, attend viewings, and work with our agents to find the perfect match.",
+      "item1": "Browse available properties",
+      "item2": "Schedule property viewings",
+      "item3": "Evaluate properties",
+      "item4": "Compare options"
+    },
+    "step3": {
+      "title": "Step 3: Making an Offer",
+      "desc": "Once you find the right property, we'll help you make a competitive offer and negotiate terms.",
+      "item1": "Determine offer price",
+      "item2": "Include conditions and contingencies",
+      "item3": "Submit offer",
+      "item4": "Negotiate terms"
+    },
+    "step4": {
+      "title": "Step 4: Closing",
+      "desc": "Finalize financing, complete inspections, review legal documents, and close the transaction.",
+      "item1": "Property inspection",
+      "item2": "Finalize financing",
+      "item3": "Review legal documents",
+      "item4": "Complete transaction"
+    },
+    "landOwnership": {
+      "title": "Land Ownership Process",
+      "step1": {
+        "title": "1. Land Identification",
+        "desc": "Identify suitable land parcels based on your requirements, location preferences, and budget. Our team helps you find the perfect plot."
+      },
+      "step2": {
+        "title": "2. Due Diligence",
+        "desc": "Conduct thorough due diligence including title verification, zoning checks, environmental assessments, and legal compliance review."
+      },
+      "step3": {
+        "title": "3. Purchase Agreement",
+        "desc": "Negotiate and sign a purchase agreement with all terms and conditions clearly defined. Our legal team ensures all documentation is in order."
+      },
+      "step4": {
+        "title": "4. Title Transfer",
+        "desc": "Complete the title transfer process, register the property in your name, and obtain all necessary certificates and documentation."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": "What documents do I need to buy a property?",
+      "a1": "You'll typically need identification documents, proof of income, bank statements, and any pre-approval letters from lenders. Our team will guide you through all required documentation.",
+      "q2": "How long does the property buying process take?",
+      "a2": "The process typically takes 30-60 days from offer acceptance to closing, depending on financing, inspections, and legal requirements. We work to expedite the process while ensuring all steps are completed properly.",
+      "q3": "Do you help with property financing?",
+      "a3": "Yes, we work with trusted lenders and can help connect you with financing options. We also provide guidance on mortgage pre-approval and loan applications.",
+      "q4": "What is included in your property management services?",
+      "a4": "Our property management services include tenant screening, rent collection, maintenance coordination, property inspections, financial reporting, and legal compliance support.",
+      "q5": "How do you ensure legal security in transactions?",
+      "a5": "We conduct thorough title verification, legal compliance checks, contract review, and work with qualified legal professionals to ensure all transactions are secure and compliant with regulations.",
+      "q6": "Can you help with property valuation?",
+      "a6": "Yes, we provide comprehensive property valuation services including market analysis, comparative market analysis (CMA), and investment value assessments."
+    },
+    "downloads": {
+      "title": "Downloadable Resources",
+      "buyersGuide": {
+        "title": "Buyer's Guide",
+        "desc": "Complete guide for property buyers"
+      },
+      "sellersGuide": {
+        "title": "Seller's Guide",
+        "desc": "Complete guide for property sellers"
+      },
+      "investmentGuide": {
+        "title": "Investment Guide",
+        "desc": "Real estate investment strategies"
+      },
+      "legalDocuments": {
+        "title": "Legal Documents",
+        "desc": "Sample contracts and forms"
+      },
+      "marketReport": {
+        "title": "Market Report 2025",
+        "desc": "Annual market analysis report"
+      },
+      "checklist": {
+        "title": "Property Checklist",
+        "desc": "Property viewing checklist"
+      },
+      "downloadPdf": "Download PDF →"
+    },
+    "legal": {
+      "title": "Legal & Policy Documents",
+      "view": "View →"
+    }
+  },
+  "metadata": {
+    "home": {
+      "title": "Imobuy - Real Estate Platform | Find Your Dream Property",
+      "description": "Imobuy brings customers and sellers/agents closer to facilitate sales and transparency for houses, apartments, parcels, and more. Find your perfect property today."
+    },
+    "about": {
+      "title": "About Imobuy - Real Estate Platform",
+      "description": "Learn about Imobuy, our mission, vision, values, and team dedicated to bringing customers and sellers closer."
+    },
+    "services": {
+      "title": "Services - Imobuy Real Estate",
+      "description": "Comprehensive real estate services including land sales, property management, consulting, and more."
+    },
+    "properties": {
+      "title": "Properties - Imobuy Real Estate",
+      "description": "Browse our complete collection of available properties including houses, apartments, land, and commercial spaces."
+    },
+    "contact": {
+      "title": "Contact Us - Imobuy Real Estate",
+      "description": "Get in touch with our team for inquiries, property viewings, or any questions about our services."
+    },
+    "testimonials": {
+      "title": "Testimonials - Imobuy Real Estate",
+      "description": "Read what our clients say about their experience with Imobuy."
+    },
+    "news": {
+      "title": "News & Insights - Imobuy Real Estate",
+      "description": "Stay updated with the latest real estate news, market insights, and company announcements."
+    },
+    "locations": {
+      "title": "Locations - Imobuy Real Estate",
+      "description": "Explore our service areas and available properties by location."
+    },
+    "resources": {
+      "title": "Resources - Imobuy Real Estate",
+      "description": "Educational resources, guides, FAQs, and downloadable documents for real estate transactions."
+    }
+  }
 }

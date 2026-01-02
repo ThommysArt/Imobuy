@@ -12,8 +12,12 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { PropertyType } from "@/data/properties"
+import { useTranslations } from "next-intl"
 
 export function PropertySearch() {
+  const t = useTranslations("properties.search")
+  const tType = useTranslations("common.propertyType")
+  const tButton = useTranslations("common.button")
   const router = useRouter()
   const [searchQuery, setSearchQuery] = useState("")
   const [propertyType, setPropertyType] = useState<PropertyType | "all">("all")
@@ -38,7 +42,7 @@ export function PropertySearch() {
     <div className="w-full max-w-5xl mx-auto bg-background/95 backdrop-blur-sm rounded-lg shadow-lg border border-border/50 p-4 sm:p-6">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Input
-          placeholder="Search by location..."
+          placeholder={t("placeholder")}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           onKeyPress={handleKeyPress}
@@ -49,23 +53,23 @@ export function PropertySearch() {
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All Types</SelectItem>
-            <SelectItem value="house">House</SelectItem>
-            <SelectItem value="apartment">Apartment</SelectItem>
-            <SelectItem value="land">Land</SelectItem>
-            <SelectItem value="commercial">Commercial</SelectItem>
+            <SelectItem value="all">{tType("all")}</SelectItem>
+            <SelectItem value="house">{tType("house")}</SelectItem>
+            <SelectItem value="apartment">{tType("apartment")}</SelectItem>
+            <SelectItem value="land">{tType("land")}</SelectItem>
+            <SelectItem value="commercial">{tType("commercial")}</SelectItem>
           </SelectContent>
         </Select>
         <Input
           type="number"
-          placeholder="Max Price"
+          placeholder={t("maxPrice")}
           value={maxPrice}
           onChange={(e) => setMaxPrice(e.target.value)}
           onKeyPress={handleKeyPress}
           className="w-full bg-background text-foreground border-border"
         />
         <Button onClick={handleSearch} className="w-full">
-          Search Properties
+          {t("button")}
         </Button>
       </div>
     </div>

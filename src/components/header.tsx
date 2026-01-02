@@ -7,10 +7,15 @@ import { InteractiveHoverButton } from "@/components/interactive-hover-button"
 import { useState, useEffect, useRef } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useTranslations } from "next-intl"
 
 gsap.registerPlugin(ScrollTrigger)
 
 export function Header() {
+  const t = useTranslations("navigation")
+  const tHeader = useTranslations("header")
+  const tButton = useTranslations("common.button")
+  const tAria = useTranslations("common.aria")
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const headerRef = useRef<HTMLElement>(null)
   const scrollTriggerRef = useRef<ScrollTrigger | null>(null)
@@ -79,12 +84,12 @@ export function Header() {
   }, [])
 
   const navItems = [
-    { label: "Home", href: "/" },
-    { label: "Properties", href: "/properties" },
-    { label: "Services", href: "/services" },
-    { label: "About", href: "/about" },
-    { label: "News", href: "/news" },
-    { label: "Contact", href: "/contact" },
+    { label: t("home"), href: "/" },
+    { label: t("properties"), href: "/properties" },
+    { label: t("services"), href: "/services" },
+    { label: t("about"), href: "/about" },
+    { label: t("news"), href: "/news" },
+    { label: t("contact"), href: "/contact" },
   ]
 
   return (
@@ -93,7 +98,7 @@ export function Header() {
         <Link href="/" className="flex items-center gap-2 sm:gap-3">
           <Image
             src="/IMOBUY.svg"
-            alt="Imobuy Logo"
+            alt={tHeader("logoAlt")}
             width={32}
             height={32}
             className="w-6 h-6 sm:w-8 sm:h-8"
@@ -115,7 +120,7 @@ export function Header() {
         <div className="flex items-center gap-4">
           <Link href="/contact" className="hidden sm:flex">
             <InteractiveHoverButton className="tracking-tight uppercase text-xs sm:text-sm">
-              Get in Touch
+              {tButton("getInTouch")}
             </InteractiveHoverButton>
           </Link>
 
@@ -123,7 +128,7 @@ export function Header() {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="lg:hidden p-2"
-            aria-label="Toggle menu"
+            aria-label={tAria("toggleMenu")}
           >
             <div className="w-6 h-6 flex flex-col justify-center gap-1.5">
               <span
@@ -162,7 +167,7 @@ export function Header() {
             ))}
             <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
               <InteractiveHoverButton className="mt-4 tracking-tight uppercase text-sm">
-                Get in Touch
+                {tButton("getInTouch")}
               </InteractiveHoverButton>
             </Link>
           </div>

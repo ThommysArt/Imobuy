@@ -7,8 +7,15 @@ import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { InteractiveHoverButton } from "@/components/interactive-hover-button"
+import { useTranslations } from "next-intl"
 
 export default function ContactPage() {
+  const t = useTranslations("contact")
+  const tCommon = useTranslations("common")
+  const tLabel = useTranslations("common.label")
+  const tPlaceholder = useTranslations("common.placeholder")
+  const tButton = useTranslations("common.button")
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -21,7 +28,7 @@ export default function ContactPage() {
     e.preventDefault()
     // Handle form submission
     console.log("Form submitted:", formData)
-    alert("Thank you for your message! We'll get back to you soon.")
+    alert(t("form.success"))
     setFormData({ name: "", email: "", phone: "", subject: "", message: "" })
   }
 
@@ -31,10 +38,10 @@ export default function ContactPage() {
       <section className="px-4 sm:px-[2vw] pt-24 sm:pt-32 pb-16 sm:pb-[10vh] bg-muted/30">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-            Contact Us
+            {t("title")}
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl font-normal tracking-tight text-muted-foreground">
-            Get in touch with our team for inquiries, property viewings, or any questions
+            {t("subtitle")}
           </p>
         </div>
       </section>
@@ -46,59 +53,59 @@ export default function ContactPage() {
             {/* Contact Form */}
             <Card>
               <CardHeader>
-                <CardTitle className="text-2xl sm:text-3xl">Send us a Message</CardTitle>
+                <CardTitle className="text-2xl sm:text-3xl">{t("form.title")}</CardTitle>
                 <CardDescription>
-                  Fill out the form below and we'll get back to you as soon as possible
+                  {t("form.description")}
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Name</Label>
+                    <Label htmlFor="name">{tLabel("name")}</Label>
                     <Input
                       id="name"
-                      placeholder="Your name"
+                      placeholder={tPlaceholder("name")}
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
+                    <Label htmlFor="email">{tLabel("email")}</Label>
                     <Input
                       id="email"
                       type="email"
-                      placeholder="your.email@example.com"
+                      placeholder={tPlaceholder("email")}
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Phone</Label>
+                    <Label htmlFor="phone">{tLabel("phone")}</Label>
                     <Input
                       id="phone"
                       type="tel"
-                      placeholder="+237 6 1234 5678"
+                      placeholder={tPlaceholder("phone")}
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="subject">Subject</Label>
+                    <Label htmlFor="subject">{tLabel("subject")}</Label>
                     <Input
                       id="subject"
-                      placeholder="What is this regarding?"
+                      placeholder={tPlaceholder("subject")}
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
+                    <Label htmlFor="message">{tLabel("message")}</Label>
                     <Textarea
                       id="message"
-                      placeholder="Your message..."
+                      placeholder={tPlaceholder("message")}
                       rows={6}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -106,7 +113,7 @@ export default function ContactPage() {
                     />
                   </div>
                   <InteractiveHoverButton type="submit" className="tracking-tight uppercase text-xs sm:text-sm">
-                    Send Message
+                    {tButton("sendMessage")}
                   </InteractiveHoverButton>
                 </form>
               </CardContent>
@@ -116,34 +123,31 @@ export default function ContactPage() {
             <div className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl sm:text-3xl">Contact Information</CardTitle>
+                  <CardTitle className="text-2xl sm:text-3xl">{t("info.title")}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">Address</h3>
-                    <p className="text-muted-foreground">
-                      Bastos, Yaoundé<br />
-                      Cameroon
+                    <h3 className="font-semibold text-lg mb-2">{t("info.address")}</h3>
+                    <p className="text-muted-foreground whitespace-pre-line">
+                      {t("info.addressValue")}
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">Phone</h3>
+                    <h3 className="font-semibold text-lg mb-2">{t("info.phone")}</h3>
                     <a href="tel:+237612345678" className="text-muted-foreground hover:text-primary transition-colors">
                       +237 6 1234 5678
                     </a>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">Email</h3>
+                    <h3 className="font-semibold text-lg mb-2">{t("info.email")}</h3>
                     <a href="mailto:contact@imobuy.com" className="text-muted-foreground hover:text-primary transition-colors">
                       contact@imobuy.com
                     </a>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">Business Hours</h3>
-                    <p className="text-muted-foreground">
-                      Monday to Friday: 9:00am - 6:00pm<br />
-                      Saturday: 10:00am - 4:00pm<br />
-                      Sunday: Closed
+                    <h3 className="font-semibold text-lg mb-2">{t("info.businessHours")}</h3>
+                    <p className="text-muted-foreground whitespace-pre-line">
+                      {t("info.hoursValue")}
                     </p>
                   </div>
                 </CardContent>
@@ -151,19 +155,19 @@ export default function ContactPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl sm:text-2xl">Office Locations</CardTitle>
+                  <CardTitle className="text-xl sm:text-2xl">{t("offices.title")}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <h4 className="font-semibold mb-1">Main Office</h4>
+                    <h4 className="font-semibold mb-1">{t("offices.mainOffice")}</h4>
                     <p className="text-sm text-muted-foreground">
-                      Bastos, Yaoundé
+                      {t("offices.mainOfficeLocation")}
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Branch Office</h4>
+                    <h4 className="font-semibold mb-1">{t("offices.branchOffice")}</h4>
                     <p className="text-sm text-muted-foreground">
-                      Bonanjo, Douala
+                      {t("offices.branchOfficeLocation")}
                     </p>
                   </div>
                 </CardContent>
@@ -171,17 +175,17 @@ export default function ContactPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl sm:text-2xl">Quick Contact</CardTitle>
+                  <CardTitle className="text-xl sm:text-2xl">{t("quickContact.title")}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <a href="tel:+237612345678" className="inline-flex items-center justify-center whitespace-nowrap rounded-lg border border-border bg-background hover:bg-muted hover:text-foreground h-8 px-2.5 text-sm font-medium transition-all w-full">
-                    Call Now
+                    {tButton("callNow")}
                   </a>
                   <a href="https://wa.me/237612345678" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center whitespace-nowrap rounded-lg border border-border bg-background hover:bg-muted hover:text-foreground h-8 px-2.5 text-sm font-medium transition-all w-full">
-                    WhatsApp
+                    {t("quickContact.whatsapp")}
                   </a>
                   <a href="mailto:contact@imobuy.com" className="inline-flex items-center justify-center whitespace-nowrap rounded-lg border border-border bg-background hover:bg-muted hover:text-foreground h-8 px-2.5 text-sm font-medium transition-all w-full">
-                    Send Email
+                    {t("quickContact.sendEmail")}
                   </a>
                 </CardContent>
               </Card>
@@ -194,11 +198,11 @@ export default function ContactPage() {
       <section className="px-4 sm:px-[2vw] py-16 sm:py-[10vh] bg-muted/30">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-8 text-center">
-            Find Us
+            {t("map.title")}
           </h2>
           <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
             <p className="text-sm sm:text-base text-muted-foreground">
-              Map integration placeholder
+              {t("map.placeholder")}
             </p>
           </div>
         </div>

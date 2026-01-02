@@ -1,8 +1,11 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Property } from "@/data/properties"
 import { cn } from "@/lib/utils"
 import { formatCurrency } from "@/lib/currency"
+import { useTranslations } from "next-intl"
 
 interface PropertyCardProps {
   property: Property
@@ -10,18 +13,17 @@ interface PropertyCardProps {
 }
 
 export function PropertyCard({ property, className }: PropertyCardProps) {
+  const t = useTranslations("common.propertyType")
+  const tStatus = useTranslations("common.status")
+  const tLabel = useTranslations("common.label")
+  const tProperties = useTranslations("properties")
+  
   const formatPrice = (price: number, currency?: string) => {
     return formatCurrency(price, currency, { maximumFractionDigits: 0 })
   }
 
   const getTypeLabel = (type: Property["type"]) => {
-    const labels = {
-      house: "House",
-      apartment: "Apartment",
-      land: "Land",
-      commercial: "Commercial",
-    }
-    return labels[type]
+    return t(type)
   }
 
   return (
@@ -41,7 +43,7 @@ export function PropertyCard({ property, className }: PropertyCardProps) {
         />
         {property.featured && (
           <div className="absolute top-4 left-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold">
-            Featured
+            {tProperties("featured")}
           </div>
         )}
         <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold">
@@ -66,10 +68,10 @@ export function PropertyCard({ property, className }: PropertyCardProps) {
         {(property.bedrooms || property.bathrooms) && (
           <div className="flex items-center gap-4 text-sm text-muted-foreground mt-2">
             {property.bedrooms && (
-              <span>{property.bedrooms} Bed{property.bedrooms > 1 ? "s" : ""}</span>
+              <span>{property.bedrooms} {property.bedrooms > 1 ? tLabel("beds") : tLabel("bed")}</span>
             )}
             {property.bathrooms && (
-              <span>{property.bathrooms} Bath{property.bathrooms > 1 ? "s" : ""}</span>
+              <span>{property.bathrooms} {property.bathrooms > 1 ? tLabel("baths") : tLabel("bath")}</span>
             )}
           </div>
         )}
@@ -84,7 +86,7 @@ export function PropertyCard({ property, className }: PropertyCardProps) {
                   : "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200"
             )}
           >
-            {property.status.charAt(0).toUpperCase() + property.status.slice(1)}
+            {tStatus(property.status)}
           </span>
         </div>
       </div>

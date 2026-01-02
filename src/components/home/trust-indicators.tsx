@@ -1,19 +1,22 @@
 "use client"
 
 import { TextParallax } from "@/components/text-parallax"
+import { useTranslations } from "next-intl"
 
 export function TrustIndicators() {
+  const t = useTranslations("home.trustIndicators")
+  
   const indicators = [
-    { number: "500+", label: "Properties Sold" },
-    { number: "1000+", label: "Happy Clients" },
-    { number: "15+", label: "Years Experience" },
-    { number: "98%", label: "Satisfaction Rate" },
+    { number: "500+", label: t("propertiesSold") },
+    { number: "1000+", label: t("happyClients") },
+    { number: "15+", label: t("yearsExperience") },
+    { number: "98%", label: t("satisfactionRate") },
   ]
 
   return (
     <section className="h-full w-full relative bg-white pt-8 sm:pt-[10vh] pb-16 sm:pb-[10vh]">
       <TextParallax
-        text="WHY IMOBUY"
+        text={t("whyImobuy")}
         className="h-[15vw] sm:h-[10vw] w-full"
         directions={["right"]}
         leftOffsets={["-60%"]}
@@ -21,7 +24,7 @@ export function TrustIndicators() {
         blockClassName='h-[7.5vw] sm:h-[5vw] bg-neutral-200/40'
       />
       <TextParallax
-        text="TRUSTED & RELIABLE"
+        text={t("trustedReliable")}
         className="h-[15vw] sm:h-[10vw] w-full -mt-[7.5vw] sm:-mt-[5vw]"
         directions={["left"]}
         leftOffsets={["-20%"]}
@@ -45,21 +48,21 @@ export function TrustIndicators() {
 
         <div className="max-w-4xl mx-auto mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           <div className="text-center">
-            <h3 className="text-xl sm:text-2xl font-semibold mb-2">Transparency</h3>
+            <h3 className="text-xl sm:text-2xl font-semibold mb-2">{t("transparency")}</h3>
             <p className="text-sm sm:text-base text-muted-foreground">
-              Full disclosure of all property details, legal documentation, and transaction processes.
+              {t("transparencyDesc")}
             </p>
           </div>
           <div className="text-center">
-            <h3 className="text-xl sm:text-2xl font-semibold mb-2">Experience</h3>
+            <h3 className="text-xl sm:text-2xl font-semibold mb-2">{t("experience")}</h3>
             <p className="text-sm sm:text-base text-muted-foreground">
-              Years of expertise in real estate transactions and market analysis.
+              {t("experienceDesc")}
             </p>
           </div>
           <div className="text-center">
-            <h3 className="text-xl sm:text-2xl font-semibold mb-2">Legal Security</h3>
+            <h3 className="text-xl sm:text-2xl font-semibold mb-2">{t("legalSecurity")}</h3>
             <p className="text-sm sm:text-base text-muted-foreground">
-              Comprehensive legal support ensuring all transactions are secure and compliant.
+              {t("legalSecurityDesc")}
             </p>
           </div>
         </div>

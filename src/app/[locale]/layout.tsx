@@ -7,6 +7,7 @@ import { FloatingCTA } from "@/components/floating-cta";
 import { PageLoader } from "@/components/page-loader";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { getMessages, getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 
 const dmSans = DM_Sans({subsets:['latin'],variable:'--font-sans'});
@@ -21,15 +22,23 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Imobuy - Real Estate Platform | Find Your Dream Property",
-  description: "Imobuy brings customers and sellers/agents closer to facilitate sales and transparency for houses, apartments, parcels, and more. Find your perfect property today.",
-  icons: {
-    icon: "/IMOBUY.svg",
-    shortcut: "/IMOBUY.svg",
-    apple: "/IMOBUY.svg",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: "metadata.home" })
+  return {
+    title: t("title"),
+    description: t("description"),
+    icons: {
+      icon: "/IMOBUY.svg",
+      shortcut: "/IMOBUY.svg",
+      apple: "/IMOBUY.svg",
+    },
+  }
+}
 
 export default async function RootLayout({
   children,
@@ -43,12 +52,14 @@ export default async function RootLayout({
     notFound();
   }
 
+  const messages = await getMessages();
+
   return (
     <html lang={locale} className={dmSans.variable} suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
           <PageLoader />
           <Header />
           <main>

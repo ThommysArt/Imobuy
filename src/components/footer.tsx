@@ -1,22 +1,28 @@
+"use client"
+
 import { AnimatedLink } from '@/components/animated-link'
 import Link from 'next/link'
 import React from 'react'
+import { useTranslations } from 'next-intl'
 
 export function Footer() {
+  const t = useTranslations("footer")
+  const tNav = useTranslations("navigation")
+  
   const navItems = [
-    { label: "Home", href: "/" },
-    { label: "Properties", href: "/properties" },
-    { label: "Services", href: "/services" },
-    { label: "About", href: "/about" },
-    { label: "News", href: "/news" },
-    { label: "Contact", href: "/contact" },
+    { label: tNav("home"), href: "/" },
+    { label: tNav("properties"), href: "/properties" },
+    { label: tNav("services"), href: "/services" },
+    { label: tNav("about"), href: "/about" },
+    { label: tNav("news"), href: "/news" },
+    { label: tNav("contact"), href: "/contact" },
   ]
 
   const quickLinks = [
-    { label: "Land for Sale", href: "/properties?type=land" },
-    { label: "Residential Properties", href: "/properties?type=house" },
-    { label: "Commercial Properties", href: "/properties?type=commercial" },
-    { label: "Investment Opportunities", href: "/properties?featured=true" },
+    { label: t("quickLinks.landForSale"), href: "/properties?type=land" },
+    { label: t("quickLinks.residentialProperties"), href: "/properties?type=house" },
+    { label: t("quickLinks.commercialProperties"), href: "/properties?type=commercial" },
+    { label: t("quickLinks.investmentOpportunities"), href: "/properties?featured=true" },
   ]
 
   return (
@@ -27,16 +33,16 @@ export function Footer() {
             Imobuy
           </h3>
           <p className="text-base sm:text-lg font-normal tracking-tight text-muted-foreground">
-            Bringing customers and sellers/agents closer to facilitate sales and transparency for houses, apartments, parcels, and more.
+            {t("description")}
           </p>
         </div>
 
         <div className='flex flex-col w-full h-full'>
-          <span className='font-semibold tracking-tight mb-4 uppercase text-sm sm:text-base'>[Navigation]</span>
+          <span className='font-semibold tracking-tight mb-4 uppercase text-sm sm:text-base'>{t("navigation")}</span>
           <ul className='text-xl sm:text-2xl font-medium tracking-tight space-y-4'>
             {navItems.map((nav) => (
-              <li key={nav.href} className='w-full overflow-visible flex items-center'>
-                <AnimatedLink href={nav.href} className=''>
+              <li key={nav.href} className='flex items-center'>
+                <AnimatedLink href={nav.href} className='inline-block'>
                   {nav.label}
                 </AnimatedLink>
               </li>
@@ -45,7 +51,7 @@ export function Footer() {
         </div>
 
         <div className='flex flex-col gap-4'>
-          <span className='font-semibold tracking-tight mb-2 uppercase text-sm sm:text-base'>[Quick Links]</span>
+          <span className='font-semibold tracking-tight mb-2 uppercase text-sm sm:text-base'>{t("quickLinksLabel")}</span>
           <ul className='space-y-2'>
             {quickLinks.map((link) => (
               <li key={link.href}>
@@ -56,19 +62,19 @@ export function Footer() {
             ))}
           </ul>
           
-          <span className='font-semibold tracking-tight mb-2 uppercase mt-6 sm:mt-10 text-sm sm:text-base'>[Contact]</span>
-          <p className="text-sm sm:text-base font-normal tracking-tight text-muted-foreground">
-            A: Bastos, Yaoundé, Cameroon <br />
-            E: contact@imobuy.com <br />
-            P: +237 6 1234 5678 <br />
-            H: Monday to Friday, 9:00am - 6:00pm
+          <span className='font-semibold tracking-tight mb-2 uppercase mt-6 sm:mt-10 text-sm sm:text-base'>{t("contact")}</span>
+          <p className="text-sm sm:text-base font-normal tracking-tight text-muted-foreground whitespace-pre-line">
+            {t("address")} <br />
+            {t("email")} <br />
+            {t("phone")} <br />
+            {t("hours")}
           </p>
         </div>
       </div>
 
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 px-4 sm:px-[2vw] py-6 border-t border-border text-xs sm:text-sm font-semibold tracking-tight">
         <span className='flex flex-col gap-1 leading-none'>
-          <span>© 2025 Imobuy. All rights reserved.</span>
+          <span>{t("copyright")}</span>
         </span>
         <span className="flex gap-3 sm:gap-4">
           <AnimatedLink href='#'>
@@ -83,10 +89,10 @@ export function Footer() {
         </span>
         <span className='flex flex-col gap-1 leading-none text-muted-foreground'>
           <Link href='/resources' className='hover:text-foreground transition-colors'>
-            Privacy Policy
+            {t("privacyPolicy")}
           </Link>
           <Link href='/resources' className='hover:text-foreground transition-colors'>
-            Terms of Service
+            {t("termsOfService")}
           </Link>
         </span>
       </div>

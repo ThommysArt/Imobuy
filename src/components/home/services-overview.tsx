@@ -4,17 +4,20 @@ import { services } from "@/data/services"
 import { InteractiveHoverButton } from "@/components/interactive-hover-button"
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { useTranslations } from "next-intl"
 
 export function ServicesOverview() {
+  const t = useTranslations("home.services")
+  const tButton = useTranslations("common.button")
   return (
     <section className="h-full w-full px-4 sm:px-[2vw] py-16 sm:py-[10vh] relative bg-muted/30">
       <div className="max-w-7xl mx-auto">
         <div className="mb-8 sm:mb-12 text-center">
           <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tighter leading-[1] uppercase mb-4">
-            Our Services
+            {t("title")}
           </p>
           <p className="text-lg sm:text-xl font-normal tracking-tight text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive real estate solutions tailored to your needs
+            {t("subtitle")}
           </p>
         </div>
 
@@ -45,7 +48,7 @@ export function ServicesOverview() {
         <div className="flex justify-center mt-8 sm:mt-12">
           <Link href="/services">
             <InteractiveHoverButton className="tracking-tight uppercase text-xs sm:text-sm">
-              Learn More About Our Services
+              {t("learnMore")}
             </InteractiveHoverButton>
           </Link>
         </div>

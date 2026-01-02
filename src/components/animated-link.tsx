@@ -58,7 +58,7 @@ export const AnimatedLink: React.FC<AnimatedLinkProps> = ({ href, children, clas
 
         // Animate chars up with stagger
         tl.to(chars, {
-          y: -10,
+          y: -8,
           duration: 0.4,
           ease: 'power3.out',
           stagger: {
@@ -171,8 +171,8 @@ export const AnimatedLink: React.FC<AnimatedLinkProps> = ({ href, children, clas
     }, [children])
   
     return (
-      <Link href={href} ref={ref} className={`${className}`}>
-        <span className='relative inline-block overflow-visible pt-[100px] -mt-[100px]'>
+      <Link href={href} ref={ref} className={`inline-block ${className}`}>
+        <span className='relative inline-block overflow-visible' style={{ paddingTop: '12px', marginTop: '-12px' }}>
           <span ref={textRef} className='inline-flex whitespace-nowrap'>
             {children}
           </span>

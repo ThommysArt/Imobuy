@@ -3,8 +3,11 @@
 import Link from "next/link"
 import { useState } from "react"
 import { cn } from "@/lib/utils"
+import { useTranslations } from "next-intl"
 
 export function FloatingCTA() {
+  const t = useTranslations("common.button")
+  const tAria = useTranslations("common.aria")
   const [isExpanded, setIsExpanded] = useState(false)
 
   return (
@@ -16,14 +19,14 @@ export function FloatingCTA() {
             className="px-4 py-2 text-sm font-medium hover:bg-muted rounded-md transition-colors"
             onClick={() => setIsExpanded(false)}
           >
-            Contact Us
+            {t("contactUs")}
           </Link>
           <Link
             href="tel:+82212345678"
             className="px-4 py-2 text-sm font-medium hover:bg-muted rounded-md transition-colors"
             onClick={() => setIsExpanded(false)}
           >
-            Call Now
+            {t("callNow")}
           </Link>
           <a
             href="https://wa.me/82123456789"
@@ -42,7 +45,7 @@ export function FloatingCTA() {
           "w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all flex items-center justify-center",
           isExpanded && "bg-primary/90"
         )}
-        aria-label="Contact options"
+        aria-label={tAria("contactOptions")}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
