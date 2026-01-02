@@ -21,8 +21,14 @@ export function Header() {
   const scrollTriggerRef = useRef<ScrollTrigger | null>(null)
 
   useEffect(() => {
-    // Only run on home page
-    if (typeof window === "undefined" || window.location.pathname !== "/") {
+    // Only run on home page (check if pathname is just locale or locale/)
+    if (typeof window === "undefined") return
+    
+    const pathname = window.location.pathname
+    // Check if we're on the home page (e.g., /en, /fr, /en/, /fr/, or just /)
+    const isHomePage = pathname === "/" || /^\/[a-z]{2}\/?$/.test(pathname)
+    
+    if (!isHomePage) {
       // Show header immediately on other pages
       if (headerRef.current) {
         gsap.set(headerRef.current, { 
@@ -93,7 +99,7 @@ export function Header() {
   ]
 
   return (
-    <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
+    <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border" style={{ transform: 'translateY(-100%)' }}>
       <div className="px-4 sm:px-[2vw] py-4 sm:py-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 sm:gap-3">
           <Image
