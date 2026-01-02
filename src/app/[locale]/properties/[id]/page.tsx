@@ -8,37 +8,42 @@ import { InteractiveHoverButton } from "@/components/interactive-hover-button"
 import { InteractiveHoverButtonLight } from "@/components/interactive-hover-button-light"
 import { formatCurrency } from "@/lib/currency"
 import Link from "next/link"
+import { getTranslations } from "next-intl/server"
 
 interface PropertyDetailPageProps {
-  params: Promise<{ id: string }>
+  params: Promise<{ locale: string; id: string }>
 }
 
 export async function generateStaticParams() {
-  return properties.map((property) => ({
-    id: property.id,
-  }))
+  const locales = ["en", "fr"]
+  return locales.flatMap((locale) =>
+    properties.map((property) => ({
+      locale,
+      id: property.id,
+    }))
+  )
 }
 
 export default async function PropertyDetailPage({ params }: PropertyDetailPageProps) {
-  const { id } = await params
+  const { locale, id } = await params
   const property = properties.find((p) => p.id === id)
 
   if (!property) {
     notFound()
   }
 
+  const t = await getTranslations({ locale, namespace: "properties.detail" })
+  const tNav = await getTranslations({ locale, namespace: "navigation" })
+  const tType = await getTranslations({ locale, namespace: "common.propertyType" })
+  const tStatus = await getTranslations({ locale, namespace: "common.status" })
+  const tLabel = await getTranslations({ locale, namespace: "common.label" })
+
   const formatPrice = (price: number, currency?: string) => {
     return formatCurrency(price, currency, { maximumFractionDigits: 0 })
   }
 
   const getTypeLabel = (type: typeof property.type) => {
-    const labels = {
-      house: "House",
-      apartment: "Apartment",
-      land: "Land",
-      commercial: "Commercial",
-    }
-    return labels[type]
+    return tType(type)
   }
 
   const relatedProperties = properties
@@ -51,9 +56,9 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
         <div className="max-w-7xl mx-auto">
           {/* Breadcrumb */}
           <nav className="text-sm text-muted-foreground mb-6">
-            <Link href="/" className="hover:text-foreground">Home</Link>
+            <Link href="/" className="hover:text-foreground">{tNav("home")}</Link>
             {" / "}
-            <Link href="/properties" className="hover:text-foreground">Properties</Link>
+            <Link href="/properties" className="hover:text-foreground">{tNav("properties")}</Link>
             {" / "}
             <span className="text-foreground">{property.title}</span>
           </nav>
@@ -84,12 +89,12 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                   </span>
                   {property.bedrooms && (
                     <span className="px-3 py-1 bg-muted rounded-full text-sm font-medium">
-                      {property.bedrooms} Bed{property.bedrooms > 1 ? "s" : ""}
+                      {property.bedrooms} {property.bedrooms > 1 ? tLabel("beds") : tLabel("bed")}
                     </span>
                   )}
                   {property.bathrooms && (
                     <span className="px-3 py-1 bg-muted rounded-full text-sm font-medium">
-                      {property.bathrooms} Bath{property.bathrooms > 1 ? "s" : ""}
+                      {property.bathrooms} {property.bathrooms > 1 ? tLabel("baths") : tLabel("bath")}
                     </span>
                   )}
                   <span
@@ -101,14 +106,14 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                           : "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200"
                     }`}
                   >
-                    {property.status.charAt(0).toUpperCase() + property.status.slice(1)}
+                    {tStatus(property.status)}
                   </span>
                 </div>
               </div>
 
               <Card>
                 <CardHeader>
-                  <CardTitle>Property Description</CardTitle>
+                  <CardTitle>{t("propertyDescription")}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
@@ -119,36 +124,36 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
 
               <Card>
                 <CardHeader>
-                  <CardTitle>Property Details</CardTitle>
+                  <CardTitle>{t("propertyDetails")}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <p className="text-sm text-muted-foreground">Type</p>
+                      <p className="text-sm text-muted-foreground">{t("type")}</p>
                       <p className="text-base font-medium">{getTypeLabel(property.type)}</p>
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Size</p>
+                      <p className="text-sm text-muted-foreground">{t("size")}</p>
                       <p className="text-base font-medium">{property.size}m²</p>
                     </div>
                     {property.bedrooms && (
                       <div>
-                        <p className="text-sm text-muted-foreground">Bedrooms</p>
+                        <p className="text-sm text-muted-foreground">{t("bedrooms")}</p>
                         <p className="text-base font-medium">{property.bedrooms}</p>
                       </div>
                     )}
                     {property.bathrooms && (
                       <div>
-                        <p className="text-sm text-muted-foreground">Bathrooms</p>
+                        <p className="text-sm text-muted-foreground">{t("bathrooms")}</p>
                         <p className="text-base font-medium">{property.bathrooms}</p>
                       </div>
                     )}
                     <div>
-                      <p className="text-sm text-muted-foreground">Location</p>
+                      <p className="text-sm text-muted-foreground">{t("location")}</p>
                       <p className="text-base font-medium">{property.location}</p>
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">City</p>
+                      <p className="text-sm text-muted-foreground">{t("city")}</p>
                       <p className="text-base font-medium">{property.city}</p>
                     </div>
                   </div>
@@ -157,16 +162,16 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
 
               <Card>
                 <CardHeader>
-                  <CardTitle>Legal & Documentation</CardTitle>
+                  <CardTitle>{t("legalDocumentation")}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-base text-muted-foreground mb-4">
-                    All legal documentation is verified and up to date. Our team ensures complete transparency in all transactions.
+                    {t("legalDescription")}
                   </p>
                   <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>• Title verification completed</li>
-                    <li>• Legal compliance confirmed</li>
-                    <li>• All documentation available for review</li>
+                    <li>• {t("titleVerification")}</li>
+                    <li>• {t("legalCompliance")}</li>
+                    <li>• {t("documentationAvailable")}</li>
                   </ul>
                 </CardContent>
               </Card>
@@ -176,26 +181,26 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
             <div className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>Contact Us</CardTitle>
+                  <CardTitle>{t("contactUs")}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-sm text-muted-foreground">
-                    Interested in this property? Get in touch with our team for more information or to schedule a visit.
+                    {t("contactDescription")}
                   </p>
                   <div className="flex flex-col gap-2">
                     <Link href="/contact" className="w-full mb-2">
                       <InteractiveHoverButton className="w-full tracking-tight uppercase text-xs sm:text-sm">
-                        Request Visit
+                        {t("requestVisit")}
                       </InteractiveHoverButton>
                     </Link>
                     <a href="tel:+237612345678" className="w-full mb-2">
                       <InteractiveHoverButtonLight className="w-full tracking-tight uppercase text-xs sm:text-sm border border-black">
-                        Call Now
+                        {t("callNow")}
                       </InteractiveHoverButtonLight>
                     </a>
                     <a href="https://wa.me/237612345678" target="_blank" rel="noopener noreferrer" className="w-full">
                       <InteractiveHoverButtonLight className="w-full tracking-tight uppercase text-xs sm:text-sm border border-black">
-                        WhatsApp
+                        {t("whatsApp")}
                       </InteractiveHoverButtonLight>
                     </a>
                   </div>
@@ -205,11 +210,11 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
               {property.coordinates && (
                 <Card>
                   <CardHeader>
-                    <CardTitle>Location Map</CardTitle>
+                    <CardTitle>{t("locationMap")}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-                      <p className="text-sm text-muted-foreground">Map integration placeholder</p>
+                      <p className="text-sm text-muted-foreground">{t("mapPlaceholder")}</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -221,7 +226,7 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
           {relatedProperties.length > 0 && (
             <div className="mt-16 sm:mt-20">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-8">
-                Related Properties
+                {t("relatedProperties")}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 {relatedProperties.map((related) => (

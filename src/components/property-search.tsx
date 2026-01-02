@@ -8,6 +8,7 @@ import {
   Select,
   SelectContent,
   SelectItem,
+  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
@@ -50,7 +51,9 @@ export function PropertySearch() {
         />
         <Select value={propertyType} onValueChange={(value) => setPropertyType(value as PropertyType | "all")}>
           <SelectTrigger className="w-full bg-background text-foreground border-border">
-            <SelectValue />
+            <SelectValue>
+              {propertyType === "all" ? tType("all") : tType(propertyType)}
+            </SelectValue>
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">{tType("all")}</SelectItem>
