@@ -79,7 +79,7 @@ export function PropertyFilters({ onFilterChange, className }: PropertyFiltersPr
               {t("description")}
             </SheetDescription>
           </SheetHeader>
-          <div className="mt-6 space-y-6">
+          <div className="mt-6 space-y-6 px-4">
             <div>
               <label className="text-sm font-medium mb-2 block">{t("propertyType")}</label>
               <Select

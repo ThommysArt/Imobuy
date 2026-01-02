@@ -37,7 +37,7 @@ export function PageLoader() {
   return (
     <div 
       ref={loaderRef} 
-      className='h-screen w-screen z-[9999] fixed top-0 left-0 opacity-100 bg-white text-black'
+      className='h-screen w-screen z-9999 fixed top-0 left-0 opacity-100 bg-white text-black'
     >
       <div className='relative w-full h-full'>
         {/* Progress bar */}

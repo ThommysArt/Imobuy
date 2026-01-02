@@ -99,7 +99,7 @@ export function Header() {
   ]
 
   return (
-    <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border" style={{ transform: 'translateY(-100%)' }}>
+    <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-border" style={{ transform: 'translateY(-100%)' }}>
       <div className="px-4 sm:px-[2vw] py-4 sm:py-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 sm:gap-3">
           <Image

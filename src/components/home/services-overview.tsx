@@ -10,7 +10,7 @@ export function ServicesOverview() {
   const t = useTranslations("home.services")
   const tButton = useTranslations("common.button")
   return (
-    <section className="h-full w-full px-4 sm:px-[2vw] py-16 sm:py-[10vh] relative bg-muted/30">
+    <section className="h-full w-full px-4 sm:px-6 md:px-8 lg:px-[2vw] py-16 sm:py-[10vh] relative bg-muted/30 overflow-x-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="mb-8 sm:mb-12 text-center">
           <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tighter leading-[1] uppercase mb-4">

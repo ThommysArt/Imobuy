@@ -172,7 +172,7 @@ export const AnimatedLink: React.FC<AnimatedLinkProps> = ({ href, children, clas
   
     return (
       <Link href={href} ref={ref} className={`inline-block ${className}`}>
-        <span className='relative inline-block overflow-visible' style={{ paddingTop: '12px', marginTop: '-12px' }}>
+        <span className='relative inline-block overflow-hidden' style={{ paddingTop: '12px', marginTop: '-12px' }}>
           <span ref={textRef} className='inline-flex whitespace-nowrap'>
             {children}
           </span>

@@ -12,7 +12,7 @@ export function FeaturedProperties() {
   const featured = properties.filter(p => p.featured).slice(0, 6)
 
   return (
-    <section className="h-full w-full px-4 sm:px-[2vw] py-16 sm:py-[10vh] relative bg-white">
+    <section className="h-full w-full px-4 sm:px-6 md:px-8 lg:px-[2vw] py-16 sm:py-[10vh] relative bg-white overflow-x-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="mb-8 sm:mb-12">
           <p className="text-4xl sm:text-6xl md:text-8xl lg:text-[10em] max-w-5xl font-medium tracking-tighter leading-[1] uppercase">

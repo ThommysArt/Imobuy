@@ -58,10 +58,10 @@ export function HeroSection() {
   }, [])
 
   return (
-    <div ref={heroRef} data-hero-section className='relative h-full w-full'>
+    <div ref={heroRef} data-hero-section className='relative h-full w-full overflow-x-hidden'>
       <div className='sticky top-0 left-0 w-full h-screen'>
-        <div className='relative h-screen w-full text-white'>
-          <div className='absolute top-0 left-0 w-full px-4 sm:px-[2vw] py-4 sm:py-[2vh] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0 z-20'>
+        <div className='relative h-screen w-full text-white overflow-x-hidden'>
+          <div className='absolute top-0 left-0 w-full px-4 sm:px-6 md:px-8 lg:px-[2vw] py-4 sm:py-[2vh] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0 z-20'>
             <h1 className='hero-text text-2xl sm:text-3xl md:text-4xl lg:text-[4rem] font-medium tracking-tight'>
               Imobuy
             </h1>
@@ -89,7 +89,7 @@ export function HeroSection() {
           />
 
           {/* Hero Content */}
-          <div className='hero-text absolute bottom-0 left-0 w-full px-4 sm:px-[2vw] py-4 sm:py-[2vh] flex flex-col gap-6 sm:gap-8 z-20'>
+          <div className='hero-text absolute bottom-0 left-0 w-full px-4 sm:px-6 md:px-8 lg:px-[2vw] py-4 sm:py-[2vh] flex flex-col gap-6 sm:gap-8 z-20'>
             <div className="max-w-3xl">
               <p className="font-medium tracking-tight leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-[3rem] mb-4">
                 {t("title")}

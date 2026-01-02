@@ -14,7 +14,7 @@ export function TrustIndicators() {
   ]
 
   return (
-    <section className="h-full w-full relative bg-white pt-8 sm:pt-[10vh] pb-16 sm:pb-[10vh]">
+    <section className="h-full w-full relative bg-white pt-8 sm:pt-[10vh] pb-16 sm:pb-[10vh] overflow-x-hidden">
       <TextParallax
         text={t("whyImobuy")}
         className="h-[15vw] sm:h-[10vw] w-full"
@@ -32,7 +32,7 @@ export function TrustIndicators() {
         blockClassName='h-[7.5vw] sm:h-[5vw] bg-neutral-200/40'
       />
 
-      <div className="px-4 sm:px-[2vw] mt-8 sm:mt-[10vh]">
+      <div className="px-4 sm:px-6 md:px-8 lg:px-[2vw] mt-8 sm:mt-[10vh]">
         <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
           {indicators.map((indicator, idx) => (
             <div key={idx} className="text-center">

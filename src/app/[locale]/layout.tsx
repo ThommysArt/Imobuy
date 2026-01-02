@@ -57,7 +57,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={dmSans.variable} suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen min-h-screen overflow-x-hidden`}
       >
         <NextIntlClientProvider messages={messages}>
           <PageLoader />

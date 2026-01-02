@@ -52,7 +52,7 @@ export function TestimonialsSection() {
     setIsDialogOpen(false)
   }
   return (
-    <section className="min-h-screen h-full w-full relative bg-white pt-8 sm:pt-[10vh] pb-16 sm:pb-[10vh]">
+    <section className="min-h-screen h-full w-full relative bg-white pt-8 sm:pt-[10vh] pb-16 sm:pb-[10vh] overflow-x-hidden">
       <TextParallax
         text={t("title")}
         className="h-[15vw] sm:h-[10vw] w-full"
@@ -70,7 +70,7 @@ export function TestimonialsSection() {
         blockClassName='h-[7.5vw] sm:h-[5vw] bg-neutral-200/40'
       />
 
-      <div className="px-4 sm:px-[2vw] mt-8 sm:mt-[10vh]">
+      <div className="px-4 sm:px-6 md:px-8 lg:px-[2vw] mt-8 sm:mt-[10vh]">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8 sm:mb-12">
             <span className='font-semibold tracking-tight mb-4 uppercase text-sm sm:text-base text-muted-foreground'>
@@ -79,7 +79,7 @@ export function TestimonialsSection() {
           </div>
 
           <Carousel className="w-full">
-            <CarouselContent className="-ml-2 md:-ml-4">
+            <CarouselContent className="-ml-2 md:-ml-4 py-4">
               {testimonials.map((testimonial) => (
                 <CarouselItem key={testimonial.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
                   <Card className="h-full cursor-grab active:cursor-grabbing select-none">
