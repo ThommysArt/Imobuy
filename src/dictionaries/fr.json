@@ -55,6 +55,11 @@
       "available": "Disponible",
       "pending": "En attente",
       "sold": "Vendu",
+      "active": "Actif",
+      "draft": "Brouillon",
+      "approved": "Approuvé",
+      "archived": "Archivé",
+      "rejected": "Rejeté",
       "all": "Tous"
     },
     "propertyType": {
@@ -79,7 +84,40 @@
     "contact": "Contact",
     "testimonials": "Témoignages",
     "locations": "Emplacements",
-    "resources": "Ressources"
+    "resources": "Ressources",
+    "signIn": "Connexion",
+    "signUp": "Inscription",
+    "dashboard": "Tableau de bord"
+  },
+  "auth": {
+    "signIn": {
+      "title": "Connexion",
+      "subtitle": "Connectez-vous à votre compte",
+      "email": "Email",
+      "password": "Mot de passe",
+      "submit": "Se connecter",
+      "noAccount": "Pas encore de compte ?",
+      "signUpLink": "S'inscrire"
+    },
+    "signUp": {
+      "title": "Créer un compte",
+      "subtitle": "Entrez vos informations pour vous inscrire",
+      "name": "Nom",
+      "email": "Email",
+      "password": "Mot de passe",
+      "submit": "S'inscrire",
+      "hasAccount": "Déjà un compte ?",
+      "signInLink": "Se connecter",
+      "success": "Compte créé. Consultez votre email pour le code de vérification."
+    },
+    "verify": {
+      "title": "Vérifiez votre email",
+      "subtitle": "Entrez le code envoyé à votre email",
+      "code": "Code de vérification",
+      "submit": "Vérifier",
+      "success": "Email vérifié. Vous pouvez utiliser votre compte.",
+      "invalidCode": "Code invalide ou expiré. Réessayez."
+    }
   },
   "header": {
     "logoAlt": "Logo Imobuy",

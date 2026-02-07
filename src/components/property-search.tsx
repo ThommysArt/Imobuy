@@ -1,37 +1,36 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { useState } from "react";
+import { useRouter } from "@/i18n/navigation";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { PropertyType } from "@/data/properties"
-import { useTranslations } from "next-intl"
+} from "@/components/ui/select";
+import { useTranslations } from "next-intl";
+
+type PropertyType = "house" | "apartment" | "land" | "studio" | "other" | "all";
 
 export function PropertySearch() {
-  const t = useTranslations("properties.search")
-  const tType = useTranslations("common.propertyType")
-  const tButton = useTranslations("common.button")
-  const router = useRouter()
-  const [searchQuery, setSearchQuery] = useState("")
-  const [propertyType, setPropertyType] = useState<PropertyType | "all">("all")
-  const [maxPrice, setMaxPrice] = useState("")
+  const t = useTranslations("properties.search");
+  const tType = useTranslations("common.propertyType");
+  const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [propertyType, setPropertyType] = useState<PropertyType>("all");
+  const [maxPrice, setMaxPrice] = useState("");
 
   const handleSearch = () => {
-    const params = new URLSearchParams()
-    if (searchQuery) params.set("q", searchQuery)
-    if (propertyType !== "all") params.set("type", propertyType)
-    if (maxPrice) params.set("maxPrice", maxPrice)
-    
-    router.push(`/properties?${params.toString()}`)
-  }
+    const params = new URLSearchParams();
+    if (searchQuery) params.set("q", searchQuery);
+    if (propertyType !== "all") params.set("type", propertyType);
+    if (maxPrice) params.set("maxPrice", maxPrice);
+
+    router.push(`/listings?${params.toString()}`);
+  };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
@@ -60,7 +59,8 @@ export function PropertySearch() {
             <SelectItem value="house">{tType("house")}</SelectItem>
             <SelectItem value="apartment">{tType("apartment")}</SelectItem>
             <SelectItem value="land">{tType("land")}</SelectItem>
-            <SelectItem value="commercial">{tType("commercial")}</SelectItem>
+            <SelectItem value="studio">{tType("all")}</SelectItem>
+            <SelectItem value="other">{tType("all")}</SelectItem>
           </SelectContent>
         </Select>
         <Input

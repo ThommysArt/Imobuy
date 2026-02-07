@@ -7,7 +7,7 @@ import { InteractiveHoverButtonLight } from '@/components/interactive-hover-butt
 import { PropertySearch } from '@/components/property-search'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -66,8 +66,8 @@ export function HeroSection() {
               Imobuy
             </h1>
             <div className='hero-text flex flex-wrap items-center gap-x-2 font-medium tracking-tight uppercase text-sm sm:text-base'>
-              <AnimatedLink href='/properties'>
-                {tNav("properties")}
+              <AnimatedLink href='/listings'>
+                {tNav("listings")}
               </AnimatedLink>
               ,
               <AnimatedLink href='/services'>
@@ -106,7 +106,7 @@ export function HeroSection() {
 
             {/* CTAs */}
             <div className="flex flex-wrap items-center gap-4">
-              <Link href="/properties">
+              <Link href="/listings">
                 <InteractiveHoverButton className="tracking-tight uppercase text-xs sm:text-sm">
                   {t("viewProperties")}
                 </InteractiveHoverButton>

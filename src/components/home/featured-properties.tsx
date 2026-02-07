@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { PropertyCard } from "@/components/property-card"
-import { properties } from "@/data/properties"
-import { InteractiveHoverButton } from "@/components/interactive-hover-button"
-import Link from "next/link"
-import { useTranslations } from "next-intl"
+import { useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
+import { ListingCard } from "@/components/listing-card";
+import { InteractiveHoverButton } from "@/components/interactive-hover-button";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 export function FeaturedProperties() {
-  const t = useTranslations("home.featuredProperties")
-  const tButton = useTranslations("common.button")
-  const featured = properties.filter(p => p.featured).slice(0, 6)
+  const t = useTranslations("home.featuredProperties");
+  const featured = useQuery(api.listings.getFeaturedListings, { limit: 6 });
 
   return (
     <section className="h-full w-full px-4 sm:px-6 md:px-8 lg:px-[2vw] py-16 sm:py-[10vh] relative bg-white overflow-x-hidden">
@@ -22,15 +22,25 @@ export function FeaturedProperties() {
             {t("subtitle")}
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12">
-          {featured.map((property) => (
-            <PropertyCard key={property.id} property={property} />
-          ))}
+          {featured === undefined ? (
+            [...Array(6)].map((_, i) => (
+              <div
+                key={i}
+                className="h-64 rounded-lg bg-muted/50 animate-pulse"
+                aria-hidden
+              />
+            ))
+          ) : featured.length > 0 ? (
+            featured.map((listing) => (
+              <ListingCard key={listing.slug} listing={listing} />
+            ))
+          ) : null}
         </div>
 
         <div className="flex justify-center mt-8 sm:mt-12">
-          <Link href="/properties">
+          <Link href="/listings">
             <InteractiveHoverButton className="tracking-tighter uppercase text-xs sm:text-sm">
               {t("viewAll")}
             </InteractiveHoverButton>
@@ -38,6 +48,6 @@ export function FeaturedProperties() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 

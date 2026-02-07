@@ -55,6 +55,11 @@
       "available": "Available",
       "pending": "Pending",
       "sold": "Sold",
+      "active": "Active",
+      "draft": "Draft",
+      "approved": "Approved",
+      "archived": "Archived",
+      "rejected": "Rejected",
       "all": "All"
     },
     "propertyType": {
@@ -72,14 +77,47 @@
   },
   "navigation": {
     "home": "Home",
-    "properties": "Properties",
+    "listings": "Listings",
     "services": "Services",
     "about": "About",
     "news": "News",
     "contact": "Contact",
     "testimonials": "Testimonials",
     "locations": "Locations",
-    "resources": "Resources"
+    "resources": "Resources",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "dashboard": "Dashboard"
+  },
+  "auth": {
+    "signIn": {
+      "title": "Sign in",
+      "subtitle": "Sign in to your account",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "noAccount": "Don't have an account?",
+      "signUpLink": "Sign up"
+    },
+    "signUp": {
+      "title": "Create an account",
+      "subtitle": "Enter your details to sign up",
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign up",
+      "hasAccount": "Already have an account?",
+      "signInLink": "Sign in",
+      "success": "Account created. Check your email for a verification code."
+    },
+    "verify": {
+      "title": "Verify your email",
+      "subtitle": "Enter the code we sent to your email",
+      "code": "Verification code",
+      "submit": "Verify",
+      "success": "Email verified. You can now use your account.",
+      "invalidCode": "Invalid or expired code. Please try again."
+    }
   },
   "header": {
     "logoAlt": "Imobuy Logo",

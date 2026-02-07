@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, DM_Sans } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
-import { FloatingCTA } from "@/components/floating-cta";
-import { PageLoader } from "@/components/page-loader";
+import { LayoutShell } from "@/components/layout-shell";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { ConvexClientProvider } from "@/lib/convex-provider";
+import { getToken } from "@/lib/auth-server";
 
 const dmSans = DM_Sans({subsets:['latin'],variable:'--font-sans'});
 
@@ -29,7 +28,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: "metadata.home" })
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://imobuy.example.com"
   return {
+    metadataBase: new URL(baseUrl),
     title: t("title"),
     description: t("description"),
     icons: {
@@ -53,21 +54,18 @@ export default async function RootLayout({
   }
 
   const messages = await getMessages();
+  const token = await getToken();
 
   return (
     <html lang={locale} className={dmSans.variable} suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen min-h-screen overflow-x-hidden`}
       >
-        <NextIntlClientProvider messages={messages}>
-          <PageLoader />
-          <Header />
-          <main>
-            {children}
-          </main>
-          <Footer />
-          <FloatingCTA />
-        </NextIntlClientProvider>
+        <ConvexClientProvider initialToken={token}>
+          <NextIntlClientProvider messages={messages}>
+            <LayoutShell>{children}</LayoutShell>
+          </NextIntlClientProvider>
+        </ConvexClientProvider>
       </body>
     </html>
   );
