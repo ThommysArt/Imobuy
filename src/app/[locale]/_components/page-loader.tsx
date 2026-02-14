@@ -59,4 +59,3 @@ export function PageLoader() {
     </div>
   )
 }
-

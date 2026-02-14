@@ -93,4 +93,3 @@ export function PropertyCard({ property, className }: PropertyCardProps) {
     </Link>
   )
 }
-

@@ -1,7 +1,7 @@
 "use client"
 
 import { services } from "@/data/services"
-import { InteractiveHoverButton } from "@/components/interactive-hover-button"
+import { InteractiveHoverButton } from "./interactive-hover-button"
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { useTranslations } from "next-intl"
@@ -56,4 +56,3 @@ export function ServicesOverview() {
     </section>
   )
 }
-

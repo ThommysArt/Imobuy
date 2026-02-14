@@ -1,10 +1,10 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
-import { FloatingCTA } from "@/components/floating-cta";
-import { PageLoader } from "@/components/page-loader";
+import { Header } from "./header";
+import { Footer } from "./footer";
+import { FloatingCTA } from "./floating-cta";
+import { PageLoader } from "./page-loader";
 import { Toaster } from "sonner"
 
 export function LayoutShell({ children }: { children: React.ReactNode }) {

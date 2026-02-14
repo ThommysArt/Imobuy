@@ -46,4 +46,3 @@ export function PropertyGallery({ images, title }: PropertyGalleryProps) {
     </div>
   )
 }
-

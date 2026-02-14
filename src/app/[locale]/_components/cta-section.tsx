@@ -1,7 +1,7 @@
 "use client"
 
-import { InteractiveHoverButton } from "@/components/interactive-hover-button"
-import { InteractiveHoverButtonLight } from "@/components/interactive-hover-button-light"
+import { InteractiveHoverButton } from "./interactive-hover-button"
+import { InteractiveHoverButtonLight } from "./interactive-hover-button-light"
 import Link from "next/link"
 import { useTranslations } from "next-intl"
 
@@ -37,4 +37,3 @@ export function CTASection() {
     </section>
   )
 }
-

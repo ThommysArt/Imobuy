@@ -292,4 +292,3 @@ export function PropertyFilters({ onFilterChange, className }: PropertyFiltersPr
     </div>
   )
 }
-

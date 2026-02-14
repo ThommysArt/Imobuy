@@ -1,6 +1,6 @@
 "use client"
 
-import { AnimatedLink } from '@/components/animated-link'
+import { AnimatedLink } from './animated-link'
 import Link from 'next/link'
 import React from 'react'
 import { useTranslations } from 'next-intl'
@@ -99,4 +99,3 @@ export function Footer() {
     </footer>
   )
 }
-

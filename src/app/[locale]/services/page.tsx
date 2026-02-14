@@ -1,6 +1,6 @@
 import { services } from "@/data/services"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { InteractiveHoverButton } from "@/components/interactive-hover-button"
+import { InteractiveHoverButton } from "../_components/interactive-hover-button"
 import Link from "next/link"
 import { getTranslations } from "next-intl/server"
 

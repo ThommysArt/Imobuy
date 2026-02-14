@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
-import { InteractiveHoverButton } from "@/components/interactive-hover-button"
+import { InteractiveHoverButton } from "../_components/interactive-hover-button"
 import { useTranslations } from "next-intl"
 
 export default function ContactPage() {

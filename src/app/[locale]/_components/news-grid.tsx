@@ -5,7 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { InteractiveHoverButton } from "@/components/interactive-hover-button"
+import { InteractiveHoverButton } from "./interactive-hover-button"
 import { useTranslations } from "next-intl"
 
 export function NewsGrid() {
@@ -81,4 +81,3 @@ export function NewsGrid() {
     </section>
   )
 }
-

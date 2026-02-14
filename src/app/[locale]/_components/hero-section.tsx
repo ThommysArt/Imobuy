@@ -1,10 +1,10 @@
 "use client"
 
 import React, { useEffect, useRef } from 'react'
-import { AnimatedLink } from '@/components/animated-link'
-import { InteractiveHoverButton } from '@/components/interactive-hover-button'
-import { InteractiveHoverButtonLight } from '@/components/interactive-hover-button-light'
-import { PropertySearch } from '@/components/property-search'
+import { AnimatedLink } from './animated-link'
+import { InteractiveHoverButton } from './interactive-hover-button'
+import { InteractiveHoverButtonLight } from './interactive-hover-button-light'
+import { PropertySearch } from './property-search'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from '@/i18n/navigation'
@@ -130,4 +130,3 @@ export function HeroSection() {
     </div>
   )
 }
-

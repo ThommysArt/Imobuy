@@ -5,7 +5,7 @@ import { api } from "@/convex/_generated/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { List, Users, KeyRound, AlertCircle } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { CreateListingButton } from "@/components/admin/create-listing-dialog";
+import { CreateListingButton } from "./_components/create-listing-dialog";
 import { useTranslations } from "next-intl";
 
 export default function AdminDashboardPage() {

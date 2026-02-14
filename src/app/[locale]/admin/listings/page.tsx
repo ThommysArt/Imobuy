@@ -38,7 +38,7 @@ import { Link } from "@/i18n/navigation";
 import { formatCurrency } from "@/lib/currency";
 import Image from "next/image";
 import { Check, X, ExternalLink, Search, Trash2 } from "lucide-react";
-import { CreateListingButton } from "@/components/admin/create-listing-dialog";
+import { CreateListingButton } from "../_components/create-listing-dialog";
 import { useTranslations } from "next-intl";
 
 const PAGE_SIZE = 20;

@@ -1,6 +1,6 @@
 "use client"
 
-import { TextParallax } from "@/components/text-parallax"
+import { TextParallax } from "./text-parallax"
 import { useTranslations } from "next-intl"
 
 export function TrustIndicators() {
@@ -70,4 +70,3 @@ export function TrustIndicators() {
     </section>
   )
 }
-

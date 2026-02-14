@@ -2,8 +2,8 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { AnimatedLink } from "@/components/animated-link"
-import { InteractiveHoverButton } from "@/components/interactive-hover-button"
+import { AnimatedLink } from "./animated-link"
+import { InteractiveHoverButton } from "./interactive-hover-button"
 import { useState, useEffect, useRef } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -182,4 +182,3 @@ export function Header() {
     </header>
   )
 }
-

@@ -2,8 +2,8 @@
 
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
-import { ListingCard } from "@/components/listing-card";
-import { InteractiveHoverButton } from "@/components/interactive-hover-button";
+import { ListingCard } from "./listing-card";
+import { InteractiveHoverButton } from "./interactive-hover-button";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 
@@ -50,4 +50,3 @@ export function FeaturedProperties() {
     </section>
   );
 }
-

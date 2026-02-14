@@ -3,8 +3,8 @@
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import type { Doc } from "@/convex/_generated/dataModel";
-import { ListingsMap } from "@/components/listings-map";
-import { ListingCard } from "@/components/listing-card";
+import { ListingsMap } from "./_components/listings-map";
+import { ListingCard } from "../_components/listing-card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {

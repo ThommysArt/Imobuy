@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { testimonials } from "@/data/testimonials"
-import { TextParallax } from "@/components/text-parallax"
+import { TextParallax } from "./text-parallax"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -201,4 +201,3 @@ export function TestimonialsSection() {
     </section>
   )
 }
-

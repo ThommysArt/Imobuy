@@ -1,5 +1,5 @@
 import React from 'react'
-import { InteractiveHoverButton } from './interactive-hover-button'
+import { InteractiveHoverButton } from '@/app/[locale]/_components/interactive-hover-button'
 
 const Menu = () => {
   return (

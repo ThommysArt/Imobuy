@@ -9,7 +9,7 @@ import { ArrowLeft } from "lucide-react";
 
 const OwnershipDocumentViewer = dynamic(
   () =>
-    import("@/components/ownership-document-viewer").then((mod) => ({
+    import("./_components/ownership-document-viewer").then((mod) => ({
       default: mod.OwnershipDocumentViewer,
     })),
   { ssr: false }
