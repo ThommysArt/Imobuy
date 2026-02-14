@@ -153,9 +153,11 @@ export default function ListingsPage() {
           </Select>
           <Select
             value={sort}
-            onValueChange={(v: "newest" | "price_asc" | "price_desc") => {
-              setSort(v);
-              resetPagination();
+            onValueChange={(v) => {
+              if (v === "newest" || v === "price_asc" || v === "price_desc") {
+                setSort(v);
+                resetPagination();
+              }
             }}
           >
             <SelectTrigger className="w-[160px]">
@@ -168,12 +170,14 @@ export default function ListingsPage() {
             </SelectContent>
           </Select>
           <Dialog open={mapOpen} onOpenChange={setMapOpen}>
-            <DialogTrigger asChild>
-              <Button variant="outline" size="default">
-                <MapPin className="size-4 mr-2" />
-                {t("map")}
-              </Button>
-            </DialogTrigger>
+            <DialogTrigger
+              render={
+                <Button variant="outline" size="default">
+                  <MapPin className="size-4 mr-2" />
+                  {t("map")}
+                </Button>
+              }
+            />
             <DialogContent className="max-w-3xl max-h-[85vh] overflow-hidden flex flex-col">
               <DialogHeader>
                 <DialogTitle>{t("map")}</DialogTitle>
