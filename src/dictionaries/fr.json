@@ -77,6 +77,7 @@
   },
   "navigation": {
     "home": "Accueil",
+    "listings": "Annonces",
     "properties": "Propriétés",
     "services": "Services",
     "about": "À propos",
@@ -245,6 +246,14 @@
       "subtitle": "Contactez-nous dès aujourd'hui pour en savoir plus sur la façon dont nous pouvons vous aider avec vos besoins immobiliers."
     }
   },
+  "listingsPage": {
+    "title": "Toutes les annonces",
+    "subtitle": "Parcourez notre collection complète d'annonces disponibles",
+    "search": { "placeholder": "Rechercher par localisation..." },
+    "noResults": "Aucune annonce trouvée. Essayez d'ajuster vos filtres.",
+    "loadMore": "Charger plus",
+    "map": "Carte"
+  },
   "properties": {
     "title": "Toutes les propriétés",
     "subtitle": "Parcourez notre collection complète de propriétés disponibles",
@@ -290,7 +299,17 @@
       "whatsApp": "WhatsApp",
       "locationMap": "Carte de Localisation",
       "mapPlaceholder": "Emplacement de l'intégration de la carte",
-      "relatedProperties": "Propriétés Similaires"
+      "relatedProperties": "Propriétés Similaires",
+      "ownershipDocs": {
+        "title": "Documents de propriété",
+        "viewDocuments": "Voir les documents de propriété",
+        "notice": "Ces documents sont à titre de vérification uniquement. La copie, les captures d'écran, l'impression ou la diffusion sont interdites. Toute utilisation non autorisée peut constituer une fraude.",
+        "returnToView": "Revenez à cet onglet pour continuer à consulter.",
+        "printBlocked": "L'impression des documents de propriété n'est pas autorisée.",
+        "document": "Document",
+        "pageOf": "Page {current} sur {total}",
+        "loading": "Chargement du document…"
+      }
     }
   },
   "contact": {
@@ -346,6 +365,114 @@
       "description": "Partagez votre expérience avec Imobuy. Nous aimerions avoir de vos nouvelles !",
       "success": "Merci pour votre témoignage ! Nous l'examinerons et pourrions le mettre en avant sur notre site web."
     }
+  },
+  "admin": {
+    "dashboard": "Tableau de bord",
+    "listings": "Annonces",
+    "createListing": "Créer une annonce",
+    "createListingDialog": {
+      "title": "Créer une annonce",
+      "description": "Ajoutez une nouvelle annonce immobilière. Téléchargez images, vidéo et documents de propriété, puis renseignez les détails.",
+      "tabs": {
+        "details": "Détails",
+        "location": "Localisation",
+        "media": "Médias"
+      },
+      "details": {
+        "title": "Titre",
+        "titlePlaceholder": "ex. Villa moderne à Bastos",
+        "description": "Description",
+        "descriptionPlaceholder": "Décrivez le bien...",
+        "type": "Type de bien",
+        "typeLand": "Terrain",
+        "typeHouse": "Maison",
+        "typeApartment": "Appartement",
+        "typeStudio": "Studio",
+        "typeOther": "Autre",
+        "transaction": "Transaction",
+        "sale": "Vente",
+        "rent": "Location",
+        "price": "Prix (XAF)",
+        "pricePlaceholder": "0",
+        "area_m2": "Surface (m²)",
+        "areaPlaceholder": "Optionnel",
+        "bedrooms": "Chambres",
+        "bathrooms": "Salles de bain",
+        "amenities": "Équipements (séparés par des virgules)",
+        "amenitiesPlaceholder": "ex. piscine, parking, jardin",
+        "tags": "Tags (séparés par des virgules)",
+        "tagsPlaceholder": "ex. luxe, villa",
+        "featured": "Annonce en vedette",
+        "status": "Statut"
+      },
+      "location": {
+        "address": "Adresse",
+        "addressPlaceholder": "Adresse",
+        "city": "Ville",
+        "cityPlaceholder": "ex. Yaoundé",
+        "region": "Région",
+        "regionPlaceholder": "Optionnel",
+        "country": "Pays",
+        "countryPlaceholder": "ex. Cameroun",
+        "lat": "Latitude",
+        "lng": "Longitude",
+        "latLngPlaceholder": "ex. 3.848"
+      },
+      "media": {
+        "images": "Images",
+        "imagesRequired": "Au moins une image est requise.",
+        "imagesHint": "Téléchargez une ou plusieurs images (la première sera la couverture)",
+        "video": "Vidéo",
+        "videoHint": "Fichier vidéo optionnel",
+        "ownershipDocuments": "Documents de propriété",
+        "ownershipDocumentsHint": "Téléchargez les documents de propriété ou légaux (PDF, images)"
+      },
+      "uploading": "Téléchargement…",
+      "create": "Créer l'annonce",
+      "creating": "Création…",
+      "success": "Annonce créée avec succès.",
+      "error": "Échec de la création. Veuillez réessayer.",
+      "formError": "Veuillez corriger les erreurs du formulaire."
+    },
+    "allListings": "Toutes les annonces",
+    "backToListings": "Retour aux annonces",
+    "totalListings": "Total des annonces",
+    "totalUsers": "Total des utilisateurs",
+    "pendingListings": "Annonces en attente",
+    "authCodes": "Codes d'auth. (non utilisés)",
+    "listingsByStatus": "Annonces par statut",
+    "loading": "Chargement…",
+    "noListings": "Aucune annonce",
+    "image": "Image",
+    "title": "Titre",
+    "type": "Type",
+    "price": "Prix",
+    "status": "Statut",
+    "actions": "Actions",
+    "view": "Voir",
+    "approve": "Approuver",
+    "reject": "Rejeter",
+    "searchPlaceholder": "Rechercher par titre, description, ville…",
+    "filterAll": "Tous",
+    "filterByStatus": "Statut",
+    "filterByType": "Type",
+    "filterByTransaction": "Transaction",
+    "sortBy": "Trier par",
+    "sortNewest": "Plus récents",
+    "sortOldest": "Plus anciens",
+    "sortPriceAsc": "Prix (croissant)",
+    "sortPriceDesc": "Prix (décroissant)",
+    "sortTitleAsc": "Titre (A–Z)",
+    "sortTitleDesc": "Titre (Z–A)",
+    "delete": "Supprimer",
+    "deleteSelected": "Supprimer la sélection",
+    "deleteConfirm": "Supprimer {count} annonce(s) ?",
+    "previousPage": "Précédent",
+    "nextPage": "Suivant",
+    "loadMore": "Charger plus",
+    "pageInfo": "Affichage de {from}–{to} sur {total}",
+    "selectAll": "Tout sélectionner",
+    "transaction": "Transaction"
   },
   "news": {
     "title": "Actualités et insights",

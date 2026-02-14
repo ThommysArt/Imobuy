@@ -78,6 +78,7 @@
   "navigation": {
     "home": "Home",
     "listings": "Listings",
+    "properties": "Properties",
     "services": "Services",
     "about": "About",
     "news": "News",
@@ -245,6 +246,14 @@
       "subtitle": "Contact us today to learn more about how we can help with your real estate needs."
     }
   },
+  "listingsPage": {
+    "title": "All Listings",
+    "subtitle": "Browse our complete collection of available listings",
+    "search": { "placeholder": "Search by location..." },
+    "noResults": "No listings found matching your criteria. Try adjusting your filters.",
+    "loadMore": "Load more",
+    "map": "Map"
+  },
   "properties": {
     "title": "All Properties",
     "subtitle": "Browse our complete collection of available properties",
@@ -290,7 +299,17 @@
       "whatsApp": "WhatsApp",
       "locationMap": "Location Map",
       "mapPlaceholder": "Map integration placeholder",
-      "relatedProperties": "Related Properties"
+      "relatedProperties": "Related Properties",
+      "ownershipDocs": {
+        "title": "Ownership Documents",
+        "viewDocuments": "View ownership documents",
+        "notice": "These documents are for verification only. Copying, screenshots, printing, or distribution is prohibited. Unauthorized use may constitute fraud.",
+        "returnToView": "Return to this tab to continue viewing.",
+        "printBlocked": "Printing of ownership documents is not permitted.",
+        "document": "Document",
+        "pageOf": "Page {current} of {total}",
+        "loading": "Loading document…"
+      }
     }
   },
   "contact": {
@@ -346,6 +365,114 @@
       "description": "Share your experience with Imobuy. We'd love to hear from you!",
       "success": "Thank you for your testimonial! We'll review it and may feature it on our website."
     }
+  },
+  "admin": {
+    "dashboard": "Dashboard",
+    "listings": "Listings",
+    "createListing": "Create Listing",
+    "createListingDialog": {
+      "title": "Create Listing",
+      "description": "Add a new property listing. Upload images, video, and ownership documents, then fill in the details.",
+      "tabs": {
+        "details": "Details",
+        "location": "Location",
+        "media": "Media"
+      },
+      "details": {
+        "title": "Title",
+        "titlePlaceholder": "e.g. Modern Villa in Bastos",
+        "description": "Description",
+        "descriptionPlaceholder": "Describe the property...",
+        "type": "Property Type",
+        "typeLand": "Land",
+        "typeHouse": "House",
+        "typeApartment": "Apartment",
+        "typeStudio": "Studio",
+        "typeOther": "Other",
+        "transaction": "Transaction",
+        "sale": "Sale",
+        "rent": "Rent",
+        "price": "Price (XAF)",
+        "pricePlaceholder": "0",
+        "area_m2": "Area (m²)",
+        "areaPlaceholder": "Optional",
+        "bedrooms": "Bedrooms",
+        "bathrooms": "Bathrooms",
+        "amenities": "Amenities (comma-separated)",
+        "amenitiesPlaceholder": "e.g. pool, parking, garden",
+        "tags": "Tags (comma-separated)",
+        "tagsPlaceholder": "e.g. luxury, villa",
+        "featured": "Featured listing",
+        "status": "Status"
+      },
+      "location": {
+        "address": "Address",
+        "addressPlaceholder": "Street address",
+        "city": "City",
+        "cityPlaceholder": "e.g. Yaoundé",
+        "region": "Region",
+        "regionPlaceholder": "Optional",
+        "country": "Country",
+        "countryPlaceholder": "e.g. Cameroon",
+        "lat": "Latitude",
+        "lng": "Longitude",
+        "latLngPlaceholder": "e.g. 3.848"
+      },
+      "media": {
+        "images": "Images",
+        "imagesRequired": "At least one image is required.",
+        "imagesHint": "Upload one or more images (first will be cover)",
+        "video": "Video",
+        "videoHint": "Optional video file",
+        "ownershipDocuments": "Ownership Documents",
+        "ownershipDocumentsHint": "Upload ownership or legal documents (PDF, images)"
+      },
+      "uploading": "Uploading…",
+      "create": "Create Listing",
+      "creating": "Creating…",
+      "success": "Listing created successfully.",
+      "error": "Failed to create listing. Please try again.",
+      "formError": "Please fix the form errors."
+    },
+    "allListings": "All listings",
+    "backToListings": "Back to listings",
+    "totalListings": "Total Listings",
+    "totalUsers": "Total Users",
+    "pendingListings": "Pending Listings",
+    "authCodes": "Auth Codes (unused)",
+    "listingsByStatus": "Listings by status",
+    "loading": "Loading…",
+    "noListings": "No listings",
+    "image": "Image",
+    "title": "Title",
+    "type": "Type",
+    "price": "Price",
+    "status": "Status",
+    "actions": "Actions",
+    "view": "View",
+    "approve": "Approve",
+    "reject": "Reject",
+    "searchPlaceholder": "Search by title, description, city…",
+    "filterAll": "All",
+    "filterByStatus": "Status",
+    "filterByType": "Type",
+    "filterByTransaction": "Transaction",
+    "sortBy": "Sort by",
+    "sortNewest": "Newest first",
+    "sortOldest": "Oldest first",
+    "sortPriceAsc": "Price (low to high)",
+    "sortPriceDesc": "Price (high to low)",
+    "sortTitleAsc": "Title (A–Z)",
+    "sortTitleDesc": "Title (Z–A)",
+    "delete": "Delete",
+    "deleteSelected": "Delete selected",
+    "deleteConfirm": "Delete {count} listing(s)?",
+    "previousPage": "Previous",
+    "nextPage": "Next",
+    "loadMore": "Load more",
+    "pageInfo": "Showing {from}–{to} of {total}",
+    "selectAll": "Select all",
+    "transaction": "Transaction"
   },
   "news": {
     "title": "News & Insights",

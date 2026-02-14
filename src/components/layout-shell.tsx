@@ -5,6 +5,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { FloatingCTA } from "@/components/floating-cta";
 import { PageLoader } from "@/components/page-loader";
+import { Toaster } from "sonner"
 
 export function LayoutShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -15,6 +16,7 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
       <>
         <PageLoader />
         {children}
+        <Toaster />
       </>
     );
   }
@@ -26,6 +28,7 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
       <main>{children}</main>
       <Footer />
       <FloatingCTA />
+      <Toaster />
     </>
   );
 }

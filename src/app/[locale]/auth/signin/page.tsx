@@ -6,12 +6,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
 export default function SignInPage() {
   const t = useTranslations("auth.signIn");
   const tNav = useTranslations("navigation");
+  const locale = useLocale();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -22,7 +23,11 @@ export default function SignInPage() {
     setError(null);
     setLoading(true);
     try {
-      const result = await signIn.email({ email, password, callbackURL: "/" });
+      const result = await signIn.email({
+        email,
+        password,
+        callbackURL: `/${locale}/admin`,
+      });
       if (result.error) {
         setError(result.error.message ?? "Sign in failed");
       }

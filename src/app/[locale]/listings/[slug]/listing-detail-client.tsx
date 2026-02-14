@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { formatCurrency } from "@/lib/currency";
 import { useTranslations } from "next-intl";
+import { FileText } from "lucide-react";
 
 interface ListingDetailClientProps {
   slug: string;
@@ -202,6 +203,29 @@ export function ListingDetailClient({ slug }: ListingDetailClientProps) {
                   </CardContent>
                 </Card>
               )}
+
+              {listing.ownershipDocuments &&
+                listing.ownershipDocuments.length > 0 && (
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>{t("legalDocumentation")}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <p className="text-sm text-muted-foreground">
+                        {t("legalDescription")}
+                      </p>
+                      <Link href={`/listings/${slug}/documents`}>
+                        <Button
+                          variant="outline"
+                          className="w-full sm:w-auto"
+                        >
+                          <FileText className="size-4 mr-2" />
+                          {t("ownershipDocs.viewDocuments")}
+                        </Button>
+                      </Link>
+                    </CardContent>
+                  </Card>
+                )}
 
               <Card>
                 <CardHeader>

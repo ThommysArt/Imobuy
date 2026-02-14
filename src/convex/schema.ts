@@ -86,6 +86,7 @@ export default defineSchema({
         })
       )
     ),
+    ownershipDocuments: v.optional(v.array(v.string())),
   })
     .index("by_slug", ["slug"])
     .index("by_status", ["status"])

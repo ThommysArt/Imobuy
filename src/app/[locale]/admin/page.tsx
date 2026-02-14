@@ -5,8 +5,12 @@ import { api } from "@/convex/_generated/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { List, Users, KeyRound, AlertCircle } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { CreateListingButton } from "@/components/admin/create-listing-dialog";
+import { useTranslations } from "next-intl";
 
 export default function AdminDashboardPage() {
+  const t = useTranslations("admin");
+  const tStatus = useTranslations("common.status");
   const stats = useQuery(api.admin.getAdminStats, {});
 
   if (stats === undefined) {
@@ -28,26 +32,26 @@ export default function AdminDashboardPage() {
 
   const cards = [
     {
-      title: "Total Listings",
+      title: t("totalListings"),
       value: stats.totalListings,
       icon: List,
       href: "/admin/listings",
     },
     {
-      title: "Total Users",
+      title: t("totalUsers"),
       value: stats.totalUsers,
       icon: Users,
       href: "/admin/users",
     },
     {
-      title: "Pending Listings",
+      title: t("pendingListings"),
       value: stats.pendingListings,
       icon: AlertCircle,
       href: "/admin/listings",
       variant: stats.pendingListings > 0 ? "default" : "muted",
     },
     {
-      title: "Auth Codes (unused)",
+      title: t("authCodes"),
       value: stats.unusedAuthCodes,
       icon: KeyRound,
       href: "/admin/authcodes",
@@ -56,7 +60,10 @@ export default function AdminDashboardPage() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold tracking-tight">Dashboard</h1>
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <h1 className="text-2xl font-bold tracking-tight">{t("dashboard")}</h1>
+        <CreateListingButton />
+      </div>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {cards.map((card) => (
           <Link key={card.title} href={card.href}>
@@ -77,20 +84,20 @@ export default function AdminDashboardPage() {
       <div className="grid gap-4 md:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>Listings by status</CardTitle>
+            <CardTitle>{t("listingsByStatus")}</CardTitle>
           </CardHeader>
           <CardContent>
             <ul className="space-y-2 text-sm">
               <li className="flex justify-between">
-                <span className="text-muted-foreground">Active</span>
+                <span className="text-muted-foreground">{tStatus("active")}</span>
                 <span className="font-medium">{stats.activeListings}</span>
               </li>
               <li className="flex justify-between">
-                <span className="text-muted-foreground">Pending</span>
+                <span className="text-muted-foreground">{tStatus("pending")}</span>
                 <span className="font-medium">{stats.pendingListings}</span>
               </li>
               <li className="flex justify-between">
-                <span className="text-muted-foreground">Draft</span>
+                <span className="text-muted-foreground">{tStatus("draft")}</span>
                 <span className="font-medium">{stats.draftListings}</span>
               </li>
             </ul>
