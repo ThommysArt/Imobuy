@@ -21,7 +21,7 @@ import {
 type PasskeyItem = {
   id: string;
   name?: string | null;
-  createdAt?: number | null;
+  createdAt?: Date | number | null;
 };
 
 export default function AdminSettingsPage() {
@@ -38,7 +38,7 @@ export default function AdminSettingsPage() {
       setMessage({ type: "error", text: String(error.message ?? "Failed to load passkeys") });
       setPasskeys([]);
     } else {
-      setPasskeys((data as PasskeyItem[]) ?? []);
+      setPasskeys(data ?? []);
     }
     setLoading(false);
   }, []);
@@ -120,11 +120,13 @@ export default function AdminSettingsPage() {
                       {pk.name ?? (pk.createdAt ? "Passkey" : pk.id.slice(0, 12) + "…")}
                     </span>
                     <AlertDialog>
-                      <AlertDialogTrigger asChild>
-                        <Button variant="ghost" size="icon" className="text-destructive">
-                          <Trash2 className="size-4" />
-                        </Button>
-                      </AlertDialogTrigger>
+                      <AlertDialogTrigger
+                        render={
+                          <Button variant="ghost" size="icon" className="text-destructive">
+                            <Trash2 className="size-4" />
+                          </Button>
+                        }
+                      />
                       <AlertDialogContent>
                         <AlertDialogHeader>
                           <AlertDialogTitle>Remove passkey?</AlertDialogTitle>
