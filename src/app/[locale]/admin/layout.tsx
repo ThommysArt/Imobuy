@@ -1,8 +1,8 @@
 "use client";
 
-import { useSession } from "@/lib/auth-client";
+import { useSession, signOut } from "@/lib/auth-client";
 import { useRouter } from "@/i18n/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   Sidebar,
   SidebarContent,
@@ -25,15 +25,28 @@ import {
   Image,
   FileText,
   Settings,
+  MessageCircle,
+  LogOut,
 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { usePathname } from "@/i18n/navigation";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 
 const navItems = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/listings", label: "Listings", icon: List },
+  { href: "/admin/chats", label: "Chats", icon: MessageCircle },
   { href: "/admin/users", label: "Users", icon: Users },
   { href: "/admin/authcodes", label: "Auth Codes", icon: KeyRound },
   { href: "/admin/media", label: "Media", icon: Image },
@@ -49,6 +62,13 @@ export default function AdminLayout({
   const { data: session, isPending } = useSession();
   const router = useRouter();
   const pathname = usePathname();
+  const [logoutOpen, setLogoutOpen] = useState(false);
+
+  const handleLogoutConfirm = async () => {
+    setLogoutOpen(false);
+    await signOut();
+    router.replace("/auth/signin");
+  };
 
   useEffect(() => {
     if (!isPending && !session?.user) {
@@ -113,6 +133,31 @@ export default function AdminLayout({
             <Link href="/">
               <Button variant="ghost" size="sm">Exit</Button>
             </Link>
+            <AlertDialog open={logoutOpen} onOpenChange={setLogoutOpen}>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setLogoutOpen(true)}
+                className="gap-1.5"
+              >
+                <LogOut className="size-4" />
+                Log out
+              </Button>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Log out?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    Are you sure you want to log out? You will need to sign in again to access the admin dashboard.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogAction onClick={handleLogoutConfirm}>
+                    Log out
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
           </div>
         </header>
         <main className="flex-1 p-4 md:p-6">{children}</main>

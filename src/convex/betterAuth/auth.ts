@@ -2,11 +2,22 @@ import { createClient } from "@convex-dev/better-auth";
 import { convex } from "@convex-dev/better-auth/plugins";
 import type { GenericCtx } from "@convex-dev/better-auth/utils";
 import type { BetterAuthOptions } from "better-auth";
+import { passkey } from "@better-auth/passkey";
 import { betterAuth } from "better-auth";
 import { components } from "../_generated/api";
 import type { DataModel } from "../_generated/dataModel";
 import authConfig from "../auth.config";
 import schema from "./schema";
+
+function getRpId(): string {
+  const siteUrl = process.env.SITE_URL;
+  if (!siteUrl) return "localhost";
+  try {
+    return new URL(siteUrl).hostname;
+  } catch {
+    return "localhost";
+  }
+}
 
 // Better Auth Component
 export const authComponent = createClient<DataModel, typeof schema>(
@@ -27,7 +38,13 @@ export const createAuthOptions = (ctx: GenericCtx<DataModel>) => {
     emailAndPassword: {
       enabled: true,
     },
-    plugins: [convex({ authConfig })],
+    plugins: [
+      convex({ authConfig }),
+      passkey({
+        rpID: getRpId(),
+        rpName: "Imobuy",
+      }),
+    ],
   } satisfies BetterAuthOptions;
 };
 

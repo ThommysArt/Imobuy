@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { InteractiveHoverButton } from "../_components/interactive-hover-button"
 import { useTranslations } from "next-intl"
+import { useVisitorChat } from "../_components/visitor-chat-context"
 
 export default function ContactPage() {
   const t = useTranslations("contact")
@@ -15,7 +16,7 @@ export default function ContactPage() {
   const tLabel = useTranslations("common.label")
   const tPlaceholder = useTranslations("common.placeholder")
   const tButton = useTranslations("common.button")
-  
+  const { openChat } = useVisitorChat()
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -178,6 +179,9 @@ export default function ContactPage() {
                   <CardTitle className="text-xl sm:text-2xl">{t("quickContact.title")}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
+                  <Button type="button" variant="outline" className="w-full h-8 px-2.5 text-sm font-medium" onClick={openChat}>
+                    {t("quickContact.chatWithUs")}
+                  </Button>
                   <a href="tel:+237612345678" className="inline-flex items-center justify-center whitespace-nowrap rounded-lg border border-border bg-background hover:bg-muted hover:text-foreground h-8 px-2.5 text-sm font-medium transition-all w-full">
                     {tButton("callNow")}
                   </a>

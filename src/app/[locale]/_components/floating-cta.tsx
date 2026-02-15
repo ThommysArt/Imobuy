@@ -4,16 +4,26 @@ import Link from "next/link"
 import { useState } from "react"
 import { cn } from "@/lib/utils"
 import { useTranslations } from "next-intl"
+import { useVisitorChat } from "./visitor-chat-context"
 
 export function FloatingCTA() {
   const t = useTranslations("common.button")
+  const tChat = useTranslations("chat")
   const tAria = useTranslations("common.aria")
   const [isExpanded, setIsExpanded] = useState(false)
+  const { openChat } = useVisitorChat()
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
       {isExpanded && (
-        <div className="flex flex-col gap-2 bg-white rounded-lg shadow-lg border border-border p-2 min-w-[200px]">
+        <div className="flex flex-col gap-2 bg-white dark:bg-background rounded-lg shadow-lg border border-border p-2 min-w-[200px]">
+          <button
+            type="button"
+            className="px-4 py-2 text-sm font-medium hover:bg-muted rounded-md transition-colors text-left w-full"
+            onClick={() => { openChat(); setIsExpanded(false); }}
+          >
+            {tChat("title")}
+          </button>
           <Link
             href="/contact"
             className="px-4 py-2 text-sm font-medium hover:bg-muted rounded-md transition-colors"

@@ -94,22 +94,37 @@
     "signIn": {
       "title": "Sign in",
       "subtitle": "Sign in to your account",
+      "tabBiometrics": "Biometrics",
+      "tabEmail": "Email",
       "email": "Email",
       "password": "Password",
       "submit": "Sign in",
+      "signInWithBiometrics": "Sign in with Biometrics",
       "noAccount": "Don't have an account?",
       "signUpLink": "Sign up"
     },
     "signUp": {
       "title": "Create an account",
       "subtitle": "Enter your details to sign up",
+      "tabBiometrics": "Biometrics",
+      "tabEmail": "Email",
       "name": "Name",
       "email": "Email",
       "password": "Password",
       "submit": "Sign up",
+      "signUpWithBiometrics": "Create account with Biometrics",
       "hasAccount": "Already have an account?",
       "signInLink": "Sign in",
       "success": "Account created. Check your email for a verification code."
+    },
+    "passkeys": {
+      "title": "Biometrics",
+      "description": "Sign in with your device using fingerprint, face, or security key.",
+      "addPasskey": "Add Biometrics",
+      "addPasskeySuccess": "Biometrics added successfully.",
+      "deletePasskey": "Remove",
+      "noPasskeys": "No biometrics yet. Add one to sign in without a password.",
+      "listTitle": "Your biometrics"
     },
     "verify": {
       "title": "Verify your email",
@@ -312,6 +327,11 @@
       }
     }
   },
+  "chat": {
+    "title": "Chat with us",
+    "placeholder": "Type your message...",
+    "send": "Send message"
+  },
   "contact": {
     "title": "Contact Us",
     "subtitle": "Get in touch with our team for inquiries, property viewings, or any questions",
@@ -338,6 +358,7 @@
     },
     "quickContact": {
       "title": "Quick Contact",
+      "chatWithUs": "Chat with us",
       "whatsapp": "WhatsApp",
       "sendEmail": "Send Email"
     },
@@ -440,6 +461,16 @@
     "totalUsers": "Total Users",
     "pendingListings": "Pending Listings",
     "authCodes": "Auth Codes (unused)",
+    "chats": "Chats",
+    "chatsTitle": "Support chats",
+    "noChatSelected": "Select a chat",
+    "takeOver": "Take over",
+    "takeOverConfirmTitle": "Take over this chat?",
+    "takeOverConfirmDescription": "Another admin is currently responding. Do you want to take over and become the respondent?",
+    "takeOverConfirmCancel": "Cancel",
+    "takeOverConfirmAction": "Take over",
+    "youResponding": "You're responding",
+    "backToChats": "Back to chats",
     "listingsByStatus": "Listings by status",
     "loading": "Loading…",
     "noListings": "No listings",

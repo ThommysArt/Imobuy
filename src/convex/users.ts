@@ -1,5 +1,37 @@
 import { v } from "convex/values";
 import { mutation, internalMutation, query } from "./_generated/server";
+import type { Id } from "./_generated/dataModel";
+
+/**
+ * Ensures the signed-in user has a row in the Convex `users` table.
+ * Call this when session exists (e.g. after sign-in) so that passkey/OAuth
+ * and other flows that don't go through signup still get a Convex user.
+ * Returns the Convex user id or null if not authenticated.
+ */
+export const ensureCurrentUser = mutation({
+  args: {},
+  handler: async (ctx): Promise<Id<"users"> | null> => {
+    const identity = await ctx.auth.getUserIdentity();
+    if (!identity?.email) return null;
+    const existing = await ctx.db
+      .query("users")
+      .withIndex("by_email", (q) => q.eq("email", identity.email!))
+      .first();
+    if (existing) return existing._id;
+    const now = Date.now();
+    const name =
+      identity.name ?? identity.email?.split("@")[0] ?? "User";
+    return await ctx.db.insert("users", {
+      email: identity.email,
+      name,
+      role: "user",
+      emailVerified: true,
+      authMethod: "betterauth",
+      createdAt: now,
+      updatedAt: now,
+    });
+  },
+});
 
 export const createOrUpdateUser = mutation({
   args: {

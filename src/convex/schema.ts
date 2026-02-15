@@ -1,6 +1,11 @@
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
 
+/**
+ * App schema. Auth identity lives in the Better Auth component (convex/betterAuth/schema.ts).
+ * The `users` table is the app profile/role store: synced on signup (email.ts signupSyncUser)
+ * and on first sign-in (users.ensureCurrentUser via ConvexClientProvider). See BETTER_AUTH_SETUP.md.
+ */
 export default defineSchema({
   users: defineTable({
     email: v.string(),
@@ -171,4 +176,22 @@ export default defineSchema({
   })
     .index("by_actorId", ["actorId"])
     .index("by_createdAt", ["createdAt"]),
+
+  support_chats: defineTable({
+    visitorToken: v.string(),
+    respondentId: v.optional(v.id("users")),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_visitorToken", ["visitorToken"])
+    .index("by_updatedAt", ["updatedAt"])
+    .index("by_respondentId", ["respondentId"]),
+
+  support_chat_messages: defineTable({
+    chatId: v.id("support_chats"),
+    sender: v.union(v.literal("visitor"), v.literal("admin")),
+    senderId: v.optional(v.id("users")),
+    text: v.string(),
+    createdAt: v.number(),
+  }).index("by_chatId_createdAt", ["chatId", "createdAt"]),
 });

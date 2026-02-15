@@ -94,22 +94,37 @@
     "signIn": {
       "title": "Connexion",
       "subtitle": "Connectez-vous à votre compte",
+      "tabBiometrics": "Biométrie",
+      "tabEmail": "Email",
       "email": "Email",
       "password": "Mot de passe",
       "submit": "Se connecter",
+      "signInWithBiometrics": "Se connecter avec la biométrie",
       "noAccount": "Pas encore de compte ?",
       "signUpLink": "S'inscrire"
     },
     "signUp": {
       "title": "Créer un compte",
       "subtitle": "Entrez vos informations pour vous inscrire",
+      "tabBiometrics": "Biométrie",
+      "tabEmail": "Email",
       "name": "Nom",
       "email": "Email",
       "password": "Mot de passe",
       "submit": "S'inscrire",
+      "signUpWithBiometrics": "Créer un compte avec la biométrie",
       "hasAccount": "Déjà un compte ?",
       "signInLink": "Se connecter",
       "success": "Compte créé. Consultez votre email pour le code de vérification."
+    },
+    "passkeys": {
+      "title": "Biométrie",
+      "description": "Connectez-vous avec votre appareil (empreinte, visage ou clé de sécurité).",
+      "addPasskey": "Ajouter la biométrie",
+      "addPasskeySuccess": "Biométrie ajoutée.",
+      "deletePasskey": "Supprimer",
+      "noPasskeys": "Aucune biométrie. Ajoutez-en une pour vous connecter sans mot de passe.",
+      "listTitle": "Vos biométries"
     },
     "verify": {
       "title": "Vérifiez votre email",
@@ -312,6 +327,11 @@
       }
     }
   },
+  "chat": {
+    "title": "Discutez avec nous",
+    "placeholder": "Tapez votre message...",
+    "send": "Envoyer le message"
+  },
   "contact": {
     "title": "Contactez-nous",
     "subtitle": "Contactez notre équipe pour des demandes, des visites de propriétés ou toute question",
@@ -338,6 +358,7 @@
     },
     "quickContact": {
       "title": "Contact rapide",
+      "chatWithUs": "Discutez avec nous",
       "whatsapp": "WhatsApp",
       "sendEmail": "Envoyer un email"
     },
@@ -440,6 +461,16 @@
     "totalUsers": "Total des utilisateurs",
     "pendingListings": "Annonces en attente",
     "authCodes": "Codes d'auth. (non utilisés)",
+    "chats": "Chats",
+    "chatsTitle": "Chats support",
+    "noChatSelected": "Sélectionnez un chat",
+    "takeOver": "Prendre en charge",
+    "takeOverConfirmTitle": "Prendre en charge ce chat ?",
+    "takeOverConfirmDescription": "Un autre administrateur répond actuellement. Voulez-vous prendre la main et devenir le répondant ?",
+    "takeOverConfirmCancel": "Annuler",
+    "takeOverConfirmAction": "Prendre en charge",
+    "youResponding": "Vous répondez",
+    "backToChats": "Retour aux chats",
     "listingsByStatus": "Annonces par statut",
     "loading": "Chargement…",
     "noListings": "Aucune annonce",

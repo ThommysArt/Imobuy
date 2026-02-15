@@ -15,6 +15,7 @@ import type * as email from "../email.js";
 import type * as http from "../http.js";
 import type * as listings from "../listings.js";
 import type * as seed from "../seed.js";
+import type * as supportChat from "../supportChat.js";
 import type * as users from "../users.js";
 
 import type {
@@ -31,6 +32,7 @@ declare const fullApi: ApiFromModules<{
   http: typeof http;
   listings: typeof listings;
   seed: typeof seed;
+  supportChat: typeof supportChat;
   users: typeof users;
 }>;
 
@@ -127,6 +129,21 @@ export declare const components: {
                   publicKey: string;
                 };
                 model: "jwks";
+              }
+            | {
+                data: {
+                  aaguid?: null | string;
+                  backedUp: boolean;
+                  counter: number;
+                  createdAt?: null | number;
+                  credentialID: string;
+                  deviceType: string;
+                  name?: null | string;
+                  publicKey: string;
+                  transports?: null | string;
+                  userId: string;
+                };
+                model: "passkey";
               };
           onCreateHandle?: string;
           select?: Array<string>;
@@ -286,6 +303,43 @@ export declare const components: {
                     | "privateKey"
                     | "createdAt"
                     | "expiresAt"
+                    | "_id";
+                  operator?:
+                    | "lt"
+                    | "lte"
+                    | "gt"
+                    | "gte"
+                    | "eq"
+                    | "in"
+                    | "not_in"
+                    | "ne"
+                    | "contains"
+                    | "starts_with"
+                    | "ends_with";
+                  value:
+                    | string
+                    | number
+                    | boolean
+                    | Array<string>
+                    | Array<number>
+                    | null;
+                }>;
+              }
+            | {
+                model: "passkey";
+                where?: Array<{
+                  connector?: "AND" | "OR";
+                  field:
+                    | "name"
+                    | "publicKey"
+                    | "userId"
+                    | "credentialID"
+                    | "counter"
+                    | "deviceType"
+                    | "backedUp"
+                    | "transports"
+                    | "createdAt"
+                    | "aaguid"
                     | "_id";
                   operator?:
                     | "lt"
@@ -494,6 +548,43 @@ export declare const components: {
                     | Array<number>
                     | null;
                 }>;
+              }
+            | {
+                model: "passkey";
+                where?: Array<{
+                  connector?: "AND" | "OR";
+                  field:
+                    | "name"
+                    | "publicKey"
+                    | "userId"
+                    | "credentialID"
+                    | "counter"
+                    | "deviceType"
+                    | "backedUp"
+                    | "transports"
+                    | "createdAt"
+                    | "aaguid"
+                    | "_id";
+                  operator?:
+                    | "lt"
+                    | "lte"
+                    | "gt"
+                    | "gte"
+                    | "eq"
+                    | "in"
+                    | "not_in"
+                    | "ne"
+                    | "contains"
+                    | "starts_with"
+                    | "ends_with";
+                  value:
+                    | string
+                    | number
+                    | boolean
+                    | Array<string>
+                    | Array<number>
+                    | null;
+                }>;
               };
           onDeleteHandle?: string;
         },
@@ -505,7 +596,13 @@ export declare const components: {
         {
           join?: any;
           limit?: number;
-          model: "user" | "session" | "account" | "verification" | "jwks";
+          model:
+            | "user"
+            | "session"
+            | "account"
+            | "verification"
+            | "jwks"
+            | "passkey";
           offset?: number;
           paginationOpts: {
             cursor: string | null;
@@ -547,7 +644,13 @@ export declare const components: {
         "internal",
         {
           join?: any;
-          model: "user" | "session" | "account" | "verification" | "jwks";
+          model:
+            | "user"
+            | "session"
+            | "account"
+            | "verification"
+            | "jwks"
+            | "passkey";
           select?: Array<string>;
           where?: Array<{
             connector?: "AND" | "OR";
@@ -794,6 +897,55 @@ export declare const components: {
                     | Array<number>
                     | null;
                 }>;
+              }
+            | {
+                model: "passkey";
+                update: {
+                  aaguid?: null | string;
+                  backedUp?: boolean;
+                  counter?: number;
+                  createdAt?: null | number;
+                  credentialID?: string;
+                  deviceType?: string;
+                  name?: null | string;
+                  publicKey?: string;
+                  transports?: null | string;
+                  userId?: string;
+                };
+                where?: Array<{
+                  connector?: "AND" | "OR";
+                  field:
+                    | "name"
+                    | "publicKey"
+                    | "userId"
+                    | "credentialID"
+                    | "counter"
+                    | "deviceType"
+                    | "backedUp"
+                    | "transports"
+                    | "createdAt"
+                    | "aaguid"
+                    | "_id";
+                  operator?:
+                    | "lt"
+                    | "lte"
+                    | "gt"
+                    | "gte"
+                    | "eq"
+                    | "in"
+                    | "not_in"
+                    | "ne"
+                    | "contains"
+                    | "starts_with"
+                    | "ends_with";
+                  value:
+                    | string
+                    | number
+                    | boolean
+                    | Array<string>
+                    | Array<number>
+                    | null;
+                }>;
               };
           onUpdateHandle?: string;
           paginationOpts: {
@@ -1005,6 +1157,55 @@ export declare const components: {
                     | "privateKey"
                     | "createdAt"
                     | "expiresAt"
+                    | "_id";
+                  operator?:
+                    | "lt"
+                    | "lte"
+                    | "gt"
+                    | "gte"
+                    | "eq"
+                    | "in"
+                    | "not_in"
+                    | "ne"
+                    | "contains"
+                    | "starts_with"
+                    | "ends_with";
+                  value:
+                    | string
+                    | number
+                    | boolean
+                    | Array<string>
+                    | Array<number>
+                    | null;
+                }>;
+              }
+            | {
+                model: "passkey";
+                update: {
+                  aaguid?: null | string;
+                  backedUp?: boolean;
+                  counter?: number;
+                  createdAt?: null | number;
+                  credentialID?: string;
+                  deviceType?: string;
+                  name?: null | string;
+                  publicKey?: string;
+                  transports?: null | string;
+                  userId?: string;
+                };
+                where?: Array<{
+                  connector?: "AND" | "OR";
+                  field:
+                    | "name"
+                    | "publicKey"
+                    | "userId"
+                    | "credentialID"
+                    | "counter"
+                    | "deviceType"
+                    | "backedUp"
+                    | "transports"
+                    | "createdAt"
+                    | "aaguid"
                     | "_id";
                   operator?:
                     | "lt"
